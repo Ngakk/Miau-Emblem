@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Mangos
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu()]
     public class GameEvent : ScriptableObject
     {
         private List<GameEventListener> listeners =
