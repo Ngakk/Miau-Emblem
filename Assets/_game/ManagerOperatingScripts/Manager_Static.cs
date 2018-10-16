@@ -26,5 +26,6 @@ namespace Mangos
 		public static Manager_Scene sceneManager;
         public static Manager_Audio audioManager;
         public static Manager_GameState gameStateManager;
+        public static Manager_AIMethodCaller aiMethodCaller;
 	}
 }
