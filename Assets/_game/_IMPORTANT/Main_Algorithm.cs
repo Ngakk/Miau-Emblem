@@ -6,8 +6,12 @@ using UnityEngine;
 public class Main_Algorithm : ScriptableObject
 {
 	public int[,,] matrix;
+	int[,] movesMatrix;
 	public int filas;
 	public int columnas;
+
+	public int x_Origen;
+	public int y_Origen;
 
 	public void resizeMatrix()
 	{
@@ -22,8 +26,53 @@ public class Main_Algorithm : ScriptableObject
 		}
 		else if(filas != 0 && columnas != 0)
 		{
-			matrix = new int[filas, columnas, 3];
+			matrix = new int[filas, columnas, 4];
+			movesMatrix = new int[filas,columnas];
 			Debug.Log("Matrix resized");
 		}
+	}
+
+	public int[,] makeMap()
+	{
+		flood_Fill(x_Origen, y_Origen, matrix[x_Origen, y_Origen, 0], filas, columnas, 0);
+		for(int i = 0; i < filas; i++)
+		{
+			for(int j = 0; j < columnas; j++)
+			{
+				movesMatrix[i,j] = matrix[i,j,1];
+			}
+		}
+		return movesMatrix;
+	}
+
+	public void ViewMap()
+	{
+		for(int i = 0; i < filas; i++)
+		{
+			for(int j = 0; j < columnas; j++)
+			{
+				Debug.Log("Valor de [" + i + "][" + j +"] es: " + movesMatrix[i,j]);
+			}
+		}
+	}
+
+	public void flood_Fill(int _x, int _y, int _visited, int _filas, int _columnas, int _round)
+	{
+		if (_x >= filas || _y >= _columnas)
+			return;
+		if (_x < 0 || _y < 0)
+			return;
+		if (matrix[_x,_y,0] == 1)
+			return;
+		matrix[_x,_y,0] = 1;
+		matrix[_x,_y,1] = _round;
+		flood_Fill(_x-1, _y-1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
+		flood_Fill(_x-1, _y, matrix[_x,_y,0], _filas, _columnas, _round + 1);
+		flood_Fill(_x-1, _y+1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
+		flood_Fill(_x, _y-1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
+		flood_Fill(_x, _y+1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
+		flood_Fill(_x+1, _y-1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
+		flood_Fill(_x+1, _y, matrix[_x,_y,0], _filas, _columnas, _round + 1);
+		flood_Fill(_x+1, _y+1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
 	}
 }

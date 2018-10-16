@@ -15,5 +15,13 @@ public class ObjectBuilderEditor : Editor
 		{
 			mainCosa.resizeMatrix();
 		}
+		if(GUILayout.Button("Flood Map"))
+		{
+			mainCosa.makeMap();
+		}
+		if(GUILayout.Button("Print Map"))
+		{
+			mainCosa.ViewMap();
+		}
 	}
 }
