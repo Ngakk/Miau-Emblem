@@ -8,14 +8,13 @@ namespace Mangos {
         public CharacterStats stats;
 
         public Animator anim;
-        public Animation walk;
         public GameEvent charaWalkFinish;
 
         public float walkSpeed;
         public float walkRotationSpeed;
         public float walkAnimSpeedRatio;
 
-        void Start() {
+        void Start() { 
 
         }
 
@@ -33,7 +32,7 @@ namespace Mangos {
         public void Move(Vector3[] path)
         {
             StartCoroutine("Walk", path);
-            walk.["Walk"].speed = walkAnimSpeedRatio * walkSpeed;
+            StartWalkAnim();
         }
 
 
@@ -73,17 +72,19 @@ namespace Mangos {
                 }
                 yield return null;
             }
-            charaWalkFinish.Raise();
+            EndWalkAnim();
         }
 
         private void StartWalkAnim()
         {
-
+            anim.SetBool("Walking", true);
+            anim.speed = walkSpeed * walkAnimSpeedRatio;
         }
 
         private void EndWalkAnim()
         {
-
+            charaWalkFinish.Raise();
+            anim.SetBool("Walking", false);
         }
     }
 }

@@ -206,12 +206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513d5917b08d6e9429424772284be68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 0}
+  stats: {fileID: 11400000, guid: 0765a9203d00fb141b51eeff6005a004, type: 2}
+  anim: {fileID: 1759581868}
   charaWalkFinish: {fileID: 11400000, guid: 4917fe1663eb2dc408e70e0b6b7a544f, type: 2}
-  walkSpeed: 1
+  walkSpeed: 3
   walkRotationSpeed: 10
-  watcher: 0
-  watcher2: 0
+  walkAnimSpeedRatio: 1
 --- !u!4 &350101503
 Transform:
   m_ObjectHideFlags: 0
@@ -425,6 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1759581867}
+  - component: {fileID: 1759581868}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -446,3 +447,21 @@ Transform:
   m_Father: {fileID: 350101503}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1759581868
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1759581866}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4728eb823654aa948895164c725c018b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

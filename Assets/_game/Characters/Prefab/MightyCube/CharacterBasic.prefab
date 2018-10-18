@@ -54,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4245489123519654}
   - component: {fileID: 114487674690229830}
+  - component: {fileID: 95131773876239874}
   m_Layer: 0
   m_Name: CharacterBasic
   m_TagString: Untagged
@@ -185,6 +186,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95131773876239874
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607783125554900}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &95791170803787560
 Animator:
   serializedVersion: 3
@@ -219,3 +238,4 @@ MonoBehaviour:
   charaWalkFinish: {fileID: 11400000, guid: 4917fe1663eb2dc408e70e0b6b7a544f, type: 2}
   walkSpeed: 3
   walkRotationSpeed: 4
+  walkAnimSpeedRatio: 0
