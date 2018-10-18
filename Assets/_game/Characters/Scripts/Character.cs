@@ -7,13 +7,13 @@ namespace Mangos {
 
         public CharacterStats stats;
 
+        public Animator anim;
+        public Animation walk;
         public GameEvent charaWalkFinish;
+
         public float walkSpeed;
         public float walkRotationSpeed;
-
-        //testing
-        public float watcher;
-        public float watcher2;
+        public float walkAnimSpeedRatio;
 
         void Start() {
 
@@ -33,6 +33,7 @@ namespace Mangos {
         public void Move(Vector3[] path)
         {
             StartCoroutine("Walk", path);
+            walk.["Walk"].speed = walkAnimSpeedRatio * walkSpeed;
         }
 
 
@@ -61,8 +62,6 @@ namespace Mangos {
                     rotationT = 0;
                 }
                 transform.LookAt(transform.position + lookAtLerp);
-                watcher = dir.magnitude;
-                watcher2 = walkSpeed * Time.deltaTime;
                 //Translation
                 transform.Translate(dir.normalized * walkSpeed * Time.deltaTime, Space.World);
                 if (dir.magnitude <= walkSpeed*Time.deltaTime*2)

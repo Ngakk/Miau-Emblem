@@ -10,6 +10,7 @@ namespace Mangos
         STAFF
     }
 
+    [CreateAssetMenu()]
     public class WeaponStats : ScriptableObject
     {
         WeaponType weaponType;
