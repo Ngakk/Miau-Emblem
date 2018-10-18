@@ -18,6 +18,15 @@ namespace Mangos
         CREDITS
     }
 
+    public enum GameState
+    {
+        PLAYER_TURN,
+        ENEMIE_TURN,
+        CINEMATIC,
+        WIN,
+        LOSE
+    }
+
     //ESTE SE ENCARGARA DE MANTENER A LOS DEMAS MANAGER COMUNICADOS ENTRE ELLOS
 	public static class Manager_Static
 	{
