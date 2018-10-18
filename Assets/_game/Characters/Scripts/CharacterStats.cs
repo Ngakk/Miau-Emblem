@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Mangos
 {
-    
     [CreateAssetMenu()]
     public class CharacterStats : ScriptableObject {
         public int hp;
