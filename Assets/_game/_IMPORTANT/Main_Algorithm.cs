@@ -28,13 +28,21 @@ public class Main_Algorithm : ScriptableObject
 		{
 			matrix = new int[filas, columnas, 4];
 			movesMatrix = new int[filas,columnas];
+			for(int i = 0; i < filas; i++)
+			{
+				for(int j = 0; j < columnas; j++)
+				{
+					matrix[i,j,0] = 0;
+					matrix[i,j,1] = -1;
+				}
+			}
 			Debug.Log("Matrix resized");
 		}
 	}
 
 	public int[,] makeMap()
 	{
-		flood_Fill(x_Origen, y_Origen, matrix[x_Origen, y_Origen, 0], filas, columnas, 0);
+		flood_Fill(x_Origen, y_Origen, filas, columnas, 0);
 		for(int i = 0; i < filas; i++)
 		{
 			for(int j = 0; j < columnas; j++)
@@ -56,23 +64,21 @@ public class Main_Algorithm : ScriptableObject
 		}
 	}
 
-	public void flood_Fill(int _x, int _y, int _visited, int _filas, int _columnas, int _round)
+	public void flood_Fill(int _x, int _y, int _filas, int _columnas, int _round)
 	{
 		if (_x >= filas || _y >= _columnas)
 			return;
 		if (_x < 0 || _y < 0)
 			return;
-		if (matrix[_x,_y,0] == 1)
+		if (matrix[_x,_y,1] > 0)
+			return;
+		if (matrix[_x,_y,0] != 0)
 			return;
 		matrix[_x,_y,0] = 1;
 		matrix[_x,_y,1] = _round;
-		flood_Fill(_x-1, _y-1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
-		flood_Fill(_x-1, _y, matrix[_x,_y,0], _filas, _columnas, _round + 1);
-		flood_Fill(_x-1, _y+1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
-		flood_Fill(_x, _y-1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
-		flood_Fill(_x, _y+1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
-		flood_Fill(_x+1, _y-1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
-		flood_Fill(_x+1, _y, matrix[_x,_y,0], _filas, _columnas, _round + 1);
-		flood_Fill(_x+1, _y+1, matrix[_x,_y,0], _filas, _columnas, _round + 1);
+		flood_Fill(_x-1, _y, _filas, _columnas, _round + 1);
+		flood_Fill(_x, _y-1, _filas, _columnas, _round + 1);
+		flood_Fill(_x, _y+1, _filas, _columnas, _round + 1);
+		flood_Fill(_x+1, _y, _filas, _columnas, _round + 1);
 	}
 }
