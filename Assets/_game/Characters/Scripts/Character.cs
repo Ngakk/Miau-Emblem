@@ -8,7 +8,6 @@ namespace Mangos {
         public CharacterStats stats;
 
         public Animator anim;
-        public Animation walk;
         public GameEvent charaWalkFinish;
 
         public float walkSpeed;
@@ -33,6 +32,7 @@ namespace Mangos {
         public void Move(Vector3[] path)
         {
             StartCoroutine("Walk", path);
+            StartWalkAnim();
         }
 
 
@@ -72,17 +72,19 @@ namespace Mangos {
                 }
                 yield return null;
             }
-            charaWalkFinish.Raise();
+            EndWalkAnim();
         }
 
         private void StartWalkAnim()
         {
-
+            anim.SetBool("Walking", true);
+            anim.speed = walkSpeed * walkAnimSpeedRatio;
         }
 
         private void EndWalkAnim()
         {
-
+            charaWalkFinish.Raise();
+            anim.SetBool("Walking", false);
         }
     }
 }
@@ -94,5 +96,5 @@ namespace Mangos {
  * - Heal
  * - Die
  * - Take Damage
- * - 
+ * -
  */
