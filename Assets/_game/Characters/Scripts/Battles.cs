@@ -9,14 +9,19 @@ namespace Mangos
         public static void DukeItOut(Character cat1, Character cat2)
         {
             //Calculate damage and attacks to be done
-            int[] attackOrder = CalculateAttackOrder(cat1, cat2);
+            List<int> attackOrder = CalculateAttackOrder(cat1, cat2);
             //Start animation
+
             //End animation
         }
 
-        private static int[] CalculateAttackOrder(Character cat1, Character cat2)
+        private static List<int> CalculateAttackOrder(Character cat1, Character cat2)
         {
-            int[] temp = { 0, 1 };
+            List<int> temp = new List<int>();
+
+            temp.Add(0);
+
+
             return temp;
         }
 
