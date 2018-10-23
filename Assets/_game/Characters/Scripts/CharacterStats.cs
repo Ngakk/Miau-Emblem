@@ -24,6 +24,5 @@ namespace Mangos
         public WeaponStats weapon;
         public int team;
         public int walkRange;
-        public int[,] position;
     }
 }

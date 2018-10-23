@@ -10,6 +10,7 @@ namespace Mangos
         {
             //Calculate damage and attacks to be done
             List<int> attackOrder = CalculateAttackOrder(cat1, cat2);
+            int distance = GetDistanceBetweenCharas(cat1, cat2);
             //Start animation
 
             //End animation
@@ -25,6 +26,9 @@ namespace Mangos
             return temp;
         }
 
-
+        private static int GetDistanceBetweenCharas(Character cat1, Character cat2)
+        {
+            return Mathf.Abs(cat1.coordinates.x - cat2.coordinates.x) + Mathf.Abs(cat1.coordinates.y - cat2.coordinates.y);
+        }
     }
 }

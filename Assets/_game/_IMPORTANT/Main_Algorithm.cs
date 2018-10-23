@@ -39,6 +39,7 @@ namespace Mangos
             {
                 matrix = new int[filas, columnas, 4];
                 movesMatrix = new int[filas, columnas];
+                characters = new GameObject[filas, columnas];
                 for (int i = 0; i < filas; i++)
                 {
                     for (int j = 0; j < columnas; j++)
