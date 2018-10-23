@@ -33,7 +33,7 @@ namespace Mangos {
         public void Move(Vector3[] path)
         {
             StartCoroutine("Walk", path);
-            walk.["Walk"].speed = walkAnimSpeedRatio * walkSpeed;
+            
         }
 
 
