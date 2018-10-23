@@ -33,7 +33,7 @@ public class Main_Algorithm : ScriptableObject
 				for(int j = 0; j < columnas; j++)
 				{
 					matrix[i,j,0] = 0;
-					matrix[i,j,1] = -1;
+					matrix[i,j,1] = filas * columnas;
 				}
 			}
 			Debug.Log("Matrix resized");
@@ -70,15 +70,15 @@ public class Main_Algorithm : ScriptableObject
 			return;
 		if (_x < 0 || _y < 0)
 			return;
-		if (matrix[_x,_y,1] > 0)
+		if(_round > _filas + _columnas)
 			return;
-		if (matrix[_x,_y,0] != 0)
-			return;
-		matrix[_x,_y,0] = 1;
-		matrix[_x,_y,1] = _round;
-		flood_Fill(_x-1, _y, _filas, _columnas, _round + 1);
-		flood_Fill(_x, _y-1, _filas, _columnas, _round + 1);
-		flood_Fill(_x, _y+1, _filas, _columnas, _round + 1);
-		flood_Fill(_x+1, _y, _filas, _columnas, _round + 1);
+		if(matrix[_x,_y,1] > _round)
+		{
+			matrix[_x,_y,1] = _round;
+		}
+		flood_Fill(_x + 1, _y, _filas, _columnas, _round + 1);
+		flood_Fill(_x, _y + 1, _filas, _columnas, _round + 1);
+		flood_Fill(_x - 1, _y, _filas, _columnas, _round + 1);
+		flood_Fill(_x, _y - 1, _filas, _columnas, _round + 1);
 	}
 }
