@@ -15,5 +15,16 @@ namespace Mangos
         {
             Manager_Static.aiMethodCaller = this;
         }
+
+        public void EnemieManager()
+        {
+            
+        }
+
+        public Vector3 PositionToMove(Vector3 _charPos)
+        {
+
+            return Vector3.zero;
+        }
     }
 }
