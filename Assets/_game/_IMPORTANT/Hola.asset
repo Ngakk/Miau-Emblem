@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   filas: 4
   columnas: 4
-  x_Origen: 0
-  y_Origen: 0
+  x_Origen: 3
+  y_Origen: 2
