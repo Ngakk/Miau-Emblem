@@ -32,22 +32,26 @@ public class Main_Algorithm : ScriptableObject
 			{
 				for(int j = 0; j < columnas; j++)
 				{
-					matrix[i,j,0] = 0;
-					matrix[i,j,1] = filas * columnas;
+					matrix[i,j,0] = filas * columnas;
 				}
 			}
 			Debug.Log("Matrix resized");
+			for(int j = 0; j < 3; j++)
+			{
+				matrix[Mathf.RoundToInt(Random.Range(0, filas)),Mathf.RoundToInt(Random.Range(0, columnas)),1] = -1;
+			}
 		}
 	}
 
 	public int[,] makeMap()
 	{
 		flood_Fill(x_Origen, y_Origen, filas, columnas, 0);
+		Debug.Log("Matrix Filled ( ͡ ͡° ͜ ʖ ͡ ͡°)...");
 		for(int i = 0; i < filas; i++)
 		{
 			for(int j = 0; j < columnas; j++)
 			{
-				movesMatrix[i,j] = matrix[i,j,1];
+				movesMatrix[i,j] = matrix[i,j,0];
 			}
 		}
 		return movesMatrix;
@@ -72,9 +76,11 @@ public class Main_Algorithm : ScriptableObject
 			return;
 		if(_round > _filas + _columnas)
 			return;
-		if(matrix[_x,_y,1] > _round)
+		if(matrix[_x,_y,1] < 0)
+			return;
+		if(matrix[_x,_y,0] > _round)
 		{
-			matrix[_x,_y,1] = _round;
+			matrix[_x,_y,0] = _round;
 		}
 		flood_Fill(_x + 1, _y, _filas, _columnas, _round + 1);
 		flood_Fill(_x, _y + 1, _filas, _columnas, _round + 1);
