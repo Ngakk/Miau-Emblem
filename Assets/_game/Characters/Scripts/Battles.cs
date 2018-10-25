@@ -20,6 +20,8 @@ namespace Mangos
                     cat2.stats.hp -= damage1;
                 else
                     cat1.stats.hp -= damage2;
+                if (cat1.stats.hp <= 0 || cat2.stats.hp <= 0)
+                    break;
             }
             //Start animation
 
