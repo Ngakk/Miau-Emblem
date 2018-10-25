@@ -5,6 +5,9 @@ using UnityEngine;
 namespace Mangos {
     public class Character : MonoBehaviour {
 
+        public Grid grid;
+        public Main_Algorithm masterMatrix;
+
         public CharacterStats stats;
 
         public Animator anim;
@@ -13,9 +16,20 @@ namespace Mangos {
         public float walkSpeed;
         public float walkRotationSpeed;
         public float walkAnimSpeedRatio;
+        public bool canMove;
+        public Vector3Int coordinates;
+
 
         void Start() {
+            LocateInGrid();
+            canMove = true;
+        }
 
+        private void LocateInGrid()
+        {
+            coordinates = grid.WorldToCell(transform.position);
+            Debug.Log(coordinates);
+            masterMatrix.InsertCharacterAt(gameObject, coordinates.x, coordinates.y);
         }
 
         void Update() {

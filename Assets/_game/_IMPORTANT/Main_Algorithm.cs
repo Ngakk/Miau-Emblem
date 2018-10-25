@@ -12,6 +12,13 @@ namespace Mangos
         OBJECT_DATA
     }
 
+    public enum Team : int
+    {
+        PLAYER,
+        ENEMY,
+        ALLY
+    }
+
     [CreateAssetMenu(fileName = "_MainAlgorithm", menuName = "Azareth/Stolen", order = 1)]
     public class Main_Algorithm : ScriptableObject
     {
@@ -39,6 +46,7 @@ namespace Mangos
             {
                 matrix = new int[filas, columnas, 4];
                 movesMatrix = new int[filas, columnas];
+                characters = new GameObject[filas, columnas];
                 for (int i = 0; i < filas; i++)
                 {
                     for (int j = 0; j < columnas; j++)
