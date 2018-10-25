@@ -35,6 +35,7 @@ namespace Mangos
             for (int i = 0; i < mainA.characters.Length; i++)
             {
                 Debug.Log(i);
+                if()
                 return Vector3.zero;
             }
             return Vector3.zero;
