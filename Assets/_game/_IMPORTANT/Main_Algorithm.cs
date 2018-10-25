@@ -17,7 +17,7 @@ namespace Mangos
     {
         public int[,,] matrix;
         int[,] movesMatrix;
-        GameObject[,] characters;
+        public GameObject[,] characters;
         public int filas;
         public int columnas;
 
