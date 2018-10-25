@@ -12,6 +12,13 @@ namespace Mangos
         OBJECT_DATA
     }
 
+    public enum Team : int
+    {
+        PLAYER,
+        ENEMY,
+        ALLY
+    }
+
     [CreateAssetMenu(fileName = "_MainAlgorithm", menuName = "Azareth/Stolen", order = 1)]
     public class Main_Algorithm : ScriptableObject
     {
