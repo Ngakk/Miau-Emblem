@@ -25,13 +25,21 @@ namespace Mangos
         TRANSITION
     }
 
+    public enum CharacterMats : int
+    {
+        PLAYER,
+        ENEMY,
+        DEFAULT
+    }
+
     //ESTE SE ENCARGARA DE MANTENER A LOS DEMAS MANAGER COMUNICADOS ENTRE ELLOS
-	public static class Manager_Static
+    public static class Manager_Static
 	{
 		public static Manager_Input inputManager;
 		public static Manager_App appManager;
 		public static Manager_Scene sceneManager;
         public static Manager_Audio audioManager;
         public static Manager_GameState gameStateManager;
+        public static Manager_Materials materialsManager;
 	}
 }
