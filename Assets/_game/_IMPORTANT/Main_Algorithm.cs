@@ -111,53 +111,53 @@ namespace Mangos
             characters[xTo, yTo] = characters[xFrom, yFrom];
             characters[xFrom, yFrom] = null;
         }
-	public void resizeMatrix()
-	{
-		if(filas < 0 || columnas < 0)
-		{
-			Debug.Log("No uses valores negativos");
-			return;
-		}
-		else if(filas == 0 || columnas == 0)
-		{
-			Debug.Log("No poner valores de 0");
-		}
-		else if(filas != 0 && columnas != 0)
-		{
-			matrix = new int[filas, columnas, 4];
-			movesMatrix = new int[filas,columnas];
-			for(int i = 0; i < filas; i++)
-			{
-				for(int j = 0; j < columnas; j++)
-				{
-					matrix[i,j,0] = filas * columnas;
-				}
-			}
-			Debug.Log("Matrix resized");
-			for(int j = 0; j < 3; j++)
-			{
-				matrix[Mathf.RoundToInt(Random.Range(0, filas)),Mathf.RoundToInt(Random.Range(0, columnas)),1] = -1;
-			}
-		}
-	}
+        public void resizeMatrix()
+        {
+            if (filas < 0 || columnas < 0)
+            {
+                Debug.Log("No uses valores negativos");
+                return;
+            }
+            else if (filas == 0 || columnas == 0)
+            {
+                Debug.Log("No poner valores de 0");
+            }
+            else if (filas != 0 && columnas != 0)
+            {
+                matrix = new int[filas, columnas, 4];
+                movesMatrix = new int[filas, columnas];
+                for (int i = 0; i < filas; i++)
+                {
+                    for (int j = 0; j < columnas; j++)
+                    {
+                        matrix[i, j, 0] = filas * columnas;
+                    }
+                }
+                Debug.Log("Matrix resized");
+                for (int j = 0; j < 3; j++)
+                {
+                    matrix[Mathf.RoundToInt(Random.Range(0, filas)), Mathf.RoundToInt(Random.Range(0, columnas)), 1] = -1;
+                }
+            }
+        }
 
-	public int[,] makeMap()
-	{
-		flood_Fill(x_Origen, y_Origen, filas, columnas, 0);
-		Debug.Log("Matrix Filled ( ͡ ͡° ͜ ʖ ͡ ͡°)...");
-		for(int i = 0; i < filas; i++)
-		{
-			for(int j = 0; j < columnas; j++)
-			{
-				movesMatrix[i,j] = matrix[i,j,0];
-			}
-		}
-		return movesMatrix;
-	}
+        public int[,] makeMap()
+        {
+            FloodFill(x_Origen, y_Origen, filas, columnas, 0);
+            Debug.Log("Matrix Filled ( ͡ ͡° ͜ ʖ ͡ ͡°)...");
+            for (int i = 0; i < filas; i++)
+            {
+                for (int j = 0; j < columnas; j++)
+                {
+                    movesMatrix[i, j] = matrix[i, j, 0];
+                }
+            }
+            return movesMatrix;
+        }
 
         public void InsertCharacterAt(GameObject chara, int x, int y)
         {
-            if(x < columnas && y < filas && characters[x, y] == null)
+            if (x < columnas && y < filas && characters[x, y] == null)
             {
                 characters[x, y] = chara;
             }
@@ -167,25 +167,25 @@ namespace Mangos
         {
             characters[x, y] = null;
         }
+
+        public void flood_Fill(int _x, int _y, int _filas, int _columnas, int _round)
+        {
+            if (_x >= filas || _y >= _columnas)
+                return;
+            if (_x < 0 || _y < 0)
+                return;
+            if (_round > _filas + _columnas)
+                return;
+            if (matrix[_x, _y, 1] < 0)
+                return;
+            if (matrix[_x, _y, 0] > _round)
+            {
+                matrix[_x, _y, 0] = _round;
+            }
+            flood_Fill(_x + 1, _y, _filas, _columnas, _round + 1);
+            flood_Fill(_x, _y + 1, _filas, _columnas, _round + 1);
+            flood_Fill(_x - 1, _y, _filas, _columnas, _round + 1);
+            flood_Fill(_x, _y - 1, _filas, _columnas, _round + 1);
+        }
     }
-}
-	public void flood_Fill(int _x, int _y, int _filas, int _columnas, int _round)
-	{
-		if (_x >= filas || _y >= _columnas)
-			return;
-		if (_x < 0 || _y < 0)
-			return;
-		if(_round > _filas + _columnas)
-			return;
-		if(matrix[_x,_y,1] < 0)
-			return;
-		if(matrix[_x,_y,0] > _round)
-		{
-			matrix[_x,_y,0] = _round;
-		}
-		flood_Fill(_x + 1, _y, _filas, _columnas, _round + 1);
-		flood_Fill(_x, _y + 1, _filas, _columnas, _round + 1);
-		flood_Fill(_x - 1, _y, _filas, _columnas, _round + 1);
-		flood_Fill(_x, _y - 1, _filas, _columnas, _round + 1);
-	}
 }
