@@ -13,6 +13,8 @@ namespace Mangos {
         public Animator anim;
         public GameEvent charaWalkFinish;
 
+        public Fighter fight;
+
         public float walkSpeed;
         public float walkRotationSpeed;
         public float walkAnimSpeedRatio;
@@ -23,6 +25,9 @@ namespace Mangos {
         void Start() {
             LocateInGrid();
             canMove = true;
+            fight = GetComponentInChildren<Fighter>();
+            if (fight)
+                fight.controller = this;
         }
 
         private void LocateInGrid()
@@ -100,6 +105,11 @@ namespace Mangos {
         {
             charaWalkFinish.Raise();
             anim.SetBool("Walking", false);
+        }
+
+        public void OnDead()
+        {
+
         }
     }
 }
