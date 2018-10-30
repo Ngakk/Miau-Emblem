@@ -47,7 +47,10 @@ namespace Mangos
         {
             Vector3 closest;
             float distance = Mathf.Infinity;
+            float shortestDistance = Mathf.Infinity;
+            int shortestInt;
             Vector3 position = transform.position;
+            Vector3[] allDistances;
             if (enemiesInRange.Count == 0)
             {
                 Debug.Log("No detecto a nadie. Pfff! SOY CIEGO!");
@@ -58,7 +61,13 @@ namespace Mangos
                 for(int i = 0; i < enemiesInRange.Count; i++)
                 {
                     distance = Vector3.Distance(transform.position, enemiesInRange[i].transform.position);
+                    if(distance < shortestDistance)
+                    {
+                        shortestInt = i;
+                        shortestDistance = distance;
+                    }
                 }
+                return enemiesInRange[shortestInt].transform.position;
             }
             Debug.Log("Meh, que hueva, no entró a nada así que regresare Vector3.zero");
             return Vector3.zero;
