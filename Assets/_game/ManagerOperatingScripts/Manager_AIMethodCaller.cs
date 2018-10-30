@@ -15,12 +15,14 @@ namespace Mangos
 
         public Vector3 PositionToMove(Vector3 _charPos)
         {
-
+            
+            return Vector3.zero;
         }
 
         public Vector3 CheckAllyPosition()
         {
 
+            return Vector3.zero;
         }
     }
 }

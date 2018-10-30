@@ -41,6 +41,9 @@ namespace Mangos
 
         }
 
-        public void SendMoveTo
+        public void SendMoveToManager()
+        {
+
+        }
     }
 }
