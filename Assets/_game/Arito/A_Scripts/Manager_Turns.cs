@@ -10,10 +10,12 @@ namespace Mangos
 
         public void ToggleTurn()
         {
-
-            currentGameState = GameState.TRANSITION;
-            
+            currentGameState = GameState.TRANSITION; 
         }
 
+        public void SetGameState(GameState _gamestate)
+        {
+            currentGameState = _gamestate;
+        }
     }
 }

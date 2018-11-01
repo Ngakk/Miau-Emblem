@@ -50,7 +50,7 @@ namespace Mangos
                 Debug.Log(hit.point);
                 Debug.Log(hit.collider.gameObject.name);
 
-                if (!selected && hit.collider.gameObject.CompareTag("Character"))
+                if (!selected && hit.collider.gameObject.CompareTag("Character") && hit.collider.gameObject.transform.parent.CompareTag("Ally"))
                 {
                     Debug.Log("Selected " + hit.collider.gameObject.name);
                     selectedCharacter = hit.collider.gameObject;
@@ -64,22 +64,21 @@ namespace Mangos
                         }
                     }
                 }
+                else if (selected /* && getCharactersOnGrid() */ )
+                {
+                    Debug.Log("Fight with " + hit.collider.gameObject.name);
+                    Deselect();
+                }
                 else if (selected && (grid.WorldToCell(hit.point).x <= 3 && grid.WorldToCell(hit.point).z <= 3))
                 {
                     MoveCharacter(hit.point);
+                    Deselect();
                 }
             }
         }
 
         public void MoveCharacter(Vector3 targetPos)
         {
-            /*
-            targetPosition = new Vector2(x, y);
-            if (getMovementMatrix()[][] <= selectedCharacter.getComponent<CharacterScript>().GetMovementRange()){
-                CallMoveCharacter(targetPosition);
-            }
-            */
-
             /// Movement
 
             foreach (Transform child in selectedCharacter.transform)
@@ -93,10 +92,13 @@ namespace Mangos
             Vector3 centerCell = grid.GetCellCenterLocal(targetPosGrid);
             Vector3 finalPos = new Vector3(centerCell.x + grid.cellSize.x / 2, centerCell.y, centerCell.z + grid.cellSize.y / 2);
             selectedCharacter.transform.parent.transform.position = finalPos;
+        }
+
+        private void Deselect()
+        {
             selectedCharacter = null;
             selected = false;
             currentLayerMask = 0;
-            
         }
     }
 }
