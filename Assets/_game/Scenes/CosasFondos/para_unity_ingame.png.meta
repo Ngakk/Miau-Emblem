@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 66dc15d1a34206b4ab7fcfcd6250b8bd
+guid: 97225d1d65e991e4ab0d9b5ef2f2d1df
 TextureImporter:
   fileIDToRecycleName:
-    21300000: "botones_y_t\xECtulo_0"
-    21300002: "botones_y_t\xECtulo_1"
-    21300004: "botones_y_t\xECtulo_2"
-    21300006: "botones_y_t\xECtulo_3"
+    21300000: para_unity_ingame_0
+    21300002: para_unity_ingame_1
+    21300004: para_unity_ingame_2
   externalObjects: {}
   serializedVersion: 6
   mipmaps:
@@ -88,61 +87,61 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "botones_y_t\xECtulo_0"
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 744
-        width: 1250
-        height: 234
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 971e84e6c83adc3428c868d95d84f933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "botones_y_t\xECtulo_2"
+      name: para_unity_ingame_0
       rect:
         serializedVersion: 2
         x: 100
-        y: 449
-        width: 688
-        height: 178
+        y: 907
+        width: 910
+        height: 359
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd65a5ae6feb8d14092f3de943357ff4
+      spriteID: 7ee112c1d02a740408d4d54045a452db
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "botones_y_t\xECtulo_3"
+      name: para_unity_ingame_1
       rect:
         serializedVersion: 2
-        x: 79
-        y: 219
-        width: 731
-        height: 198
+        x: 1029
+        y: 900
+        width: 907
+        height: 364
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd517f746aa42984b8f6bd7a3ef2c21e
+      spriteID: 9a9331a9f4c6df54e89e788ea67bc2a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: para_unity_ingame_2
+      rect:
+        serializedVersion: 2
+        x: 1968
+        y: 914
+        width: 16
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eabfecd216c25946839ae826d78a744
       vertices: []
       indices: 
       edges: []
@@ -150,7 +149,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cadfe88256003eb48859269ee6137e21
+    spriteID: c79972e29e979fd4ea3bc8150485458b
     vertices: []
     indices: 
     edges: []
