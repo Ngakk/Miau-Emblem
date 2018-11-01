@@ -26,6 +26,7 @@ namespace Mangos {
             LocateInGrid();
             canMove = true;
             fight = GetComponentInChildren<Fighter>();
+            stats.hp = stats.maxHp;
             if (fight)
                 fight.controller = this;
         }

@@ -8,40 +8,85 @@ namespace Mangos {
         public Fighter foe;
         public Character controller;
 
-        private int dmg = 0;
+        public KeyCode debug;
+        public Character enemy;
+
+        private BattleInfo battle;
+        private int step;
+        private bool attacker;
 
         // Use this for initialization
         void Start() {
             anim = GetComponent<Animator>();
         }
 
-        public void StartFight(BattleInfo battle, Fighter foe, int step, bool attacker)
+        private void Update()
         {
-            if(step < battle.attackOrder.Count)
+            if (Input.GetKeyDown(debug))
             {
-                if(attacker && battle.attackOrder[step] == 0)
+                Battles.DukeItOut(controller, enemy);
+            }
+        }
+
+        public void ContinueFight(BattleInfo _battle, Fighter _foe, int _step, bool _attacker)
+        {
+            Debug.Log(gameObject.name + " continue battle on step " + _step + " from " + _battle.attackOrder.Count);
+            if(_step < _battle.attackOrder.Count)
+            {
+                battle = _battle;
+                step = _step;
+                attacker = _attacker;
+                foe = _foe;
+                if (_attacker && _battle.attackOrder[_step] == 0)
                 {
-                    //Is attacking
+                    Attack();
+                    Debug.Log("Attacker deals " + _battle.damageDealt[_step] + " to his foe");
                 }
-                else if(!attacker && battle.attackOrder[step] == 1)
+                else if(!_attacker && _battle.attackOrder[_step] == 1)
                 {
-                    //Is counter attacking
+                    Attack();
+                    Debug.Log("Counter attacker deals " + _battle.damageDealt[_step] + " to his foe");
                 }
                 else
                 {
-                    //Has no movements, dont do step++ and
+                    foe.ContinueFight(_battle, this, _step, !_attacker);
                 }
             }
             else
             {
                 //Battle ended
+                Debug.Log("Fight finished");
+                if (controller.stats.hp <= 0)
+                    Die();
             }
         }
 
-        public void Attack(int _dmg)
+        public void Attack()
         {
-            dmg = _dmg;
             anim.SetTrigger("Attack");
+        }
+
+        public void OnAttackApex()
+        {
+            switch (battle.hitOrMiss[step])
+            {
+                case 0:
+                    foe.Dodge();
+                    break;
+                case 1:
+                    foe.Squirm(battle.damageDealt[step]);
+                    break;
+                case 2:
+                    foe.Squirm(battle.damageDealt[step]);
+                    //critical strike stuff
+                    break;
+            }
+
+        }
+
+        public void OnAttackEnd()
+        {
+            foe.ContinueFight(battle, this, step + 1, !attacker);
         }
 
         public void Squirm(int _dmg)
@@ -58,12 +103,10 @@ namespace Mangos {
         public void Die()
         {
             anim.SetTrigger("Die");
+            Debug.Log("Character died");
         }
 
-        public void OnAttackApex()
-        {
-            foe.Squirm(dmg);
-        }
+        
 
         public void OnDieEnd()
         {

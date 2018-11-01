@@ -16,42 +16,13 @@ namespace Mangos
     
         public static void DukeItOut(Character cat1, Character cat2)
         {
-            //Calculate damage and attacks to be done
-            List<int> attackOrder = CalculateAttackOrder(cat1, cat2);
-            List<int> damageDealt = new List<int>();
-            List<int> hitOrMiss = GenerateHitsAndMisses(attackOrder, cat1, cat2);
-            int damage1 = GetDamageToDeal(cat1, cat2);
-            int damage2 = GetDamageToDeal(cat2, cat1);
-            int hp1 = cat1.stats.hp;
-            int hp2 = cat2.stats.hp;
-            //Calculation
-            for(int i = 0; i < attackOrder.Count; i++)
-            {
-                if (attackOrder[i] == 0) //Cat 1 attacks and cat 2 takes damage
-                {
-                    damageDealt.Add(damage1 * hitOrMiss[i]);
-                    hp2 -= damage1 * hitOrMiss[i];
-                }
-                else //Cat 2 attacks and cat 1 takes damage
-                {
-                    damageDealt.Add(damage2 * hitOrMiss[i]);
-                    hp1 -= damage2 * hitOrMiss[i];
-                }
-                if (hp1 <= 0 || hp2 <= 0)
-                    break;
-            }
-
-            BattleInfo battle;
-            battle.attackOrder = attackOrder;
-            battle.damageDealt = damageDealt;
-            battle.hitOrMiss = hitOrMiss;
-            battle.damage1 = damage1;
-            battle.damage2 = damage2;
+            BattleInfo battle = GetBattleInfo(cat1, cat2);
             //Start animation
 
-            cat1.fight.StartFight(battle, cat2.fight, 0, true);
+            cat1.fight.ContinueFight(battle, cat2.fight, 0, true);
 
             //End animation
+            
         }
 
         public static List<int> CalculateAttackOrder(Character cat1, Character cat2) //Regresa una lista de ints de el orden de ataque, 0 significa que ataca el gato que inició el ataque y 1 el gato que esta siendo atacado
@@ -79,6 +50,7 @@ namespace Mangos
 
         public static int GetDistanceBetweenCharas(Character cat1, Character cat2) //Regresa la distancia entre 2 gatos
         {
+            Debug.Log("Distance between chars is " + (Mathf.Abs(cat1.coordinates.x - cat2.coordinates.x) + Mathf.Abs(cat1.coordinates.y - cat2.coordinates.y)));
             return Mathf.Abs(cat1.coordinates.x - cat2.coordinates.x) + Mathf.Abs(cat1.coordinates.y - cat2.coordinates.y);
         }
 
@@ -92,12 +64,43 @@ namespace Mangos
 
         public static BattleInfo GetBattleInfo(Character cat1, Character cat2)
         {
-            BattleInfo temp;
-            temp.atackOrder = CalculateAttackOrder(cat1, cat2);
-            temp.damage1 = GetDamageToDeal(cat1, cat2);
-            temp.damage2 = GetDamageToDeal(cat2, cat1);
+            //Calculate damage and attacks to be done
+            List<int> attackOrder = CalculateAttackOrder(cat1, cat2);
+            List<int> damageDealt = new List<int>();
+            List<int> hitOrMiss = GenerateHitsAndMisses(attackOrder, cat1, cat2);
+            int damage1 = GetDamageToDeal(cat1, cat2);
+            int damage2 = GetDamageToDeal(cat2, cat1);
+            int hp1 = cat1.stats.hp;
+            int hp2 = cat2.stats.hp;
+            //Calculation
+            for (int i = 0; i < attackOrder.Count; i++)
+            {
+                if (attackOrder[i] == 0) //Cat 1 attacks and cat 2 takes damage
+                {
+                    damageDealt.Add(damage1 * hitOrMiss[i]);
+                    hp2 -= damage1 * hitOrMiss[i];
+                }
+                else //Cat 2 attacks and cat 1 takes damage
+                {
+                    damageDealt.Add(damage2 * hitOrMiss[i]);
+                    hp1 -= damage2 * hitOrMiss[i];
+                }
+                if (hp1 <= 0 || hp2 <= 0)
+                    break;
+            }
 
-            return temp;
+            BattleInfo battle;
+            battle.attackOrder = attackOrder;
+            battle.damageDealt = damageDealt;
+            battle.hitOrMiss = hitOrMiss;
+            battle.damage1 = damage1;
+            battle.damage2 = damage2;
+
+            Debug.Log(attackOrder);
+            Debug.Log(damageDealt);
+            Debug.Log(hitOrMiss);
+
+            return battle;
         }
 
         public static List<int> GenerateHitsAndMisses(List<int> attacks, Character cat1, Character cat2) //0 = miss, 1 = hit, 2 = crit

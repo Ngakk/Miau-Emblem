@@ -13,8 +13,8 @@ namespace Mangos
     [CreateAssetMenu()]
     public class WeaponStats : ScriptableObject
     {
-        WeaponType weaponType;
+        public WeaponType weaponType;
         public int mt;
-        public int[] ranges;
+        public int wt;
     }
 }

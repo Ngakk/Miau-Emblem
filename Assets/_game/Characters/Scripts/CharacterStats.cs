@@ -13,7 +13,7 @@ namespace Mangos
 
     public enum DamageType
     {
-        PHYSiCAL,
+        PHYSICAL,
         MAGICAL
     }
 
