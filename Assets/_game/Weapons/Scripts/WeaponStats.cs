@@ -7,7 +7,8 @@ namespace Mangos
     {
         SWORD,
         BOW,
-        STAFF
+        STAFF,
+        TOME
     }
 
     [CreateAssetMenu()]

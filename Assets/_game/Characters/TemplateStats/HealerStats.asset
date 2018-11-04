@@ -9,21 +9,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e2d7a306fb50a24aab100804dbce496, type: 3}
-  m_Name: Stats1
+  m_Name: HealerStats
   m_EditorClassIdentifier: 
-  charClass: 0
+  charClass: 1
   damageType: 0
-  maxHp: 60
-  hp: 32
-  atk: 52
-  def: 28
-  spd: 40
-  res: 20
-  evs: 10
-  acc: 90
-  crt: 15
-  attackRanges: 0100000001000000
+  maxHp: 35
+  hp: 35
+  atk: 30
+  def: 21
+  spd: 25
+  res: 34
+  evs: 5
+  acc: 100
+  crt: 0
+  attackRanges: 01000000
   counterAttackRanges: 01000000
-  weapon: {fileID: 11400000, guid: bc61b8d21df952f41afdc9ca3121618f, type: 2}
   team: 0
-  walkRange: 6
+  walkRange: 7

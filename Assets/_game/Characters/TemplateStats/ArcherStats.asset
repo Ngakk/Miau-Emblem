@@ -9,21 +9,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e2d7a306fb50a24aab100804dbce496, type: 3}
-  m_Name: Stats2
+  m_Name: ArcherStats
   m_EditorClassIdentifier: 
-  charClass: 0
+  charClass: 2
   damageType: 0
-  maxHp: 60
-  hp: -24
-  atk: 52
-  def: 28
+  maxHp: 36
+  hp: 36
+  atk: 32
+  def: 22
   spd: 35
-  res: 20
-  evs: 10
+  res: 22
+  evs: 30
   acc: 90
   crt: 15
-  attackRanges: 0100000001000000
+  attackRanges: 02000000
   counterAttackRanges: 02000000
-  weapon: {fileID: 11400000, guid: bc61b8d21df952f41afdc9ca3121618f, type: 2}
   team: 0
-  walkRange: 6
+  walkRange: 8

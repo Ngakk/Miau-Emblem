@@ -53,6 +53,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4064131771055640}
+  - component: {fileID: 114956679889768906}
   m_Layer: 0
   m_Name: MightyCube
   m_TagString: Untagged
@@ -68,8 +69,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4365582976574046}
-  - component: {fileID: 114477515363987552}
   - component: {fileID: 95826130925847150}
+  - component: {fileID: 114864510217750722}
   m_Layer: 0
   m_Name: CharacterBasic
   m_TagString: Untagged
@@ -111,14 +112,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1419057198296626}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.183987, y: 5.418332, z: -16.049564}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4365582976574046}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4365582976574046
 Transform:
   m_ObjectHideFlags: 1
@@ -155,7 +156,7 @@ Transform:
   m_GameObject: {fileID: 1392949676912606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4533525663456478}
   m_Father: {fileID: 4365582976574046}
@@ -176,7 +177,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6f618e8a4d488f44a85c038cd2701a50, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -251,7 +252,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114477515363987552
+--- !u!114 &114864510217750722
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -259,14 +260,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1425261391712566}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bcf75d71ab134781c5b4e76b83aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foe: {fileID: 0}
+  controller: {fileID: 0}
+  debug: 0
+  enemy: {fileID: 0}
+--- !u!114 &114956679889768906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1419057198296626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 513d5917b08d6e9429424772284be68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 0}
-  masterMatrix: {fileID: 0}
+  masterMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
   stats: {fileID: 11400000, guid: 0765a9203d00fb141b51eeff6005a004, type: 2}
-  anim: {fileID: 0}
+  weapon: {fileID: 11400000, guid: 67dbaaa696b695d48b919419b1c6585f, type: 2}
+  anim: {fileID: 95826130925847150}
   charaWalkFinish: {fileID: 11400000, guid: 4917fe1663eb2dc408e70e0b6b7a544f, type: 2}
+  fight: {fileID: 0}
   walkSpeed: 3
   walkRotationSpeed: 4
   walkAnimSpeedRatio: 0

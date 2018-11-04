@@ -9,6 +9,7 @@ namespace Mangos {
         public Main_Algorithm masterMatrix;
 
         public CharacterStats stats;
+        public WeaponStats weapon;
 
         public Animator anim;
         public GameEvent charaWalkFinish;

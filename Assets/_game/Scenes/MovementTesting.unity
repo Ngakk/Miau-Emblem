@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657886, g: 0.4964127, b: 0.57481724, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -200,7 +200,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4064131771055640, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4064131771055640, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
       propertyPath: m_LocalRotation.y
@@ -208,7 +208,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4064131771055640, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4064131771055640, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
       propertyPath: m_LocalRotation.w
@@ -218,83 +218,40 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4064131771055640, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 23472668189962740, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+    - target: {fileID: 114956679889768906, guid: 17d8f34dbc093144eb9dc29e13f8148a,
         type: 2}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: grid
       value: 
-      objectReference: {fileID: 2100000, guid: 6f618e8a4d488f44a85c038cd2701a50, type: 2}
-    m_RemovedComponents:
-    - {fileID: 114477515363987552, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      objectReference: {fileID: 1781841553}
+    - target: {fileID: 114864510217750722, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+        type: 2}
+      propertyPath: debug
+      value: 97
+      objectReference: {fileID: 0}
+    - target: {fileID: 114864510217750722, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+        type: 2}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 375556208}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &375556205 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1419057198296626, guid: 17d8f34dbc093144eb9dc29e13f8148a,
-    type: 2}
-  m_PrefabInternal: {fileID: 617941036}
 --- !u!4 &375556206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4064131771055640, guid: 17d8f34dbc093144eb9dc29e13f8148a,
     type: 2}
   m_PrefabInternal: {fileID: 617941036}
---- !u!114 &375556207
+--- !u!114 &375556208 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 375556205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513d5917b08d6e9429424772284be68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grid: {fileID: 1781841553}
-  masterMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
-  stats: {fileID: 11400000, guid: dbb3f799fc167ad469616ea7809c9cb1, type: 2}
-  anim: {fileID: 694179039}
-  charaWalkFinish: {fileID: 11400000, guid: 4917fe1663eb2dc408e70e0b6b7a544f, type: 2}
-  fight: {fileID: 0}
-  walkSpeed: 3
-  walkRotationSpeed: 4
-  walkAnimSpeedRatio: 0
-  canMove: 0
-  coordinates: {x: 0, y: 0, z: 0}
---- !u!1 &408048722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1419057198296626, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+  m_CorrespondingSourceObject: {fileID: 114956679889768906, guid: 17d8f34dbc093144eb9dc29e13f8148a,
     type: 2}
-  m_PrefabInternal: {fileID: 330394067}
+  m_PrefabInternal: {fileID: 617941036}
+  m_Script: {fileID: 11500000, guid: 513d5917b08d6e9429424772284be68c, type: 3}
 --- !u!4 &408048723 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4064131771055640, guid: 17d8f34dbc093144eb9dc29e13f8148a,
     type: 2}
   m_PrefabInternal: {fileID: 330394067}
---- !u!114 &408048724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 408048722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 513d5917b08d6e9429424772284be68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grid: {fileID: 1781841553}
-  masterMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
-  stats: {fileID: 11400000, guid: 0765a9203d00fb141b51eeff6005a004, type: 2}
-  anim: {fileID: 1661030470}
-  charaWalkFinish: {fileID: 11400000, guid: 4917fe1663eb2dc408e70e0b6b7a544f, type: 2}
-  fight: {fileID: 0}
-  walkSpeed: 3
-  walkRotationSpeed: 4
-  walkAnimSpeedRatio: 0
-  canMove: 0
-  coordinates: {x: 0, y: 0, z: 0}
 --- !u!1001 &617941036
 Prefab:
   m_ObjectHideFlags: 0
@@ -304,7 +261,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4064131771055640, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4064131771055640, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -334,68 +291,52 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114956679889768906, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+        type: 2}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1781841553}
     - target: {fileID: 1419057198296626, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
       propertyPath: m_Name
       value: MightyCube (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 23472668189962740, guid: 17d8f34dbc093144eb9dc29e13f8148a,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
+    - target: {fileID: 0}
+      propertyPath: grid
       value: 
-      objectReference: {fileID: 2100000, guid: 6f618e8a4d488f44a85c038cd2701a50, type: 2}
-    - target: {fileID: 4064131771055640, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90
+      objectReference: {fileID: 1781841553}
+    - target: {fileID: 114864510217750722, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+        type: 2}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114956679889768906, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+        type: 2}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 709f90b86455f724d911b311882f911b,
+        type: 2}
+    - target: {fileID: 114956679889768906, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+        type: 2}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 59c4ae21adf93b94b80fe600c47c2d8e,
+        type: 2}
+    - target: {fileID: 4749979047986420, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749979047986420, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749979047986420, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 114477515363987552, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &694179036 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1425261391712566, guid: 17d8f34dbc093144eb9dc29e13f8148a,
-    type: 2}
-  m_PrefabInternal: {fileID: 617941036}
---- !u!114 &694179038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 694179036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a25bcf75d71ab134781c5b4e76b83aaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foe: {fileID: 0}
-  controller: {fileID: 0}
-  debug: 0
-  enemy: {fileID: 0}
---- !u!95 &694179039 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 95826130925847150, guid: 17d8f34dbc093144eb9dc29e13f8148a,
-    type: 2}
-  m_PrefabInternal: {fileID: 617941036}
---- !u!1 &876277644 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1425261391712566, guid: 17d8f34dbc093144eb9dc29e13f8148a,
-    type: 2}
-  m_PrefabInternal: {fileID: 330394067}
---- !u!114 &876277646
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 876277644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a25bcf75d71ab134781c5b4e76b83aaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foe: {fileID: 0}
-  controller: {fileID: 0}
-  debug: 97
-  enemy: {fileID: 375556207}
 --- !u!1 &902398197
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,11 +460,6 @@ Prefab:
     - {fileID: 114394260516352588, guid: c23ce3f07157ded4dac845e224b23ea7, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: c23ce3f07157ded4dac845e224b23ea7, type: 2}
   m_IsPrefabAsset: 0
---- !u!95 &1661030470 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 95826130925847150, guid: 17d8f34dbc093144eb9dc29e13f8148a,
-    type: 2}
-  m_PrefabInternal: {fileID: 330394067}
 --- !u!1 &1781841552
 GameObject:
   m_ObjectHideFlags: 0

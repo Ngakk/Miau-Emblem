@@ -56,7 +56,7 @@ namespace Mangos
 
         public static int GetDamageToDeal(Character cat1, Character cat2) //Regresa el daño que le debe de hacer el gato1 al gato2
         {
-            int temp = (cat1.stats.atk - cat1.stats.damageType == DamageType.MAGICAL ? cat2.stats.res : cat2.stats.def);
+            int temp = ((cat1.stats.atk+cat1.weapon.mt) - cat1.stats.damageType == DamageType.MAGICAL ? cat2.stats.res : cat2.stats.def);
             if (temp < 0)
                 temp = 0;
             return temp;
@@ -95,10 +95,6 @@ namespace Mangos
             battle.hitOrMiss = hitOrMiss;
             battle.damage1 = damage1;
             battle.damage2 = damage2;
-
-            Debug.Log(attackOrder);
-            Debug.Log(damageDealt);
-            Debug.Log(hitOrMiss);
 
             return battle;
         }

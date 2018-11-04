@@ -35,7 +35,6 @@ namespace Mangos
         public int crt;     //Critical chance
         public int[] attackRanges; //At wich ranges can it attack
         public int[] counterAttackRanges; //At wich ranges can it counter attack
-        public WeaponStats weapon;
         public Team team;
         public int walkRange;
     }

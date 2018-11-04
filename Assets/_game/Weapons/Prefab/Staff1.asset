@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bcf91c02b63fde46a77880ebfc0f398, type: 3}
-  m_Name: Sword1
+  m_Name: Staff1
   m_EditorClassIdentifier: 
-  weaponType: 0
-  mt: 14
-  wt: 8
+  weaponType: 2
+  mt: 6
+  wt: 6
