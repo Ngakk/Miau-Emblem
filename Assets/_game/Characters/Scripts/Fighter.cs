@@ -9,6 +9,7 @@ namespace Mangos {
         public Character controller;
 
         public KeyCode debug;
+        public KeyCode debug2;
         public Character enemy;
 
         private BattleInfo battle;
@@ -23,6 +24,10 @@ namespace Mangos {
         private void Update()
         {
             if (Input.GetKeyDown(debug))
+            {
+                Battles.DukeItOut(controller, enemy);
+            }
+            if (Input.GetKeyDown(debug2))
             {
                 Battles.HealItOut(controller, enemy);
             }

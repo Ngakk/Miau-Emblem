@@ -233,6 +233,47 @@ Prefab:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 375556208}
+    - target: {fileID: 4365582976574046, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365582976574046, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365582976574046, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365582976574046, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365582976574046, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365582976574046, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365582976574046, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365582976574046, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365582976574046, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114864510217750722, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+        type: 2}
+      propertyPath: debug2
+      value: 104
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
   m_IsPrefabAsset: 0
