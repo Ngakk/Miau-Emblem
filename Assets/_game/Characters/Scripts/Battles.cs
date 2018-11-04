@@ -12,6 +12,20 @@ namespace Mangos
         public int damage1, damage2;
     }
 
+    /*
+    Para que un gato ataque a otro, llamen la función DukeItOut mandandole como parametros el gato atacante (cat1) y el gato atacado (cat2)
+    La función se encarga de calcular todos los daños y llevar a cabo las animaciones de la pelea, no discrimina por clase, un healer puede atacar si se llama la funcion.
+
+    Para tener un preview de la pelea usen GetBattleInfo, este regresa un struct tipo BattleInfo que contiene lo sigiente:
+        - attackOrder: guarda ints con valores de 0 o 1, 0 significa que el gato atacante hace su movimiento y 1 significa que el otro gato hace el suyo.
+        - damageDealt: no sirve en el preview, pero en si, simula la pelea y guarda los daños que se hacen en cada turno, incluyendo misses y crits.
+        - hitOrMiss: Guarda ints de valor 0, 1 y 2, 0 significa que el ataque falló, 1 significa que el ataque acertó y 2 significa que el ataque fue critico.
+        - damage1: El daño que el gato atacante le aría al gato atacado en un hit normal.
+        - damage1: El daño que el gato atacado le aría al gato atacante en un hit normal.
+
+    Para que un gato cure a otro, usen HealItOut mandandole como parametros el healer y el heleado. La funcion no discrimina por clase, un warrior podria curar a otro si se llama esta funcion.
+    */
+
     public class Battles : MonoBehaviour { 
     
         public static void DukeItOut(Character cat1, Character cat2)
@@ -86,7 +100,11 @@ namespace Mangos
                     hp1 -= damage2 * hitOrMiss[i];
                 }
                 if (hp1 <= 0 || hp2 <= 0)
+                {
+                    attackOrder.RemoveRange(i+1, attackOrder.Count-(i+1));
+                    hitOrMiss.RemoveRange(i + 1, hitOrMiss.Count - (i + 1));
                     break;
+                }
             }
 
             BattleInfo battle;
@@ -120,6 +138,12 @@ namespace Mangos
 
             }
             return hits;
+        }
+
+        public static void HealItOut(Character healer, Character healed)
+        {
+            healer.fight.foe = healed.fight;
+            healer.fight.Heal();
         }
     }
 }
