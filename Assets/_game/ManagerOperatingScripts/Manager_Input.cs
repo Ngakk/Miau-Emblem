@@ -14,10 +14,7 @@ namespace Mangos
             //SE OCUOPA DECIRLEA AL MANAGER STATIC QUIEN ES SI MANAGER DE INPUTS
 			Manager_Static.inputManager = this;
 
-            if (Manager_Static.appManager.currentState == AppState.SCORES)
-            {
-
-            }
+            
 		}
 
 		void Update()
@@ -62,6 +59,11 @@ namespace Mangos
 	        else if (Manager_Static.appManager.currentState == AppState.GAME_END)
 	        {
 	        }
-		}
+
+            else if (Manager_Static.appManager.currentState == AppState.SCORES)
+            {
+
+            }
+        }
     }
 }

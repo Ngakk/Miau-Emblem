@@ -13,6 +13,7 @@ namespace Mangos
         public GameObject selectedCharacter;
         public float rayDistance = 50.0f;
         public LayerMask[] masks;
+        public GameObject firstChild;
 
         public int currentLayerMask = 0;
 
@@ -46,17 +47,20 @@ namespace Mangos
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, rayDistance, masks[currentLayerMask]))
             {
-                Debug.DrawLine(ray.origin, hit.point);
-                Debug.Log(hit.point);
                 Debug.Log(hit.collider.gameObject.name);
 
-                if (!selected && hit.collider.gameObject.CompareTag("Character") && hit.collider.gameObject.transform.parent.CompareTag("Ally"))
+                if (!selected && hit.collider.gameObject.CompareTag("Ally"))
                 {
                     Debug.Log("Selected " + hit.collider.gameObject.name);
                     selectedCharacter = hit.collider.gameObject;
                     selected = true;
                     currentLayerMask = 1;
+                    
                     foreach (Transform child in selectedCharacter.transform)
+                    {
+                        firstChild = child.gameObject;
+                    }
+                    foreach (Transform child in firstChild.transform)
                     {
                         if (child.CompareTag("Model"))
                         {
@@ -64,14 +68,15 @@ namespace Mangos
                         }
                     }
                 }
-                else if (selected /* && getCharactersOnGrid() */ )
+                else if (selected && hit.collider.gameObject.CompareTag("Map"))
                 {
-                    Debug.Log("Fight with " + hit.collider.gameObject.name);
+                    Debug.Log("Movement");
+                    MoveCharacter(hit.point);
                     Deselect();
                 }
-                else if (selected && (grid.WorldToCell(hit.point).x <= 3 && grid.WorldToCell(hit.point).z <= 3))
+                else if (selected && hit.collider.gameObject.CompareTag("Enemy"))
                 {
-                    MoveCharacter(hit.point);
+                    Debug.Log("Fight with " + hit.collider.gameObject.name);
                     Deselect();
                 }
             }
@@ -81,7 +86,7 @@ namespace Mangos
         {
             /// Movement
 
-            foreach (Transform child in selectedCharacter.transform)
+            foreach (Transform child in firstChild.transform)
             {
                 if (child.CompareTag("Model"))
                 {
@@ -90,8 +95,9 @@ namespace Mangos
             }
             Vector3Int targetPosGrid = grid.WorldToCell(targetPos);
             Vector3 centerCell = grid.GetCellCenterLocal(targetPosGrid);
-            Vector3 finalPos = new Vector3(centerCell.x + grid.cellSize.x / 2, centerCell.y, centerCell.z + grid.cellSize.y / 2);
-            selectedCharacter.transform.parent.transform.position = finalPos;
+            Vector3 finalPos = new Vector3(centerCell.x, centerCell.y, centerCell.z);
+            Vector3[] movementArray = { finalPos };
+            selectedCharacter.GetComponent<Character>().Move(movementArray);
         }
 
         private void Deselect()
