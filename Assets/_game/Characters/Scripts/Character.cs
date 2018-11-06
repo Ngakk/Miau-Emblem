@@ -9,9 +9,12 @@ namespace Mangos {
         public Main_Algorithm masterMatrix;
 
         public CharacterStats stats;
+        public WeaponStats weapon;
 
         public Animator anim;
         public GameEvent charaWalkFinish;
+
+        public Fighter fight;
 
         public float walkSpeed;
         public float walkRotationSpeed;
@@ -23,6 +26,10 @@ namespace Mangos {
         void Start() {
             LocateInGrid();
             canMove = true;
+            fight = GetComponentInChildren<Fighter>();
+            stats.hp = stats.maxHp;
+            if (fight)
+                fight.controller = this;
         }
 
         private void LocateInGrid()
@@ -99,6 +106,11 @@ namespace Mangos {
         {
             charaWalkFinish.Raise();
             anim.SetBool("Walking", false);
+        }
+
+        public void OnDead()
+        {
+
         }
     }
 }

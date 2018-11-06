@@ -7,14 +7,17 @@ namespace Mangos
     {
         SWORD,
         BOW,
-        STAFF
+        STAFF,
+        TOME
     }
 
     [CreateAssetMenu()]
     public class WeaponStats : ScriptableObject
     {
-        WeaponType weaponType;
+        public WeaponType weaponType;
+        [Tooltip("Might, le añade puntos al stat de ataque del personaje")]
         public int mt;
-        public int[] ranges;
+        [Tooltip("Weight, de momento no hace nada, pero podria llegar a usarse para decrementar el acc de el personaje que la porta")]
+        public int wt;
     }
 }

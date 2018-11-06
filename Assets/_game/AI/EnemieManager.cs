@@ -35,7 +35,6 @@ namespace Mangos
             {
                 CheckForAllAllies();
                 LookForClosestAlly();
-                SendMoveToNearestAlly();
             }
         }
 

@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bcf91c02b63fde46a77880ebfc0f398, type: 3}
   m_Name: Sword1
   m_EditorClassIdentifier: 
-  mt: 0
-  ranges: 
+  weaponType: 0
+  mt: 14
+  wt: 8
