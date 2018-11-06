@@ -5,18 +5,38 @@ using UnityEngine;
 namespace Mangos {
     public class Character : MonoBehaviour {
 
+        public Grid grid;
+        public Main_Algorithm masterMatrix;
+
         public CharacterStats stats;
+        public WeaponStats weapon;
 
         public Animator anim;
-        public Animation walk;
         public GameEvent charaWalkFinish;
+
+        public Fighter fight;
 
         public float walkSpeed;
         public float walkRotationSpeed;
         public float walkAnimSpeedRatio;
+        public bool canMove;
+        public Vector3Int coordinates;
+
 
         void Start() {
+            LocateInGrid();
+            canMove = true;
+            fight = GetComponentInChildren<Fighter>();
+            stats.hp = stats.maxHp;
+            if (fight)
+                fight.controller = this;
+        }
 
+        private void LocateInGrid()
+        {
+            coordinates = grid.WorldToCell(transform.position);
+            Debug.Log(coordinates);
+            masterMatrix.InsertCharacterAt(gameObject, coordinates.x, coordinates.y);
         }
 
         void Update() {
@@ -33,7 +53,8 @@ namespace Mangos {
         public void Move(Vector3[] path)
         {
             StartCoroutine("Walk", path);
-            
+
+            StartWalkAnim();
         }
 
 
@@ -73,15 +94,22 @@ namespace Mangos {
                 }
                 yield return null;
             }
-            charaWalkFinish.Raise();
+            EndWalkAnim();
         }
 
         private void StartWalkAnim()
         {
-
+            anim.SetBool("Walking", true);
+            anim.speed = walkSpeed * walkAnimSpeedRatio;
         }
 
         private void EndWalkAnim()
+        {
+            charaWalkFinish.Raise();
+            anim.SetBool("Walking", false);
+        }
+
+        public void OnDead()
         {
 
         }

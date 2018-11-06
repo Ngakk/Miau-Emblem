@@ -7,10 +7,12 @@ namespace Mangos
 {
     public class Manager_GameState : MonoBehaviour
     {
+        public Main_Algorithm mainMatrix;
 
         private void Awake()
         {
             Manager_Static.gameStateManager = this;
+            mainMatrix.ResizeMatrix();
         }
 
         private void Start()
