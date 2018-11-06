@@ -11,11 +11,17 @@ namespace Mangos
 
 	public class Manager_Audio : MonoBehaviour {
 
+		[Tooltip("Es un emptyObject con un audio Soruce")]
 		public GameObject audioDad;
 		public Camera cam;
 		public AudioClip mainMenu;
 
         public AudioClip[] clips;
+
+		void SetVolumenGeneral(float value)
+		{
+			Manager_Static.GeneralVolumen = value;
+		}
 
 		void Awake()
 		{
@@ -31,6 +37,7 @@ namespace Mangos
 		public void PlaySoundAt (Vector3 pos, AudioClip clip)
 		{
 			GameObject sound = Instantiate (audioDad, pos, Quaternion.identity);
+			sound.GetComponent<AudioSource> ().volume = Manager_Static.GeneralVolumen / 100;
 			sound.GetComponent<AudioSource> ().PlayOneShot (clip);
 			Destroy (sound, clip.length + 0.1f);
 		}
@@ -38,6 +45,7 @@ namespace Mangos
         public void PlaySoundAt(Vector3 pos, sounds clip)
         {
             GameObject sound = Instantiate(audioDad, pos, Quaternion.identity);
+			sound.GetComponent<AudioSource> ().volume = Manager_Static.GeneralVolumen / 100;
             sound.GetComponent<AudioSource>().PlayOneShot(clips[(int)clip]);
             Destroy(sound, clips[(int)clip].length + 0.1f);
         }
@@ -45,6 +53,7 @@ namespace Mangos
         public void PlaySoundGlobal(AudioClip clip)
 		{
 			GameObject sound = Instantiate (audioDad, cam.transform.position, Quaternion.identity, cam.transform);
+			sound.GetComponent<AudioSource> ().volume = Manager_Static.GeneralVolumen / 100;
 			sound.GetComponent<AudioSource> ().PlayOneShot (clip);
 			Destroy (sound, clip.length + 0.1f);
 		}
@@ -52,6 +61,7 @@ namespace Mangos
         public void PlaySoundGlobal(sounds clip)
         {
             GameObject sound = Instantiate(audioDad, cam.transform.position, Quaternion.identity, cam.transform);
+			sound.GetComponent<AudioSource> ().volume = Manager_Static.GeneralVolumen / 100;
             sound.GetComponent<AudioSource>().PlayOneShot(clips[(int)clip]);
             Destroy(sound, clips[(int)clip].length + 0.1f);
         }
@@ -64,11 +74,13 @@ namespace Mangos
 				jukebox.gameObject.name = "jukebox";
 				jukebox.GetComponent<AudioSource> ().clip = clip;
 				jukebox.GetComponent<AudioSource> ().loop = true;
+				jukebox.GetComponent<AudioSource> ().volume = Manager_Static.GeneralVolumen / 100;
 				jukebox.GetComponent<AudioSource> ().Play ();
 			}
 			else
 			{
 				GameObject.Find ("jukebox").GetComponent<AudioSource> ().clip = clip;
+				GameObject.Find("jukebox").GetComponent<AudioSource> ().volume = Manager_Static.GeneralVolumen / 100;
 				GameObject.Find ("jukebox").GetComponent<AudioSource> ().Play();
 			}
 		}
@@ -81,11 +93,13 @@ namespace Mangos
                 jukebox.gameObject.name = "jukebox";
                 jukebox.GetComponent<AudioSource>().clip = clips[(int)clip];
                 jukebox.GetComponent<AudioSource>().loop = true;
+				jukebox.GetComponent<AudioSource> ().volume = Manager_Static.GeneralVolumen / 100;
                 jukebox.GetComponent<AudioSource>().Play();
             }
             else
             {
                 GameObject.Find("jukebox").GetComponent<AudioSource>().clip = clips[(int)clip];
+				GameObject.Find("jukebox").GetComponent<AudioSource> ().volume = Manager_Static.GeneralVolumen / 100;
                 GameObject.Find("jukebox").GetComponent<AudioSource>().Play();
             }
         }

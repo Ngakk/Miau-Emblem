@@ -22,6 +22,12 @@ namespace Mangos
             SceneManager.LoadScene(_id);
         }
 
+		//ES UN METODO PARA CARGAR UNA ESCENA DIRECTAMENTE
+		public void ProScene(Scene _scene)
+		{
+			SceneManager.LoadScene(_scene.name);
+		}
+
         //ES UN METODO PARA CARGAR LA ESCENA POR ID Y SE LE PASA UN BOOLEANO PARA HACER LA CARGA ADITIVA
 		public void LoadScene(int _id, bool _isAditive)
 		{
