@@ -123,5 +123,5 @@ namespace Mangos {
  * - Heal
  * - Die
  * - Take Damage
- * - 
+ * -
  */

@@ -18,8 +18,22 @@ namespace Mangos
         CREDITS
     }
 
+    public enum GameState
+    {
+        PLAYER_TURN,
+        ENEMY_TURN,
+        TRANSITION
+    }
+
+    public enum CharacterMats : int
+    {
+        PLAYER,
+        ENEMY,
+        DEFAULT
+    }
+
     //ESTE SE ENCARGARA DE MANTENER A LOS DEMAS MANAGER COMUNICADOS ENTRE ELLOS
-	public static class Manager_Static
+    public static class Manager_Static
 	{
         public static float GeneralVolumen = 95.0f;
 		public static Manager_Input inputManager;
@@ -27,5 +41,6 @@ namespace Mangos
 		public static Manager_Scene sceneManager;
         public static Manager_Audio audioManager;
         public static Manager_GameState gameStateManager;
+        public static Manager_Materials materialsManager;
 	}
 }
