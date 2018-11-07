@@ -42,5 +42,6 @@ namespace Mangos
         public static Manager_Audio audioManager;
         public static Manager_GameState gameStateManager;
         public static Manager_Materials materialsManager;
+        public static Manager_UI uiManager;
 	}
 }
