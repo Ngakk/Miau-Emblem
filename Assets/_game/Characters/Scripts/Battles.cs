@@ -86,7 +86,7 @@ namespace Mangos
             int damage2 = GetDamageToDeal(cat2, cat1);
             int hp1 = cat1.stats.hp;
             int hp2 = cat2.stats.hp;
-            //Calculation
+            //Calculus
             for (int i = 0; i < attackOrder.Count; i++)
             {
                 if (attackOrder[i] == 0) //Cat 1 attacks and cat 2 takes damage
