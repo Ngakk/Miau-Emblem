@@ -20,8 +20,8 @@ namespace Mangos
         - attackOrder: guarda ints con valores de 0 o 1, 0 significa que el gato atacante hace su movimiento y 1 significa que el otro gato hace el suyo.
         - damageDealt: no sirve en el preview, pero en si, simula la pelea y guarda los daños que se hacen en cada turno, incluyendo misses y crits.
         - hitOrMiss: Guarda ints de valor 0, 1 y 2, 0 significa que el ataque falló, 1 significa que el ataque acertó y 2 significa que el ataque fue critico.
-        - damage1: El daño que el gato atacante le aría al gato atacado en un hit normal.
-        - damage1: El daño que el gato atacado le aría al gato atacante en un hit normal.
+        - damage1: El daño que el gato atacante le haría al gato atacado en un hit normal.
+        - damage1: El daño que el gato atacado le haría al gato atacante en un hit normal.
 
     Para que un gato cure a otro, usen HealItOut mandandole como parametros el healer y el heleado. La funcion no discrimina por clase, un warrior podria curar a otro si se llama esta funcion.
     */

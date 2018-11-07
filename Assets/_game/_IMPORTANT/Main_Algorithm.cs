@@ -141,9 +141,9 @@ namespace Mangos
             }
         }
 
-        public int[,] makeMap()
+        public int[,] makeMap(int _xOrigin, int _yOrigin)
         {
-            FloodFill(x_Origen, y_Origen, filas, columnas, 0);
+            FloodFill(_xOrigin, _yOrigin, filas, columnas, 0);
             Debug.Log("Matrix Filled ( ͡ ͡° ͜ ʖ ͡ ͡°)...");
             for (int i = 0; i < filas; i++)
             {
@@ -160,6 +160,7 @@ namespace Mangos
             if (x < columnas && y < filas && characters[x, y] == null)
             {
                 characters[x, y] = chara;
+                Debug.Log("x:" + x + "      y:" + y);
             }
         }
 

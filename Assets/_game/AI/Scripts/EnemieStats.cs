@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Mangos
 {
-    public class EnemieManager : MonoBehaviour
+    public class EnemieStats : MonoBehaviour
     {
         public Character myCharacter;
         public CharacterStats myStats;
@@ -20,18 +20,18 @@ namespace Mangos
 
         public void CheckForAllies()
         {
-            for(int i = 0; i < myStats.walkRange; i++)
+            for (int i = 0; i < myStats.walkRange; i++)
             {
-                for(int j = 0; j < myStats.walkRange; j++)
+                for (int j = 0; j < myStats.walkRange; j++)
                 {
-                    if(mainA.GetCharacterDataAt(i, j) != null)
+                    if (mainA.GetCharacterDataAt(i, j) != null)
                     {
-                        enemiesInRange.Add(mainA.GetCharacterDataAt(i,j));
+                        enemiesInRange.Add(mainA.GetCharacterDataAt(i, j));
                     }
                 }
             }
 
-            if(enemiesInRange.Count == 0)
+            if (enemiesInRange.Count == 0)
             {
                 CheckForAllAllies();
                 LookForClosestAlly();
@@ -56,14 +56,15 @@ namespace Mangos
             }
             else if (enemiesInRange.Count > 0)
             {
-                for(int i = 0; i < enemiesInRange.Count; i++)
+                for (int i = 0; i < enemiesInRange.Count; i++)
                 {
                     distance = Vector3.Distance(transform.position, enemiesInRange[i].transform.position);
-                    if(distance < shortestDistance)
+                    if (distance < shortestDistance)
                     {
                         shortestInt = i;
                         shortestDistance = distance;
-                    } else
+                    }
+                    else
                     {
                         shortestInt = 0;
                         Debug.Log("Por alguna razón 'shortestInt' es 0");
