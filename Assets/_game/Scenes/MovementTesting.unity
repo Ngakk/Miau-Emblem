@@ -188,6 +188,8 @@ GameObject:
   m_Component:
   - component: {fileID: 255454993}
   - component: {fileID: 255454992}
+  - component: {fileID: 255454994}
+  - component: {fileID: 255454995}
   m_Layer: 0
   m_Name: EnemieTurnManager
   m_TagString: Untagged
@@ -206,9 +208,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2291c1fca9877184eb213328a9c6197d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
-  character: []
+  enemies:
+  - {fileID: 1342443781}
+  - {fileID: 1837470024}
+  - {fileID: 806494826}
+  character:
+  - {fileID: 375556208}
+  - {fileID: 1837470025}
+  - {fileID: 806494827}
+  grids: []
+  eStats: {fileID: 0}
   currentEnemy: 0
+  currentState: 0
+  minDistance: 0
 --- !u!4 &255454993
 Transform:
   m_ObjectHideFlags: 0
@@ -222,6 +234,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &255454994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 255454991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5e219aa9071e546bcd52094c36ce3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myStats: {fileID: 0}
+  mainA: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
+  enemiesInRange: []
+--- !u!114 &255454995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 255454991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c58f2339b2f49458c5eba62247bc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4917fe1663eb2dc408e70e0b6b7a544f, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 255454992}
+        m_MethodName: NextCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &330394067
 Prefab:
   m_ObjectHideFlags: 0
@@ -514,6 +568,17 @@ Prefab:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 17d8f34dbc093144eb9dc29e13f8148a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &806494826 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1419057198296626, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1062008161}
+--- !u!114 &806494827 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114956679889768906, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1062008161}
+  m_Script: {fileID: 11500000, guid: 513d5917b08d6e9429424772284be68c, type: 3}
 --- !u!1 &902398197
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +864,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1837470024 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1419057198296626, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+    type: 2}
+  m_PrefabInternal: {fileID: 614439843}
+--- !u!114 &1837470025 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114956679889768906, guid: 17d8f34dbc093144eb9dc29e13f8148a,
+    type: 2}
+  m_PrefabInternal: {fileID: 614439843}
+  m_Script: {fileID: 11500000, guid: 513d5917b08d6e9429424772284be68c, type: 3}
 --- !u!4 &2016246431 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4064131771055640, guid: 17d8f34dbc093144eb9dc29e13f8148a,

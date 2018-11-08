@@ -12,8 +12,9 @@ namespace Mangos
         public List<GameObject> enemiesInRange = new List<GameObject>();
 
 
-        public void CheckForAllies(Character currentEnemy)
+        public void CheckForAllies()
         {
+            enemiesInRange.Clear();
             for (int i = 0; i < mainA.filas; i++)
             {
                 for (int j = 0; j < mainA.columnas; j++)
@@ -40,7 +41,6 @@ namespace Mangos
             int shortestInt = 0;
             if (enemiesInRange.Count == 0)
             {
-                Debug.Log("No detecto a nadie. Pfff! SOY CIEGO!");
                 return Vector3Int.zero;
             }
             else if (enemiesInRange.Count > 0)
@@ -56,13 +56,21 @@ namespace Mangos
                     else
                     {
                         shortestInt = 0;
-                        Debug.Log("Por alguna razón 'shortestInt' es 0");
                     }
                 }
                 return Vector3Int.RoundToInt(enemiesInRange[shortestInt].transform.position);
             }
             Debug.Log("Meh, que hueva, no entró a nada así que regresare Vector3.zero");
             return Vector3Int.zero;
+        }
+
+        public Character getClosestCharacter(int x, int y)
+        {
+            GameObject closestAlly;
+            Character allyChar;
+            closestAlly = mainA.GetCharacterDataAt(x, y);
+            allyChar = closestAlly.GetComponent<Character>();
+            return allyChar;
         }
 
         public void CheckForAllAllies()
