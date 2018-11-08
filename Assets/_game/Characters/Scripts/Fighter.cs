@@ -1,12 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Mangos {
     public class Fighter : MonoBehaviour {
         Animator anim;
         public Fighter foe;
         public Character controller;
+        public Sprite healty, damaged;
+        public RectTransform leftPos, rightPos;
+        private Image image;
+        private RectTransform rectTransform;
+
 
         public KeyCode debug;
         public KeyCode debug2;
@@ -19,6 +25,7 @@ namespace Mangos {
         // Use this for initialization
         void Start() {
             anim = GetComponent<Animator>();
+            gameObject.SetActive(false);
         }
 
         private void Update()
@@ -31,6 +38,24 @@ namespace Mangos {
             {
                 Battles.HealItOut(controller, enemy);
             }
+        }
+
+        public void PrepareForFight(bool _attacker)
+        {
+            if (_attacker)
+                rectTransform.SetPositionAndRotation(leftPos.position, leftPos.rotation);
+            else
+                rectTransform.SetPositionAndRotation(rightPos.position, rightPos.rotation);
+
+            if(controller.hp != 0 && controller.stats.maxHp != 0)
+            {
+                if (controller.hp / controller.stats.maxHp > 0.3f)
+                    image.sprite = healty;
+                else
+                    image.sprite = damaged;
+            }
+            else
+                image.sprite = damaged;
         }
 
         public void ContinueFight(BattleInfo _battle, Fighter _foe, int _step, bool _attacker)
@@ -63,8 +88,9 @@ namespace Mangos {
             {
                 //Battle ended
                 Debug.Log("Fight finished");
-                if (controller.stats.hp <= 0)
+                if (controller.hp <= 0)
                     Die();
+                Battles.cameraChanger.ChangeToTopDownScene();
             }
         }
 
@@ -103,7 +129,7 @@ namespace Mangos {
 
         public void Squirm(int _dmg)
         {
-            controller.stats.hp -= _dmg;
+            controller.hp -= _dmg;
             anim.SetTrigger("Squirm");
         }
 
@@ -131,9 +157,9 @@ namespace Mangos {
         public void OnHealApex()
         {
             //Do heal animation stuff
-            foe.controller.stats.hp += Mathf.FloorToInt(controller.stats.atk / 2.0f);
-            if (foe.controller.stats.hp > foe.controller.stats.maxHp)
-                foe.controller.stats.hp = foe.controller.stats.maxHp;
+            foe.controller.hp += Mathf.FloorToInt(controller.stats.atk / 2.0f);
+            if (foe.controller.hp > foe.controller.stats.maxHp)
+                foe.controller.hp = foe.controller.stats.maxHp;
         }
     }
 }

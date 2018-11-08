@@ -26,17 +26,41 @@ namespace Mangos
     Para que un gato cure a otro, usen HealItOut mandandole como parametros el healer y el heleado. La funcion no discrimina por clase, un warrior podria curar a otro si se llama esta funcion.
     */
 
-    public class Battles : MonoBehaviour { 
-    
+    public class Battles : MonoBehaviour {
+
+        public static CameraChanger cameraChanger;
+
+        private static Character fighter1, fighter2;
+        private static BattleInfo currentBattleInfo;
+
         public static void DukeItOut(Character cat1, Character cat2)
         {
-            BattleInfo battle = GetBattleInfo(cat1, cat2);
+            currentBattleInfo = GetBattleInfo(cat1, cat2);
+            cat1.fight.controller = cat1;
+            cat2.fight.controller = cat2;
+            cat1.fight.PrepareForFight(true);
+            cat2.fight.PrepareForFight(false);
+
+            fighter1 = cat1;
+            fighter2 = cat2;
             //Start animation
-
-            cat1.fight.ContinueFight(battle, cat2.fight, 0, true);
-
+            cameraChanger.ChangeToBattleScene();
             //End animation
             
+        }
+
+        //TODO: Hacer que el sprite aparezca, y tener el animator para el sprite con los eventos necesarios en ataque y daño
+
+        public static void OnTransitionToBattleEnd()
+        {
+            fighter1.fight.ContinueFight(currentBattleInfo, fighter2.fight, 0, true);
+            fighter1 = null;
+            fighter2 = null;
+        }
+
+        public static void OnTransitionToTopDownEnd()
+        {
+
         }
 
         public static List<int> CalculateAttackOrder(Character cat1, Character cat2) //Regresa una lista de ints de el orden de ataque, 0 significa que ataca el gato que inició el ataque y 1 el gato que esta siendo atacado
@@ -70,7 +94,8 @@ namespace Mangos
 
         public static int GetDamageToDeal(Character cat1, Character cat2) //Regresa el daño que le debe de hacer el gato1 al gato2
         {
-            int temp = ((cat1.stats.atk+cat1.weapon.mt) - cat1.stats.damageType == DamageType.MAGICAL ? cat2.stats.res : cat2.stats.def);
+            
+            int temp = ((cat1.stats.atk+cat1.weapon.mt) - (cat1.stats.damageType == DamageType.MAGICAL ? cat2.stats.res : cat2.stats.def));
             if (temp < 0)
                 temp = 0;
             return temp;
@@ -84,8 +109,8 @@ namespace Mangos
             List<int> hitOrMiss = GenerateHitsAndMisses(attackOrder, cat1, cat2);
             int damage1 = GetDamageToDeal(cat1, cat2);
             int damage2 = GetDamageToDeal(cat2, cat1);
-            int hp1 = cat1.stats.hp;
-            int hp2 = cat2.stats.hp;
+            int hp1 = cat1.hp;
+            int hp2 = cat2.hp;
             //Calculation
             for (int i = 0; i < attackOrder.Count; i++)
             {

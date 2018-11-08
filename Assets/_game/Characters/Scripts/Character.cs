@@ -22,12 +22,14 @@ namespace Mangos {
         public bool canMove;
         public Vector3Int coordinates;
 
+        public int hp;
+
 
         void Start() {
             LocateInGrid();
             canMove = true;
             fight = GetComponentInChildren<Fighter>();
-            stats.hp = stats.maxHp;
+            hp = stats.maxHp;
             if (fight)
                 fight.controller = this;
         }
