@@ -36,7 +36,7 @@ namespace Mangos
 		public Text eHP;
 		public Text eATK;
 
-		void Start()
+		void Awake()
 		{
 			Manager_Static.uiManager = this;
 		}
@@ -45,13 +45,14 @@ namespace Mangos
 		{
 			generalData.SetActive(true);
 			anotherData.SetActive(true);
-			//characterName.text = _character.GetComponent<Character>().namae;
-			characterHP.text =  _character.GetComponent<Character>().stats.hp.ToString() + "/" + _character.GetComponent<Character>().stats.maxHp.ToString();
-			//characterIcon.sprite = _character.GetComponent<Character>().icon;
-			characterATK.text = _character.GetComponent<Character>().stats.atk.ToString();
-			characterDEF.text = _character.GetComponent<Character>().stats.def.ToString();
-			characterRES.text = _character.GetComponent<Character>().stats.res.ToString();
-			characterSPD.text = _character.GetComponent<Character>().stats.spd.ToString();
+            Character temp = _character.GetComponent<Character>();
+			characterName.text = temp.namae;
+			characterHP.text = temp.hp.ToString() + "/" + temp.stats.maxHp.ToString();
+			characterIcon.sprite = temp.icon;
+			characterATK.text = (temp.stats.atk + temp.weapon.mt).ToString();
+			characterDEF.text = temp.stats.def.ToString();
+			characterRES.text = temp.stats.res.ToString();
+			characterSPD.text = temp.stats.spd.ToString();
 
 		}
 
@@ -59,9 +60,9 @@ namespace Mangos
 		{
 			generalData.SetActive(false);
 			anotherData.SetActive(false);
-			//characterName.text = "";
+			characterName.text = "";
 			characterHP.text =  "";
-			//characterIcon.sprite = "";
+			characterIcon.sprite = null;
 			characterATK.text = "";
 			characterDEF.text = "";
 			characterRES.text = "";
@@ -73,15 +74,17 @@ namespace Mangos
 			alieData.SetActive(true);
 			enemyData.SetActive(true);
 			//Alie
-			//aIcon.sprite = _alie.GetComponent<Character>().icon; 
-			//aName.text = _alie.GetComponent<Character>().namae;
-			aHP.text = _alie.GetComponent<Character>().stats.hp.ToString();
-			aATK.text = _alie.GetComponent<Character>().stats.atk.ToString();
-			//Enemy
-			//eIcon.sprite = _enemy.GetComponent<Character>().icon; 
-			//eName.text = _enemy.GetComponent<Character>().namae;
-			eHP.text = _enemy.GetComponent<Character>().stats.hp.ToString();
-			eATK.text = _enemy.GetComponent<Character>().stats.atk.ToString();
+            Character temp = _alie.GetComponent<Character>();
+			aIcon.sprite = temp.icon; 
+			aName.text = temp.namae;
+			aHP.text = temp.hp.ToString();
+			aATK.text = (temp.stats.atk + temp.weapon.mt).ToString();
+            //Enemy
+            temp = _enemy.GetComponent<Character>();
+			eIcon.sprite = temp.icon; 
+			eName.text = temp.namae;
+			eHP.text = temp.hp.ToString();
+			eATK.text = (temp.stats.atk + temp.weapon.mt).ToString();
 		}
 
 		public void releaseDataCombat()
@@ -89,13 +92,13 @@ namespace Mangos
 			alieData.SetActive(false);
 			enemyData.SetActive(false);
 			//Alie
-			//aIcon.sprite = ""; 
-			//aName.text = "";
+			aIcon.sprite = null; 
+			aName.text = "";
 			aHP.text = "";
 			aATK.text = "";
 			//Enemy
-			//eIcon.sprite = "";
-			//eName.text = "";
+			eIcon.sprite = null;
+			eName.text = "";
 			eHP.text = "";
 			eATK.text = "";
 		}

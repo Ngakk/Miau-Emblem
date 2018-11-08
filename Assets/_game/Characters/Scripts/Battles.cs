@@ -60,6 +60,7 @@ namespace Mangos
 
         private void ShowFighters()
         {
+            Manager_Static.uiManager.getDataCombat(fighter1.gameObject, fighter2.gameObject);
             fighter1.fight.anim.SetTrigger("FadeIn");
             fighter2.fight.anim.SetTrigger("FadeIn");
         }

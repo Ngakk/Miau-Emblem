@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 114204597415387766}
   - component: {fileID: 114394260516352588}
   - component: {fileID: 114382266969242802}
+  - component: {fileID: 114669916672837878}
+  - component: {fileID: 114999675185822674}
   m_Layer: 0
   m_Name: BearerOfScripts
   m_TagString: Untagged
@@ -82,7 +84,7 @@ MonoBehaviour:
   cameraChanger: {fileID: 0}
   leftFighter: {fileID: 0}
   rightFighter: {fileID: 0}
-  delay: 0
+  delay: 2
 --- !u!114 &114394260516352588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,6 +109,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
+--- !u!114 &114669916672837878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1191407168184752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc94a2075134e2f4c92238ab8e6fc188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalData: {fileID: 0}
+  anotherData: {fileID: 0}
+  alieData: {fileID: 0}
+  enemyData: {fileID: 0}
+  characterName: {fileID: 0}
+  characterHP: {fileID: 0}
+  characterIcon: {fileID: 0}
+  characterATK: {fileID: 0}
+  characterDEF: {fileID: 0}
+  characterRES: {fileID: 0}
+  characterSPD: {fileID: 0}
+  aIcon: {fileID: 0}
+  aName: {fileID: 0}
+  aHP: {fileID: 0}
+  aATK: {fileID: 0}
+  eIcon: {fileID: 0}
+  eName: {fileID: 0}
+  eHP: {fileID: 0}
+  eATK: {fileID: 0}
 --- !u!114 &114817526063129376
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,3 +154,27 @@ MonoBehaviour:
   cam: {fileID: 0}
   mainMenu: {fileID: 0}
   clips: []
+--- !u!114 &114999675185822674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1191407168184752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7f06b5d8d502d4aa67ecfc1b951074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 0}
+  clickPosition: {x: 0, y: 0}
+  targetPosition: {x: 0, y: 0}
+  selected: 0
+  selectedCharacter: {fileID: 0}
+  rayDistance: 50
+  masks:
+  - serializedVersion: 2
+    m_Bits: 1024
+  - serializedVersion: 2
+    m_Bits: 512
+  firstChild: {fileID: 0}
+  currentLayerMask: 0
