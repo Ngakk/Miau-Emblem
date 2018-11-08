@@ -14,7 +14,6 @@ MonoBehaviour:
   charClass: 0
   damageType: 0
   maxHp: 44
-  hp: 44
   atk: 30
   def: 25
   spd: 38

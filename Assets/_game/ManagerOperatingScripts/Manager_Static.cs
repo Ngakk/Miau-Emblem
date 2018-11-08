@@ -44,5 +44,6 @@ namespace Mangos
         public static Manager_UI uiManager;
         public static Manager_Turns turnsManager;
         public static Manager_AIMethodCaller aiMethodCaller;
+        public static Battles battles;
 	}
 }

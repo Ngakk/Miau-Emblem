@@ -26,20 +26,72 @@ namespace Mangos
     Para que un gato cure a otro, usen HealItOut mandandole como parametros el healer y el heleado. La funcion no discrimina por clase, un warrior podria curar a otro si se llama esta funcion.
     */
 
-    public class Battles : MonoBehaviour { 
-    
-        public static void DukeItOut(Character cat1, Character cat2)
+    public class Battles : MonoBehaviour {
+
+        public CameraChanger cameraChanger;
+        public GameObject leftFighter, rightFighter;
+        public float delay;
+
+        private Character fighter1, fighter2;
+        private BattleInfo currentBattleInfo;
+
+
+        private void Awake()
         {
-            BattleInfo battle = GetBattleInfo(cat1, cat2);
-            //Start animation
-
-            cat1.fight.ContinueFight(battle, cat2.fight, 0, true);
-
-            //End animation
-            
+            Manager_Static.battles = this;
         }
 
-        public static List<int> CalculateAttackOrder(Character cat1, Character cat2) //Regresa una lista de ints de el orden de ataque, 0 significa que ataca el gato que inició el ataque y 1 el gato que esta siendo atacado
+        public void DukeItOut(Character cat1, Character cat2)
+        {
+            currentBattleInfo = GetBattleInfo(cat1, cat2);
+            cat1.fight.controller = cat1;
+            cat2.fight.controller = cat2;
+            cat1.fight.PrepareForFight(leftFighter);
+            cat2.fight.PrepareForFight(rightFighter);
+
+            fighter1 = cat1;
+            fighter2 = cat2;
+            //Start animation
+            Invoke("ShowFighters", delay);
+            cameraChanger.ChangeToBattleScene();
+            //End animation
+
+        }
+
+        private void ShowFighters()
+        {
+            Manager_Static.uiManager.getDataCombat(fighter1.gameObject, fighter2.gameObject);
+            fighter1.fight.anim.SetTrigger("FadeIn");
+            fighter2.fight.anim.SetTrigger("FadeIn");
+        }
+
+        private void HideFighters()
+        {
+            fighter1.fight.anim.SetTrigger("FadeOut");
+            fighter2.fight.anim.SetTrigger("FadeOut");
+        }
+
+        //TODO: Hacer que el sprite aparezca, y tener el animator para el sprite con los eventos necesarios en ataque y daño
+
+        public void OnTransitionToBattleEnd()
+        {
+            fighter1.fight.ContinueFight(currentBattleInfo, fighter2.fight, 0, true);
+            fighter1 = null;
+            fighter2 = null;
+        }
+
+        public void OnTransitionToTopDownEnd()
+        {
+
+        }
+
+        public void OnFightEnd()
+        {
+            cameraChanger.ChangeToTopDownScene();
+            Invoke("HideFighters", delay);
+        }
+
+        public List<int> CalculateAttackOrder(Character cat1, Character cat2) //Regresa una lista de ints de el orden de ataque, 0 significa que ataca el gato que inició el ataque y 1 el gato que esta siendo atacado
         {
             List<int> temp = new List<int>();
             bool canCounter = false;
@@ -62,21 +114,22 @@ namespace Mangos
             return temp;
         }
 
-        public static int GetDistanceBetweenCharas(Character cat1, Character cat2) //Regresa la distancia entre 2 gatos
+        public int GetDistanceBetweenCharas(Character cat1, Character cat2) //Regresa la distancia entre 2 gatos
         {
             Debug.Log("Distance between chars is " + (Mathf.Abs(cat1.coordinates.x - cat2.coordinates.x) + Mathf.Abs(cat1.coordinates.y - cat2.coordinates.y)));
             return Mathf.Abs(cat1.coordinates.x - cat2.coordinates.x) + Mathf.Abs(cat1.coordinates.y - cat2.coordinates.y);
         }
 
-        public static int GetDamageToDeal(Character cat1, Character cat2) //Regresa el daño que le debe de hacer el gato1 al gato2
+        public int GetDamageToDeal(Character cat1, Character cat2) //Regresa el daño que le debe de hacer el gato1 al gato2
         {
-            int temp = ((cat1.stats.atk+cat1.weapon.mt) - cat1.stats.damageType == DamageType.MAGICAL ? cat2.stats.res : cat2.stats.def);
+
+            int temp = ((cat1.stats.atk+cat1.weapon.mt) - (cat1.stats.damageType == DamageType.MAGICAL ? cat2.stats.res : cat2.stats.def));
             if (temp < 0)
                 temp = 0;
             return temp;
         }
 
-        public static BattleInfo GetBattleInfo(Character cat1, Character cat2)
+        public BattleInfo GetBattleInfo(Character cat1, Character cat2)
         {
             //Calculate damage and attacks to be done
             List<int> attackOrder = CalculateAttackOrder(cat1, cat2);
@@ -84,9 +137,9 @@ namespace Mangos
             List<int> hitOrMiss = GenerateHitsAndMisses(attackOrder, cat1, cat2);
             int damage1 = GetDamageToDeal(cat1, cat2);
             int damage2 = GetDamageToDeal(cat2, cat1);
-            int hp1 = cat1.stats.hp;
-            int hp2 = cat2.stats.hp;
-            //Calculus
+            int hp1 = cat1.hp;
+            int hp2 = cat2.hp;
+            //Calculation
             for (int i = 0; i < attackOrder.Count; i++)
             {
                 if (attackOrder[i] == 0) //Cat 1 attacks and cat 2 takes damage
@@ -117,7 +170,7 @@ namespace Mangos
             return battle;
         }
 
-        public static List<int> GenerateHitsAndMisses(List<int> attacks, Character cat1, Character cat2) //0 = miss, 1 = hit, 2 = crit
+        public List<int> GenerateHitsAndMisses(List<int> attacks, Character cat1, Character cat2) //0 = miss, 1 = hit, 2 = crit
         {
             List<int> hits = new List<int>();
             Character[] cats = { cat1, cat2 };
@@ -140,7 +193,7 @@ namespace Mangos
             return hits;
         }
 
-        public static void HealItOut(Character healer, Character healed)
+        public void HealItOut(Character healer, Character healed)
         {
             healer.fight.foe = healed.fight;
             healer.fight.Heal();

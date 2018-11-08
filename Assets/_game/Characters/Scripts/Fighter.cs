@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Mangos {
     public class Fighter : MonoBehaviour {
-        Animator anim;
+        public Animator anim;
         public Fighter foe;
         public Character controller;
+        public Sprite healty, damaged;
 
         public KeyCode debug;
         public KeyCode debug2;
@@ -25,12 +27,18 @@ namespace Mangos {
         {
             if (Input.GetKeyDown(debug))
             {
-                Battles.DukeItOut(controller, enemy);
+                Manager_Static.battles.DukeItOut(controller, enemy);
             }
             if (Input.GetKeyDown(debug2))
             {
-                Battles.HealItOut(controller, enemy);
+                Manager_Static.battles.HealItOut(controller, enemy);
             }
+        }
+
+        public void PrepareForFight(GameObject sprite)
+        {
+            sprite.GetComponent<Image>().sprite = (controller.hp / controller.stats.maxHp > 0.3f) ? healty : damaged;
+            anim = sprite.GetComponent<Animator>();
         }
 
         public void ContinueFight(BattleInfo _battle, Fighter _foe, int _step, bool _attacker)
@@ -63,8 +71,9 @@ namespace Mangos {
             {
                 //Battle ended
                 Debug.Log("Fight finished");
-                if (controller.stats.hp <= 0)
+                if (controller.hp <= 0)
                     Die();
+                Manager_Static.battles.OnFightEnd();
             }
         }
 
@@ -75,6 +84,7 @@ namespace Mangos {
 
         public void OnAttackApex()
         {
+
             switch (battle.hitOrMiss[step])
             {
                 case 0:
@@ -93,7 +103,10 @@ namespace Mangos {
                     //critical strike stuff
                     break;
             }
-
+            if(battle.attackOrder[step] == 0)
+                Manager_Static.uiManager.getDataCombat(gameObject, foe.gameObject);
+            else
+                Manager_Static.uiManager.getDataCombat(foe.gameObject, gameObject);
         }
 
         public void OnAttackEnd()
@@ -103,7 +116,7 @@ namespace Mangos {
 
         public void Squirm(int _dmg)
         {
-            controller.stats.hp -= _dmg;
+            controller.hp -= _dmg;
             anim.SetTrigger("Squirm");
         }
 
@@ -131,9 +144,9 @@ namespace Mangos {
         public void OnHealApex()
         {
             //Do heal animation stuff
-            foe.controller.stats.hp += Mathf.FloorToInt(controller.stats.atk / 2.0f);
-            if (foe.controller.stats.hp > foe.controller.stats.maxHp)
-                foe.controller.stats.hp = foe.controller.stats.maxHp;
+            foe.controller.hp += Mathf.FloorToInt(controller.stats.atk / 2.0f);
+            if (foe.controller.hp > foe.controller.stats.maxHp)
+                foe.controller.hp = foe.controller.stats.maxHp;
         }
     }
 }

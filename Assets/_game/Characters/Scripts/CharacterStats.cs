@@ -25,8 +25,6 @@ namespace Mangos
         public DamageType damageType;
         [Tooltip("Vida máxima que puede tener")]
         public int maxHp;   //Max Health points
-        [Tooltip("Vida que tiene actualmente (se resetea a el valor máximo al inicio del juego)")]
-        public int hp;      //Current health points
         [Tooltip("Valor de ataque")]
         public int atk;     //Attack damage
         [Tooltip("Valor de defensa")]
@@ -48,8 +46,6 @@ namespace Mangos
         public int[] attackRanges; //At wich ranges can it attack
         [Tooltip("Los diferentes rangos en los que puede contra atacar")]
         public int[] counterAttackRanges; //At wich ranges can it counter attack
-        [Tooltip("Equipo al que pertenece")]
-        public Team team;
         [Tooltip("Espacios que puede caminar")]
         public int walkRange;
     }
