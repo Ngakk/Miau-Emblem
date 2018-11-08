@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224582715932718018}
   - component: {fileID: 222277716293539888}
   - component: {fileID: 114061370132517900}
+  - component: {fileID: 95487808486913024}
   m_Layer: 5
   m_Name: SlatishySlashSlash
   m_TagString: Untagged
@@ -28,6 +29,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &95487808486913024
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1155110947033782}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 36ad39bd7982a2f41b8129f1f2a6288e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114061370132517900
 MonoBehaviour:
   m_ObjectHideFlags: 1
