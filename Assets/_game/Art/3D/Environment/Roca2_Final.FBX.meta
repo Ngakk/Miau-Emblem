@@ -1,0 +1,145 @@
+fileFormatVersion: 2
+guid: 1a53699527374e14ab00a0c2ee709b82
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Arbol1_L
+    100002: Arbol2_L
+    100004: Arbol3_L
+    100006: Group4086
+    100008: Hojas1
+    100010: Hojas2
+    100012: Hojas3
+    100014: roca1
+    100016: Roca2
+    100018: //RootNode
+    100020: roca3
+    400000: Arbol1_L
+    400002: Arbol2_L
+    400004: Arbol3_L
+    400006: Group4086
+    400008: Hojas1
+    400010: Hojas2
+    400012: Hojas3
+    400014: roca1
+    400016: Roca2
+    400018: //RootNode
+    400020: roca3
+    2100000: Arbol3
+    2100002: Arbol2
+    2100004: 'Material #90'
+    2100006: 'Material #93'
+    2100008: 'Material #91'
+    2100010: 'Material #92'
+    2100012: 'Material #94'
+    2100014: 'Material #95'
+    2100016: 'Material #96'
+    2300000: Arbol1_L
+    2300002: Arbol2_L
+    2300004: Arbol3_L
+    2300006: Hojas1
+    2300008: Hojas2
+    2300010: Hojas3
+    2300012: roca1
+    2300014: Roca2
+    2300016: roca3
+    3300000: Arbol1_L
+    3300002: Arbol2_L
+    3300004: Arbol3_L
+    3300006: Hojas1
+    3300008: Hojas2
+    3300010: Hojas3
+    3300012: roca1
+    3300014: Roca2
+    3300016: roca3
+    4300000: Arbol3_L
+    4300002: Arbol2_L
+    4300004: Arbol1_L
+    4300006: Hojas3
+    4300008: Hojas1
+    4300010: Hojas2
+    4300012: roca1
+    4300014: Roca2
+    4300016: roca3
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
