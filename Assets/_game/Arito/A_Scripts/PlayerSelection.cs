@@ -27,59 +27,46 @@ namespace Mangos
 
         public void OnCellClick(Vector3 mousePos)
         {
-            /// Grid Based
-
-            //grid.GetComponent<Grid>().WorldToCell(new Vector3(x, y, 0));
-            /* if (getTerrain(x, y)) {
-             *     selectedCharacter = getCharacterMatrix(x, y);
-             *     selected = true;
-             * }
-             */
-
-            // TODO
-            // Check Raycast to Floor (layermask)
-            // move character with Characterscript.move(vector3[])
-
-            /// Raycast
-
-            // if (selectedCharacter.getComponent<stats>().canMove)
-            Ray ray = Camera.main.ScreenPointToRay(mousePos);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, rayDistance, masks[currentLayerMask]))
+            if (Manager_Static.turnsManager.currentGameState == GameState.PLAYER_TURN)
             {
-                Debug.Log(hit.collider.gameObject.name);
-
-                if (!selected && hit.collider.gameObject.CompareTag("Ally"))
+                Ray ray = Camera.main.ScreenPointToRay(mousePos);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit, rayDistance, masks[currentLayerMask]))
                 {
-                    Debug.Log("Selected " + hit.collider.gameObject.name);
-                    selectedCharacter = hit.collider.gameObject;
-                    selected = true;
-                    currentLayerMask = 1;
-                    
-                    foreach (Transform child in selectedCharacter.transform)
+                    Debug.Log(hit.collider.gameObject.name);
+
+                    if (!selected && hit.collider.gameObject.CompareTag("Ally"))
                     {
-                        firstChild = child.gameObject;
-                    }
-                    foreach (Transform child in firstChild.transform)
-                    {
-                        if (child.CompareTag("Model"))
+                        Debug.Log("Selected " + hit.collider.gameObject.name);
+                        selectedCharacter = hit.collider.gameObject;
+                        selected = true;
+                        currentLayerMask = 1;
+
+                        foreach (Transform child in selectedCharacter.transform)
                         {
-                            int matLength = child.GetComponent<SkinnedMeshRenderer>().materials.Length - 1;
-                            Debug.Log("mat: " + Manager_Static.materialsManager.GetMaterial(CharacterMats.PLAYER));
-                            child.gameObject.GetComponent<SkinnedMeshRenderer>().materials[matLength] = Manager_Static.materialsManager.GetMaterial(CharacterMats.PLAYER);
+                            firstChild = child.gameObject;
+                        }
+                        foreach (Transform child in firstChild.transform)
+                        {
+                            if (child.CompareTag("Model"))
+                            {
+                                int matLength = child.GetComponent<SkinnedMeshRenderer>().materials.Length - 1;
+                                Debug.Log("mat: " + Manager_Static.materialsManager.GetMaterial(CharacterMats.PLAYER));
+                                child.gameObject.GetComponent<SkinnedMeshRenderer>().materials[matLength] = Manager_Static.materialsManager.GetMaterial(CharacterMats.PLAYER);
+                            }
                         }
                     }
-                }
-                else if (selected && hit.collider.gameObject.CompareTag("Map"))
-                {
-                    Debug.Log("Movement");
-                    MoveCharacter(hit.point);
-                    Deselect();
-                }
-                else if (selected && hit.collider.gameObject.CompareTag("Enemy"))
-                {
-                    Debug.Log("Fight with " + hit.collider.gameObject.name);
-                    Deselect();
+                    else if (selected && hit.collider.gameObject.CompareTag("Map"))
+                    {
+                        Debug.Log("Movement");
+                        MoveCharacter(hit.point);
+                        Deselect();
+                    }
+                    else if (selected && hit.collider.gameObject.CompareTag("Enemy"))
+                    {
+                        Debug.Log("Fight with " + hit.collider.gameObject.name);
+                        Deselect();
+                    }
                 }
             }
         }
