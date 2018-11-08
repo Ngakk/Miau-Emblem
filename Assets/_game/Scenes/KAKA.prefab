@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4858321681267336}
   - component: {fileID: 82074905426902158}
+  - component: {fileID: 114875619730104822}
   m_Layer: 0
   m_Name: KAKA
   m_TagString: Untagged
@@ -135,3 +136,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114875619730104822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1761011719673856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc94a2075134e2f4c92238ab8e6fc188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalData: {fileID: 0}
+  anotherData: {fileID: 0}
+  alieData: {fileID: 0}
+  enemyData: {fileID: 0}
+  characterName: {fileID: 0}
+  characterHP: {fileID: 0}
+  characterIcon: {fileID: 0}
+  characterATK: {fileID: 0}
+  characterDEF: {fileID: 0}
+  characterRES: {fileID: 0}
+  characterSPD: {fileID: 0}
+  aIcon: {fileID: 0}
+  aName: {fileID: 0}
+  aHP: {fileID: 0}
+  aATK: {fileID: 0}
+  eIcon: {fileID: 0}
+  eName: {fileID: 0}
+  eHP: {fileID: 0}
+  eATK: {fileID: 0}
