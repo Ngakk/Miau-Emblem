@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5097b45e41d5eaf41adbc683a17bf541, type: 3}
   m_Name: Hola
   m_EditorClassIdentifier: 
-  filas: 40
-  columnas: 40
+  filas: 10
+  columnas: 10
   x_Origen: 3
   y_Origen: 2

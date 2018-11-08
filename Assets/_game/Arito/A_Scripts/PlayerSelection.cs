@@ -7,15 +7,23 @@ namespace Mangos
     public class PlayerSelection : MonoBehaviour {
 
         public Grid grid;
-        public Vector2 clickPosition;
-        public Vector2 targetPosition;
-        public bool selected;
-        public GameObject selectedCharacter;
-        public float rayDistance = 50.0f;
+        private Vector2 clickPosition;
+        private Vector2 targetPosition;
+        private bool selected;
+        private GameObject selectedCharacter;
+        private float rayDistance = 50.0f;
         public LayerMask[] masks;
-        public GameObject firstChild;
+        private GameObject firstChild;
+        public int maxMoves = 3;
+        public int movesLeft;
 
         public int currentLayerMask = 0;
+
+        private void Awake()
+        {
+            Manager_Static.playerSelectionManager = this;
+            movesLeft = maxMoves;
+        }
 
         private void Update()
         {
@@ -82,6 +90,11 @@ namespace Mangos
                     int matLength = child.GetComponent<SkinnedMeshRenderer>().materials.Length - 1;
                     Debug.Log("mat: " + child.GetComponent<SkinnedMeshRenderer>().materials[matLength]);
                     child.gameObject.GetComponent<SkinnedMeshRenderer>().materials[matLength] = Manager_Static.materialsManager.GetMaterial(CharacterMats.DEFAULT);
+                    movesLeft--;
+                    if (movesLeft <= 0)
+                    {
+                        Manager_Static.turnsManager.ToggleTurn();
+                    }
                 }
             }
             Vector3Int targetPosGrid = grid.WorldToCell(targetPos);

@@ -21,12 +21,13 @@ GameObject:
   - component: {fileID: 4538116750037844}
   - component: {fileID: 114119857283601560}
   - component: {fileID: 114817526063129376}
-  - component: {fileID: 114612542724223198}
   - component: {fileID: 114204597415387766}
   - component: {fileID: 114394260516352588}
+  - component: {fileID: 114327720509892944}
   - component: {fileID: 114382266969242802}
   - component: {fileID: 114669916672837878}
   - component: {fileID: 114999675185822674}
+  - component: {fileID: 114924414653174268}
   m_Layer: 0
   m_Name: BearerOfScripts
   m_TagString: Untagged
@@ -41,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1191407168184752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.95830745, y: -3.8745646, z: 1.4832426}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,6 +71,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2d9c98f9d61b945ac2c14675a2d84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114327720509892944
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1191407168184752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b36ae601fba15454c822ba368fc78dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGameState: 0
 --- !u!114 &114382266969242802
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,18 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScene: 0
---- !u!114 &114612542724223198
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1191407168184752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8bc5efe2674bfc469b7b49563be1fe7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
 --- !u!114 &114669916672837878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -154,6 +155,22 @@ MonoBehaviour:
   cam: {fileID: 0}
   mainMenu: {fileID: 0}
   clips: []
+--- !u!114 &114924414653174268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1191407168184752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73ec29c308e48a74fa75b3d2632c7870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 9b5c6f4771548c24c92630430dadc692, type: 2}
+  - {fileID: 2100000, guid: b9885bbe6f5ea28429969a4e5d8c7cea, type: 2}
+  - {fileID: 2100000, guid: ffb5b27aaa10a4447a2afca0e27c71d1, type: 2}
+  defaultMat: {fileID: 2100000, guid: ffb5b27aaa10a4447a2afca0e27c71d1, type: 2}
 --- !u!114 &114999675185822674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,15 +183,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid: {fileID: 0}
-  clickPosition: {x: 0, y: 0}
-  targetPosition: {x: 0, y: 0}
-  selected: 0
-  selectedCharacter: {fileID: 0}
-  rayDistance: 50
   masks:
   - serializedVersion: 2
     m_Bits: 1024
   - serializedVersion: 2
     m_Bits: 512
-  firstChild: {fileID: 0}
+  maxMoves: 3
+  movesLeft: 0
   currentLayerMask: 0

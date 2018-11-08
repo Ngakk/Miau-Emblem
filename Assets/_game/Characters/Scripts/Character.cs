@@ -115,7 +115,8 @@ namespace Mangos {
 
         public void OnDead()
         {
-
+            Manager_Static.playerSelectionManager.maxMoves--;
+            Destroy(gameObject);
         }
     }
 }
