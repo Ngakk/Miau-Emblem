@@ -19,21 +19,6 @@ namespace Mangos
         private void Start()
         {
             eStats = GetComponent<EnemieStats>();
-            if(Manager_Static.gameStateManager.gameState == GameState.ENEMIE_TURN)
-            {
-                currentState = true; //Si es true entonces es que está en turno de los enemigos.
-            } else
-            {
-                currentState = false;
-            }
-        }
-
-        private void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.C))
-            {
-                StartEnemyTurn();
-            }
         }
 
         public void StartEnemyTurn()
@@ -63,7 +48,7 @@ namespace Mangos
 
         public void AttackAlly()
         {
-            Manager_Static.Battles.DukeItOut(character[currentEnemy], eStats.getClosestCharacter(character[currentEnemy].coordinates.x, character[currentEnemy].coordinates.y + 1));
+            Manager_Static.battles.DukeItOut(character[currentEnemy], eStats.getClosestCharacter(character[currentEnemy].coordinates.x, character[currentEnemy].coordinates.y + 1));
         }
 
         public void turnEnded()
