@@ -64,7 +64,9 @@ namespace Mangos
                     {
                         if (child.CompareTag("Model"))
                         {
-                            child.gameObject.GetComponent<SkinnedMeshRenderer>().material = Manager_Static.materialsManager.GetMaterial(CharacterMats.PLAYER);
+                            int matLength = child.GetComponent<SkinnedMeshRenderer>().materials.Length - 1;
+                            Debug.Log("mat: " + Manager_Static.materialsManager.GetMaterial(CharacterMats.PLAYER));
+                            child.gameObject.GetComponent<SkinnedMeshRenderer>().materials[matLength] = Manager_Static.materialsManager.GetMaterial(CharacterMats.PLAYER);
                         }
                     }
                 }
@@ -90,7 +92,9 @@ namespace Mangos
             {
                 if (child.CompareTag("Model"))
                 {
-                    child.gameObject.GetComponent<SkinnedMeshRenderer>().material = Manager_Static.materialsManager.GetMaterial(CharacterMats.DEFAULT);
+                    int matLength = child.GetComponent<SkinnedMeshRenderer>().materials.Length - 1;
+                    Debug.Log("mat: " + child.GetComponent<SkinnedMeshRenderer>().materials[matLength]);
+                    child.gameObject.GetComponent<SkinnedMeshRenderer>().materials[matLength] = Manager_Static.materialsManager.GetMaterial(CharacterMats.DEFAULT);
                 }
             }
             Vector3Int targetPosGrid = grid.WorldToCell(targetPos);

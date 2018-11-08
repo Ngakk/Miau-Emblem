@@ -859,44 +859,104 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: generalData
+      value: 
+      objectReference: {fileID: 53015925}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: anotherData
+      value: 
+      objectReference: {fileID: 522091699}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: alieData
+      value: 
+      objectReference: {fileID: 852907249}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 2088562067}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: characterName
+      value: 
+      objectReference: {fileID: 1899632732}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: characterHP
+      value: 
+      objectReference: {fileID: 1534308759}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: characterIcon
+      value: 
+      objectReference: {fileID: 1513872368}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: characterATK
+      value: 
+      objectReference: {fileID: 1818804578}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: characterDEF
+      value: 
+      objectReference: {fileID: 1829607558}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: characterRES
+      value: 
+      objectReference: {fileID: 457230611}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: characterSPD
+      value: 
+      objectReference: {fileID: 32850719}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: aIcon
+      value: 
+      objectReference: {fileID: 202337656}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: aName
+      value: 
+      objectReference: {fileID: 1086668878}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: aHP
+      value: 
+      objectReference: {fileID: 1652899515}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: aATK
+      value: 
+      objectReference: {fileID: 1991549396}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: eIcon
+      value: 
+      objectReference: {fileID: 686238636}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: eName
+      value: 
+      objectReference: {fileID: 1735583001}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: eHP
+      value: 
+      objectReference: {fileID: 137981664}
+    - target: {fileID: 114875619730104822, guid: fd681df37c622e24981ee45d1fbae30a,
+        type: 2}
+      propertyPath: eATK
+      value: 
+      objectReference: {fileID: 1800790524}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd681df37c622e24981ee45d1fbae30a, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &814791758 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1761011719673856, guid: fd681df37c622e24981ee45d1fbae30a,
-    type: 2}
-  m_PrefabInternal: {fileID: 814791757}
---- !u!114 &814791759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 814791758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc94a2075134e2f4c92238ab8e6fc188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generalData: {fileID: 53015925}
-  anotherData: {fileID: 522091699}
-  alieData: {fileID: 852907249}
-  enemyData: {fileID: 2088562067}
-  characterName: {fileID: 1899632732}
-  characterHP: {fileID: 1534308759}
-  characterIcon: {fileID: 1513872368}
-  characterATK: {fileID: 1818804578}
-  characterDEF: {fileID: 1829607558}
-  characterRES: {fileID: 457230611}
-  characterSPD: {fileID: 32850719}
-  aIcon: {fileID: 686238636}
-  aName: {fileID: 1086668878}
-  aHP: {fileID: 1652899515}
-  aATK: {fileID: 1991549396}
-  eIcon: {fileID: 0}
-  eName: {fileID: 1735583001}
-  eHP: {fileID: 137981664}
-  eATK: {fileID: 1800790524}
 --- !u!1 &852907249
 GameObject:
   m_ObjectHideFlags: 0
