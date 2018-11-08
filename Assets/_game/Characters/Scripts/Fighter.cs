@@ -84,6 +84,7 @@ namespace Mangos {
 
         public void OnAttackApex()
         {
+
             switch (battle.hitOrMiss[step])
             {
                 case 0:
@@ -102,7 +103,10 @@ namespace Mangos {
                     //critical strike stuff
                     break;
             }
-
+            if(battle.attackOrder[step] == 0)
+                Manager_Static.uiManager.getDataCombat(gameObject, foe.gameObject);
+            else
+                Manager_Static.uiManager.getDataCombat(foe.gameObject, gameObject);
         }
 
         public void OnAttackEnd()
