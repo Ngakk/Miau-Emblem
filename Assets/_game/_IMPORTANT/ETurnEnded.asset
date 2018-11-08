@@ -8,10 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5097b45e41d5eaf41adbc683a17bf541, type: 3}
-  m_Name: Hola
+  m_Script: {fileID: 11500000, guid: c7d22c13d3bb2db46abebe9c4a3c2502, type: 3}
+  m_Name: ETurnEnded
   m_EditorClassIdentifier: 
-  filas: 40
-  columnas: 40
-  x_Origen: 3
-  y_Origen: 2

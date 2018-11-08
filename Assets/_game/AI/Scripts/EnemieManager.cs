@@ -10,6 +10,7 @@ namespace Mangos
         public Character[] character;
         public Grid[] grids;
         public EnemieStats eStats;
+        public GameEvent ETurnEnded;
 
         public int currentEnemy;
         public bool currentState;
@@ -46,7 +47,7 @@ namespace Mangos
         public void NextCharacter()
         {
             currentEnemy++;
-            if (currentEnemy > enemies.Length)
+            if (currentEnemy >= enemies.Length)
                 turnEnded();
 
             eStats.CheckForAllies();
@@ -67,7 +68,7 @@ namespace Mangos
 
         public void turnEnded()
         {
-            Debug.Log("Todos terminamos de movernos");
+            ETurnEnded.Raise();
         }
     } 
 }
