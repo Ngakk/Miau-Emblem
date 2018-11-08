@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114612542724223198}
   - component: {fileID: 114204597415387766}
   - component: {fileID: 114394260516352588}
+  - component: {fileID: 114382266969242802}
   m_Layer: 0
   m_Name: BearerOfScripts
   m_TagString: Untagged
@@ -67,6 +68,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2d9c98f9d61b945ac2c14675a2d84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114382266969242802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1191407168184752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696d03db9f128a042892d2fae2735b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraChanger: {fileID: 0}
+  leftFighter: {fileID: 0}
+  rightFighter: {fileID: 0}
+  delay: 0
 --- !u!114 &114394260516352588
 MonoBehaviour:
   m_ObjectHideFlags: 1

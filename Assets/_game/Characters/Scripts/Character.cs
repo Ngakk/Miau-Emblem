@@ -4,6 +4,10 @@ using UnityEngine;
 
 namespace Mangos {
     public class Character : MonoBehaviour {
+        public string namae;
+        [Tooltip("Equipo al que pertenece")]
+        public Team team;
+        public Sprite icon;
 
         public Grid grid;
         public Main_Algorithm masterMatrix;
@@ -24,12 +28,11 @@ namespace Mangos {
 
         public int hp;
 
-
         void Start() {
             LocateInGrid();
             canMove = true;
-            fight = GetComponentInChildren<Fighter>();
             hp = stats.maxHp;
+            fight = GetComponentInChildren<Fighter>();
             if (fight)
                 fight.controller = this;
         }

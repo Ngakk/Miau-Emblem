@@ -10,11 +10,6 @@ namespace Mangos
 
         private Animator anim;
 
-        private void Awake()
-        {
-            Battles.cameraChanger = this;
-        }
-
         private void Start()
         {
             anim = GetComponent<Animator>();
@@ -32,12 +27,12 @@ namespace Mangos
 
         public void OnTransitionToBattleEnd()
         {
-            Battles.OnTransitionToBattleEnd();
+            Manager_Static.battles.OnTransitionToBattleEnd();
         }
 
         public void OnTransitionToTopDownEnd()
         {
-            Battles.OnTransitionToTopDownEnd();
+            Manager_Static.battles.OnTransitionToTopDownEnd();
         }
     }
 }

@@ -5,14 +5,10 @@ using UnityEngine.UI;
 
 namespace Mangos {
     public class Fighter : MonoBehaviour {
-        Animator anim;
+        public Animator anim;
         public Fighter foe;
         public Character controller;
         public Sprite healty, damaged;
-        public RectTransform leftPos, rightPos;
-        private Image image;
-        private RectTransform rectTransform;
-
 
         public KeyCode debug;
         public KeyCode debug2;
@@ -25,37 +21,24 @@ namespace Mangos {
         // Use this for initialization
         void Start() {
             anim = GetComponent<Animator>();
-            gameObject.SetActive(false);
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(debug))
             {
-                Battles.DukeItOut(controller, enemy);
+                Manager_Static.battles.DukeItOut(controller, enemy);
             }
             if (Input.GetKeyDown(debug2))
             {
-                Battles.HealItOut(controller, enemy);
+                Manager_Static.battles.HealItOut(controller, enemy);
             }
         }
 
-        public void PrepareForFight(bool _attacker)
+        public void PrepareForFight(GameObject sprite)
         {
-            if (_attacker)
-                rectTransform.SetPositionAndRotation(leftPos.position, leftPos.rotation);
-            else
-                rectTransform.SetPositionAndRotation(rightPos.position, rightPos.rotation);
-
-            if(controller.hp != 0 && controller.stats.maxHp != 0)
-            {
-                if (controller.hp / controller.stats.maxHp > 0.3f)
-                    image.sprite = healty;
-                else
-                    image.sprite = damaged;
-            }
-            else
-                image.sprite = damaged;
+            sprite.GetComponent<Image>().sprite = (controller.hp / controller.stats.maxHp > 0.3f) ? healty : damaged;
+            anim = sprite.GetComponent<Animator>();
         }
 
         public void ContinueFight(BattleInfo _battle, Fighter _foe, int _step, bool _attacker)
@@ -90,7 +73,7 @@ namespace Mangos {
                 Debug.Log("Fight finished");
                 if (controller.hp <= 0)
                     Die();
-                Battles.cameraChanger.ChangeToTopDownScene();
+                Manager_Static.battles.OnFightEnd();
             }
         }
 

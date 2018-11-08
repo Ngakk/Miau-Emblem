@@ -28,42 +28,69 @@ namespace Mangos
 
     public class Battles : MonoBehaviour {
 
-        public static CameraChanger cameraChanger;
+        public CameraChanger cameraChanger;
+        public GameObject leftFighter, rightFighter;
+        public float delay;
 
-        private static Character fighter1, fighter2;
-        private static BattleInfo currentBattleInfo;
+        private Character fighter1, fighter2;
+        private BattleInfo currentBattleInfo;
+        
 
-        public static void DukeItOut(Character cat1, Character cat2)
+        private void Awake()
+        {
+            Manager_Static.battles = this;
+        }
+
+        public void DukeItOut(Character cat1, Character cat2)
         {
             currentBattleInfo = GetBattleInfo(cat1, cat2);
             cat1.fight.controller = cat1;
             cat2.fight.controller = cat2;
-            cat1.fight.PrepareForFight(true);
-            cat2.fight.PrepareForFight(false);
+            cat1.fight.PrepareForFight(leftFighter);
+            cat2.fight.PrepareForFight(rightFighter);
 
             fighter1 = cat1;
             fighter2 = cat2;
             //Start animation
+            Invoke("ShowFighters", delay);
             cameraChanger.ChangeToBattleScene();
             //End animation
             
         }
 
+        private void ShowFighters()
+        {
+            fighter1.fight.anim.SetTrigger("FadeIn");
+            fighter2.fight.anim.SetTrigger("FadeIn");
+        }
+
+        private void HideFighters()
+        {
+            fighter1.fight.anim.SetTrigger("FadeOut");
+            fighter2.fight.anim.SetTrigger("FadeOut");
+        }
+
         //TODO: Hacer que el sprite aparezca, y tener el animator para el sprite con los eventos necesarios en ataque y daño
 
-        public static void OnTransitionToBattleEnd()
+        public void OnTransitionToBattleEnd()
         {
             fighter1.fight.ContinueFight(currentBattleInfo, fighter2.fight, 0, true);
             fighter1 = null;
             fighter2 = null;
         }
 
-        public static void OnTransitionToTopDownEnd()
+        public void OnTransitionToTopDownEnd()
         {
 
         }
 
-        public static List<int> CalculateAttackOrder(Character cat1, Character cat2) //Regresa una lista de ints de el orden de ataque, 0 significa que ataca el gato que inició el ataque y 1 el gato que esta siendo atacado
+        public void OnFightEnd()
+        {
+            cameraChanger.ChangeToTopDownScene();
+            Invoke("HideFighters", delay);
+        }
+
+        public List<int> CalculateAttackOrder(Character cat1, Character cat2) //Regresa una lista de ints de el orden de ataque, 0 significa que ataca el gato que inició el ataque y 1 el gato que esta siendo atacado
         {
             List<int> temp = new List<int>();
             bool canCounter = false;
@@ -86,13 +113,13 @@ namespace Mangos
             return temp;
         }
 
-        public static int GetDistanceBetweenCharas(Character cat1, Character cat2) //Regresa la distancia entre 2 gatos
+        public int GetDistanceBetweenCharas(Character cat1, Character cat2) //Regresa la distancia entre 2 gatos
         {
             Debug.Log("Distance between chars is " + (Mathf.Abs(cat1.coordinates.x - cat2.coordinates.x) + Mathf.Abs(cat1.coordinates.y - cat2.coordinates.y)));
             return Mathf.Abs(cat1.coordinates.x - cat2.coordinates.x) + Mathf.Abs(cat1.coordinates.y - cat2.coordinates.y);
         }
 
-        public static int GetDamageToDeal(Character cat1, Character cat2) //Regresa el daño que le debe de hacer el gato1 al gato2
+        public int GetDamageToDeal(Character cat1, Character cat2) //Regresa el daño que le debe de hacer el gato1 al gato2
         {
             
             int temp = ((cat1.stats.atk+cat1.weapon.mt) - (cat1.stats.damageType == DamageType.MAGICAL ? cat2.stats.res : cat2.stats.def));
@@ -101,7 +128,7 @@ namespace Mangos
             return temp;
         }
 
-        public static BattleInfo GetBattleInfo(Character cat1, Character cat2)
+        public BattleInfo GetBattleInfo(Character cat1, Character cat2)
         {
             //Calculate damage and attacks to be done
             List<int> attackOrder = CalculateAttackOrder(cat1, cat2);
@@ -142,7 +169,7 @@ namespace Mangos
             return battle;
         }
 
-        public static List<int> GenerateHitsAndMisses(List<int> attacks, Character cat1, Character cat2) //0 = miss, 1 = hit, 2 = crit
+        public List<int> GenerateHitsAndMisses(List<int> attacks, Character cat1, Character cat2) //0 = miss, 1 = hit, 2 = crit
         {
             List<int> hits = new List<int>();
             Character[] cats = { cat1, cat2 };
@@ -165,7 +192,7 @@ namespace Mangos
             return hits;
         }
 
-        public static void HealItOut(Character healer, Character healed)
+        public void HealItOut(Character healer, Character healed)
         {
             healer.fight.foe = healed.fight;
             healer.fight.Heal();
