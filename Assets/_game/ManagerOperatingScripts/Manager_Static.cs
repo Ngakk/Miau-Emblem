@@ -35,14 +35,15 @@ namespace Mangos
     //ESTE SE ENCARGARA DE MANTENER A LOS DEMAS MANAGER COMUNICADOS ENTRE ELLOS
     public static class Manager_Static
 	{
-        public static float GeneralVolumen = 95.0f;
-		public static Manager_Input inputManager;
-		public static Manager_App appManager;
-		public static Manager_Scene sceneManager;
-        public static Manager_Audio audioManager;
-        public static Manager_GameState gameStateManager;
-        public static Manager_Materials materialsManager;
-        public static Manager_UI uiManager;
-        public static Manager_Turns turnsManager;
+      public static float GeneralVolumen = 95.0f;
+  		public static Manager_Input inputManager;
+  		public static Manager_App appManager;
+  		public static Manager_Scene sceneManager;
+      public static Manager_Audio audioManager;
+      public static Manager_GameState gameStateManager;
+      public static Manager_Materials materialsManager;
+      public static Manager_UI uiManager;
+      public static Manager_Turns turnsManager;
+      public static Manager_AIMethodCaller aiMethodCaller;
 	}
 }

@@ -24,7 +24,7 @@ namespace Mangos
     {
         public int[,,] matrix;
         int[,] movesMatrix;
-        GameObject[,] characters;
+        public GameObject[,] characters;
         public int filas;
         public int columnas;
 
@@ -157,9 +157,10 @@ namespace Mangos
 
         public void InsertCharacterAt(GameObject chara, int x, int y)
         {
-            if(x < columnas && y < filas && characters[x, y] == null)
+            if (x < columnas && y < filas && characters[x, y] == null)
             {
                 characters[x, y] = chara;
+                Debug.Log("x:" + x + "      y:" + y);
             }
         }
 

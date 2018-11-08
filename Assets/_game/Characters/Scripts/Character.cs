@@ -53,7 +53,6 @@ namespace Mangos {
         public void Move(Vector3[] path)
         {
             StartCoroutine("Walk", path);
-
             StartWalkAnim();
         }
 
