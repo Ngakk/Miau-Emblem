@@ -81,10 +81,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696d03db9f128a042892d2fae2735b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 2
+  warriorHealthy: {fileID: 21300000, guid: 608990a200e86284c8a6ef70ed77abaa, type: 3}
+  warriorDamaged: {fileID: 21300000, guid: 3ef57a10218000d489da5df5707520d0, type: 3}
+  mageHealthy: {fileID: 21300000, guid: 147e59d387b0db045b48a1722804237f, type: 3}
+  mageDamaged: {fileID: 21300000, guid: 245125bef64a636438067dc35733a976, type: 3}
+  healerHealthy: {fileID: 21300000, guid: 37dbf946d9e890940aa935b00b5ea084, type: 3}
+  healerDamaged: {fileID: 21300000, guid: c140be4d6bb0e6149a6e16d8d3560de6, type: 3}
   cameraChanger: {fileID: 0}
   leftFighter: {fileID: 0}
   rightFighter: {fileID: 0}
-  delay: 2
+  canStartAction: 1
 --- !u!114 &114394260516352588
 MonoBehaviour:
   m_ObjectHideFlags: 1

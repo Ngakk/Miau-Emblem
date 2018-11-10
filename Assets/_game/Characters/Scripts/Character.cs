@@ -4,30 +4,34 @@ using UnityEngine;
 
 namespace Mangos {
     public class Character : MonoBehaviour {
+        [Header("Datos de personaje")]
         public string namae;
         [Tooltip("Equipo al que pertenece")]
         public Team team;
         public Sprite icon;
-
-        public Grid grid;
-        public Main_Algorithm masterMatrix;
-
         public CharacterStats stats;
         public WeaponStats weapon;
-
-        public Animator anim;
-        public GameEvent charaWalkFinish;
-
-        public Fighter fight;
-
+        [Header("Settings de caminado")]
         public float walkSpeed;
         public float walkRotationSpeed;
         public float walkAnimSpeedRatio;
-        public bool canMove;
-        public Vector3Int coordinates;
+        [Header("Referencias necesarias")]
+        public Grid grid;
+        public Main_Algorithm masterMatrix;
+        [Header("Game Events")]
+        public GameEvent charaWalkFinish;
 
+        [HideInInspector]
+        public Animator anim;
+        [HideInInspector]
+        public Fighter fight;
+        [HideInInspector]
         public int hp;
-
+        [HideInInspector]
+        public Vector3Int coordinates;
+        [HideInInspector]
+        public bool canMove;
+        
         void Start() {
             LocateInGrid();
             canMove = true;

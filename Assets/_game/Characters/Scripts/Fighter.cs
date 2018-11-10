@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 namespace Mangos {
     public class Fighter : MonoBehaviour {
+        [HideInInspector]
         public Animator anim;
+        [HideInInspector]
         public Fighter foe;
+        [HideInInspector]
         public Character controller;
 
+        [Header("Cosas para testing (borrar despues)")]
         public KeyCode debug;
         public KeyCode debug2;
         public Character enemy;

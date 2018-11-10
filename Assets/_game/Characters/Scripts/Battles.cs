@@ -29,14 +29,22 @@ namespace Mangos
 
     public class Battles : MonoBehaviour {
 
+        [Header("Settings")]
+        [Tooltip("Tiempo que espera para mostrar los personajes despues de iniciar la transicion a batalla o a juego")]
+        public float delay;
+        [Header("Sprites de cada clase")]
+        public Sprite warriorHealthy;
+        public Sprite warriorDamaged;
+        public Sprite mageHealthy, mageDamaged, healerHealthy, healerDamaged;
+
+        [Header("Referencias necesarias")]
         public CameraChanger cameraChanger;
         public GameObject leftFighter, rightFighter;
-        public float delay;
-        public Sprite warriorHealthy, warriorDamaged, mageHealthy, mageDamaged, healerHealthy, healerDamaged;
 
         private Character fighter1, fighter2;
         private BattleInfo currentBattleInfo;
 
+        [HideInInspector]
         private bool isFight = true;
         public bool canStartAction = true;
 
