@@ -116,7 +116,8 @@ namespace Mangos {
 
         public void OnDead()
         {
-
+            masterMatrix.RemoveCharacterAt(coordinates.x, coordinates.y);
+            Destroy(gameObject);
         }
     }
 }
