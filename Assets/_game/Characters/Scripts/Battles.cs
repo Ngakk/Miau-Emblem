@@ -40,6 +40,7 @@ namespace Mangos
         [Header("Referencias necesarias")]
         public CameraChanger cameraChanger;
         public GameObject leftFighter, rightFighter;
+        public Main_Algorithm mainMatrix;
 
         private Character fighter1, fighter2;
         private BattleInfo currentBattleInfo;
@@ -51,6 +52,7 @@ namespace Mangos
         private void Awake()
         {
             Manager_Static.battles = this;
+            mainMatrix.ResizeMatrix();
         }
 
         public void DukeItOut(Character cat1, Character cat2)
