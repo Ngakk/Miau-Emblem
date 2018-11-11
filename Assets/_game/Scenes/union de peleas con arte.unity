@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.5912065, g: 0.7805266, b: 0.8701448, a: 1}
+  m_IndirectSpecularColor: {r: 0.59120655, g: 0.7805266, b: 0.87014484, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -357,11 +357,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1654552957826406, guid: 6e643b4b9d296ba4fb4fdbe2edfb229b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1665404975239658, guid: 6e643b4b9d296ba4fb4fdbe2edfb229b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114947979065137172, guid: 6e643b4b9d296ba4fb4fdbe2edfb229b,
         type: 2}
@@ -11671,6 +11671,106 @@ Prefab:
       propertyPath: grid
       value: 
       objectReference: {fileID: 1212190722}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: generalData
+      value: 
+      objectReference: {fileID: 1636185593}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: anotherData
+      value: 
+      objectReference: {fileID: 1985577441}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: alieData
+      value: 
+      objectReference: {fileID: 1569303871}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: enemyData
+      value: 
+      objectReference: {fileID: 1371521830}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: characterName
+      value: 
+      objectReference: {fileID: 1465720375}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: characterHP
+      value: 
+      objectReference: {fileID: 265013790}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: characterIcon
+      value: 
+      objectReference: {fileID: 295298870}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: characterATK
+      value: 
+      objectReference: {fileID: 1607525344}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: characterDEF
+      value: 
+      objectReference: {fileID: 668414827}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: characterRES
+      value: 
+      objectReference: {fileID: 1880960495}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: characterSPD
+      value: 
+      objectReference: {fileID: 1183988978}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: aIcon
+      value: 
+      objectReference: {fileID: 2023758839}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: aName
+      value: 
+      objectReference: {fileID: 2113228061}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: aHP
+      value: 
+      objectReference: {fileID: 1668986980}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: aATK
+      value: 
+      objectReference: {fileID: 1902771374}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: eName
+      value: 
+      objectReference: {fileID: 1486486052}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: eHP
+      value: 
+      objectReference: {fileID: 2044351526}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: eATK
+      value: 
+      objectReference: {fileID: 1935593930}
+    - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: eIcon
+      value: 
+      objectReference: {fileID: 1179209315}
+    - target: {fileID: 114075918929971288, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: currentState
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c23ce3f07157ded4dac845e224b23ea7, type: 2}
   m_IsPrefabAsset: 0
