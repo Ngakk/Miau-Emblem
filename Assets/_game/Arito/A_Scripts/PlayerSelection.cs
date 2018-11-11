@@ -61,8 +61,7 @@ namespace Mangos
                         int filas = movMatrix.GetLength(1);
                         int columnas = movMatrix.GetLength(0);
                         for (int y = filas - 1; y >= 0; y--)
-                        /*for(int x = 0; x < movMatrix.GetLength(0); x++)
-                        {
+                        { 
                             for (int x = 0; x < columnas; x++)
                             {
                                 if (movMatrix[x, y] < 10)
@@ -73,8 +72,6 @@ namespace Mangos
                                 else
                                     matrixDisplay += " | ";
                             }
-                        }*/
-
                         }
                         Debug.Log("movMatrix: \n" + matrixDisplay);
 
