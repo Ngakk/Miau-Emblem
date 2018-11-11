@@ -48,8 +48,17 @@ namespace Mangos
                         selectedCharacter = hit.collider.gameObject;
                         selected = true;
                         currentLayerMask = 1;
-                        Debug.Log("Created Movement Matrix with center at " + grid.WorldToCell(selectedCharacter.transform.position).x + ", " + grid.WorldToCell(selectedCharacter.transform.position).y);
                         movMatrix = matrix.ViewMove(grid.WorldToCell(selectedCharacter.transform.localPosition).x, grid.WorldToCell(selectedCharacter.transform.localPosition).y);
+
+                        // TESTING MOVMATRIX
+                        for(int x = 0; x < movMatrix.GetLength(0); x++)
+                        {
+                            for (int y = 0; y < movMatrix.GetLength(1); y++)
+                            {
+                                Debug.Log(" | " + x + ", " + y + ": " + movMatrix[x, y]);
+                            }
+                        }
+
                         Manager_Static.uiManager.getDataCharacter(selectedCharacter.gameObject);
 
                         foreach (Transform child in selectedCharacter.transform)
