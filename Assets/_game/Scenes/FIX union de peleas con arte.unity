@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.59097797, g: 0.7802558, b: 0.8700227, a: 1}
+  m_IndirectSpecularColor: {r: 0.59120655, g: 0.7805266, b: 0.87014484, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -584,11 +584,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1654552957826406, guid: 6e643b4b9d296ba4fb4fdbe2edfb229b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1665404975239658, guid: 6e643b4b9d296ba4fb4fdbe2edfb229b, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114947979065137172, guid: 6e643b4b9d296ba4fb4fdbe2edfb229b,
         type: 2}
@@ -1064,6 +1064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 534669902}
   vel: 5
+  screenPadding: 0
 --- !u!114 &534669907
 MonoBehaviour:
   m_ObjectHideFlags: 0
