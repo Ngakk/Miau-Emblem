@@ -200,13 +200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7f06b5d8d502d4aa67ecfc1b951074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridGO: {fileID: 0}
   grid: {fileID: 0}
+  matrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
   masks:
   - serializedVersion: 2
     m_Bits: 1024
   - serializedVersion: 2
     m_Bits: 512
-  maxMoves: 3
-  movesLeft: 0
-  currentLayerMask: 0
+  maxMoves: 10

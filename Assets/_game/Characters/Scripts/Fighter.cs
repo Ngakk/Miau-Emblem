@@ -188,6 +188,11 @@ namespace Mangos {
             controller.OnDead();
         }
 
+        public void OnParentDeadAnimEnd()
+        {
+            controller.OnDeadAnimEnd();
+        }
+
         public void Heal()
         {
             Debug.Log("Entered Heal");

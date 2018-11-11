@@ -108,21 +108,31 @@ namespace Mangos {
 
         private void StartWalkAnim()
         {
-            anim.SetBool("Walking", true);
+            anim.SetBool("isWalking", true);
             anim.speed = walkSpeed * walkAnimSpeedRatio;
         }
 
         private void EndWalkAnim()
         {
             charaWalkFinish.Raise();
-            anim.SetBool("Walking", false);
+            anim.SetBool("isWalking", false);
         }
 
         public void OnDead()
         {
             masterMatrix.RemoveCharacterAt(coordinates.x, coordinates.y);
             Manager_Static.playerSelectionManager.maxMoves--;
+            anim.SetTrigger("Die");
+        }
+
+        public void OnDeadAnimEnd()
+        {
             Destroy(gameObject);
+        }
+
+        public void OnWin()
+        {
+            anim.SetTrigger("Win");
         }
     }
 }
