@@ -78,15 +78,25 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1462807849971926}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e98bfaa23a2406444b483eae23f1c05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioDad: {fileID: 0}
+  audioDad: {fileID: 1908259508304448, guid: e6fea835dea03784ba2dc25a06775d21, type: 2}
   cam: {fileID: 0}
-  mainMenu: {fileID: 0}
-  clips: []
+  mainMenu: {fileID: 8300000, guid: c8d8996b2eef73f4c829acee2a44490c, type: 3}
+  clips:
+  - {fileID: 8300000, guid: fa23e24fa7cbec14c9a4d6ae77d3d378, type: 3}
+  - {fileID: 8300000, guid: ee392cd302367af4da65af8894cad876, type: 3}
+  - {fileID: 8300000, guid: 78735b7c84b0bcf469d6c67e51390c8e, type: 3}
+  - {fileID: 8300000, guid: babac91c265b77641815b6a3ee41ce23, type: 3}
+  - {fileID: 8300000, guid: d60114037e42d374dba4caf82257a41f, type: 3}
+  - {fileID: 8300000, guid: 7e218f6d44fa5b94c93f4dd8e40558f1, type: 3}
+  - {fileID: 8300000, guid: 290f67d478bc8ca4e8d553187092094a, type: 3}
+  - {fileID: 8300000, guid: 0588f0a2d3ac7ec46bd5dea2a3bb063c, type: 3}
+  - {fileID: 8300000, guid: c43d3cd6e4939a2438bbce68fd73cdcc, type: 3}
+  groupSizes: 0400000001000000010000000100000002000000
 --- !u!114 &114229662735225826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696d03db9f128a042892d2fae2735b14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 2
   warriorHealthy: {fileID: 21300000, guid: 608990a200e86284c8a6ef70ed77abaa, type: 3}
   warriorDamaged: {fileID: 21300000, guid: 3ef57a10218000d489da5df5707520d0, type: 3}
   mageHealthy: {fileID: 21300000, guid: 147e59d387b0db045b48a1722804237f, type: 3}

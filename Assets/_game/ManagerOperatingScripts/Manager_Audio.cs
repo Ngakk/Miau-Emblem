@@ -6,7 +6,11 @@ namespace Mangos
 {
     public enum sounds : int
     {
-        
+        STEP,
+        FIRE,
+        BREAK,
+        HEALING,
+        SWORD
     }
 
 	public class Manager_Audio : MonoBehaviour {
@@ -17,6 +21,8 @@ namespace Mangos
 		public AudioClip mainMenu;
 
         public AudioClip[] clips;
+        public int[] groupSizes;
+        private int[] clipIndex;
 
 		void SetVolumenGeneral(float value)
 		{
@@ -32,9 +38,17 @@ namespace Mangos
 		{
 			if (Manager_Static.appManager.currentState == AppState.MAIN_MENU)
 				PlayMusic (mainMenu);
+            clipIndex = new int[groupSizes.Length];
+            int counter = 0;
+            for(int i = 0; i < groupSizes.Length; i++)
+            {
+                clipIndex[i] = counter;
+                Debug.Log("sound index " + i + " is " + counter);
+                counter += groupSizes[i];
+            }
 		}
 
-		public void PlaySoundAt (Vector3 pos, AudioClip clip)
+        public void PlaySoundAt (Vector3 pos, AudioClip clip)
 		{
 			GameObject sound = Instantiate (audioDad, pos, Quaternion.identity);
 			sound.GetComponent<AudioSource> ().volume = Manager_Static.GeneralVolumen / 100;
@@ -44,10 +58,12 @@ namespace Mangos
 
         public void PlaySoundAt(Vector3 pos, sounds clip)
         {
+            int index = Random.Range(clipIndex[(int)clip], clipIndex[(int)clip] + groupSizes[(int)clip]);
+
             GameObject sound = Instantiate(audioDad, pos, Quaternion.identity);
 			sound.GetComponent<AudioSource> ().volume = Manager_Static.GeneralVolumen / 100;
-            sound.GetComponent<AudioSource>().PlayOneShot(clips[(int)clip]);
-            Destroy(sound, clips[(int)clip].length + 0.1f);
+            sound.GetComponent<AudioSource>().PlayOneShot(clips[index]);
+            Destroy(sound, clips[index].length + 0.1f);
         }
 
         public void PlaySoundGlobal(AudioClip clip)
@@ -60,10 +76,12 @@ namespace Mangos
 
         public void PlaySoundGlobal(sounds clip)
         {
+            int index = Random.Range(clipIndex[(int)clip], clipIndex[(int)clip] + groupSizes[(int)clip]);
+
             GameObject sound = Instantiate(audioDad, cam.transform.position, Quaternion.identity, cam.transform);
 			sound.GetComponent<AudioSource> ().volume = Manager_Static.GeneralVolumen / 100;
-            sound.GetComponent<AudioSource>().PlayOneShot(clips[(int)clip]);
-            Destroy(sound, clips[(int)clip].length + 0.1f);
+            sound.GetComponent<AudioSource>().PlayOneShot(clips[index]);
+            Destroy(sound, clips[index].length + 0.1f);
         }
 
         public void PlayMusic(AudioClip clip)
@@ -87,6 +105,8 @@ namespace Mangos
 
         public void PlayMusic(sounds clip)
         {
+            int index = Random.Range(clipIndex[(int)clip], clipIndex[(int)clip] + groupSizes[(int)clip]);
+
             if (!GameObject.Find("jukebox"))
             {
                 GameObject jukebox = Instantiate(audioDad, cam.transform.position, Quaternion.identity, cam.transform);
