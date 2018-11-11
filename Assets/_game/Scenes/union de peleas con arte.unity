@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6781661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -352,11 +352,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1654552957826406, guid: 6e643b4b9d296ba4fb4fdbe2edfb229b, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1665404975239658, guid: 6e643b4b9d296ba4fb4fdbe2edfb229b, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114947979065137172, guid: 6e643b4b9d296ba4fb4fdbe2edfb229b,
         type: 2}
@@ -375,7 +375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1881641872768770, guid: 6e643b4b9d296ba4fb4fdbe2edfb229b, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1325637919807210, guid: 6e643b4b9d296ba4fb4fdbe2edfb229b, type: 2}
       propertyPath: m_IsActive
@@ -843,7 +843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &526394560
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5881,7 +5881,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &758969253
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5921,7 +5921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &789040976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6040,7 +6040,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &859760962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11282,7 +11282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1626869394
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11346,7 +11346,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 1677504047}
   vel: 5
-  screenPadding: 0
+  screenPadding: 0.5
 --- !u!1 &1735588611
 GameObject:
   m_ObjectHideFlags: 0
@@ -11506,7 +11506,7 @@ Prefab:
         type: 2}
       propertyPath: maxMoves
       value: 10
-      objectReference: {fileID: 1212190722}
+      objectReference: {fileID: 0}
     - target: {fileID: 114706029688684676, guid: c23ce3f07157ded4dac845e224b23ea7,
         type: 2}
       propertyPath: generalData
