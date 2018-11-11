@@ -44,7 +44,7 @@ namespace Mangos {
         private void LocateInGrid()
         {
             coordinates = grid.WorldToCell(transform.position);
-            Debug.Log(coordinates);
+            Debug.Log(namae + " is at " +coordinates);
             masterMatrix.InsertCharacterAt(gameObject, coordinates.x, coordinates.y);
         }
 

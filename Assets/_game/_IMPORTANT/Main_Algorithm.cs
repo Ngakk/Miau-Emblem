@@ -114,10 +114,39 @@ namespace Mangos
 
         public void InsertCharacterAt(GameObject chara, int x, int y)
         {
-            if(x < columnas && y < filas)
+            bool findEmptySpace = false;
+            if(x < columnas && y < filas && x >= 0 && y >= 0)
             {
-                if(characters[x, y] == null)
+                if (characters[x, y] == null)
                     characters[x, y] = chara;
+                else
+                    findEmptySpace = true;
+            }
+            else
+            {
+                findEmptySpace = true;
+            }
+
+            if (findEmptySpace)
+            {
+                bool broke = false;
+                for (int i = 0; i < filas; i++)
+                {
+                    for (int j = 0; j < columnas; j++)
+                    {
+                        if (GetCharacterDataAt(i, j) == null)
+                        {
+                            characters[i, j] = chara;
+                            Character temp = chara.GetComponent<Character>();
+                            chara.transform.position = temp.grid.CellToWorld(new Vector3Int(j, i, 0)) + new Vector3(temp.grid.cellSize.x / 2, 0, temp.grid.cellSize.z / 2);
+                            Debug.Log("Moved " + temp.namae + " from " + x + ", " + y + " to " + i + ", " + j);
+                            broke = true;
+                            break;
+                        }
+                    }
+                    if (broke)
+                        break;
+                }
             }
         }
 

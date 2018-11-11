@@ -969,7 +969,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1338353928570034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.18, y: -0.1, z: 4.63}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.9250113, y: 1.9250113, z: 1.9250113}
   m_Children:
   - {fileID: 4811370294239712}
@@ -1163,9 +1163,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   foe: {fileID: 0}
   controller: {fileID: 0}
-  debug: 0
-  debug2: 0
-  enemy: {fileID: 0}
+  fightButton: 0
+  healButton: 0
+  testSubject: {fileID: 0}
 --- !u!114 &114282902785920828
 MonoBehaviour:
   m_ObjectHideFlags: 1
