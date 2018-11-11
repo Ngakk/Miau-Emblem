@@ -1241,7 +1241,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: 67dbaaa696b695d48b919419b1c6585f, type: 2}
   walkSpeed: 3
   walkRotationSpeed: 4
-  walkAnimSpeedRatio: 0
+  walkAnimSpeedRatio: 1
   grid: {fileID: 0}
   masterMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
   charaWalkFinish: {fileID: 11400000, guid: 4917fe1663eb2dc408e70e0b6b7a544f, type: 2}
