@@ -203,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4741291654426344}
   - component: {fileID: 95740918612814454}
+  - component: {fileID: 114985524818963802}
   m_Layer: 0
   m_Name: GatoCaballero
   m_TagString: Untagged
@@ -1262,7 +1263,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -1275,8 +1276,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 513d5917b08d6e9429424772284be68c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   namae: Sir Purrington
   team: 0
   icon: {fileID: 21300012, guid: 5ba89eaf0bf56f546ba6c1da4b3acd9d, type: 3}
@@ -1368,6 +1369,23 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.01933521, y: 0.22414505, z: 0.14149594}
     m_Extent: {x: 0.3732723, y: 0.6223471, z: 0.35604534}
   m_DirtyAABB: 0
+--- !u!114 &114985524818963802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1382902968485490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a25bcf75d71ab134781c5b4e76b83aaa, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  anim: {fileID: 0}
+  foe: {fileID: 0}
+  controller: {fileID: 0}
+  fightButton: 0
+  healButton: 0
+  testSubject: {fileID: 0}
 --- !u!137 &137983179460833738
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

@@ -47,6 +47,7 @@ namespace Mangos
                         selectedCharacter = hit.collider.gameObject;
                         selected = true;
                         currentLayerMask = 1;
+                        Manager_Static.uiManager.getDataCharacter(selectedCharacter.gameObject);
 
                         foreach (Transform child in selectedCharacter.transform)
                         {
@@ -83,6 +84,7 @@ namespace Mangos
                     }
                 }
             }
+            Manager_Static.uiManager.releaseDataCharacter();
         }
 
         public void MoveCharacter(Vector3 targetPos)
