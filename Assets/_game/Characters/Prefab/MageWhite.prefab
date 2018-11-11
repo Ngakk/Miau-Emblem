@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 4961469825611602}
   - component: {fileID: 95615101737438722}
   - component: {fileID: 114754267852013822}
+  - component: {fileID: 114053343117197674}
   m_Layer: 0
   m_Name: Mago
   m_TagString: Untagged
@@ -1271,6 +1272,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114053343117197674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377147254607140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f70f1636d6e50e419d0e593903a1c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114754267852013822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1285,7 +1297,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   foe: {fileID: 0}
   controller: {fileID: 0}
-  fightButton: 0
+  fightButton: 121
   healButton: 0
   testSubject: {fileID: 0}
 --- !u!114 &114972515749526794
