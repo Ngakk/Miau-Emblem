@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   namae: Tibert
-  team: 0
+  team: 1
   icon: {fileID: 21300012, guid: 5ba89eaf0bf56f546ba6c1da4b3acd9d, type: 3}
   stats: {fileID: 11400000, guid: 709f90b86455f724d911b311882f911b, type: 2}
   weapon: {fileID: 11400000, guid: 59c4ae21adf93b94b80fe600c47c2d8e, type: 2}
