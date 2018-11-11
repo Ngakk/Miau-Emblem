@@ -13,9 +13,9 @@ namespace Mangos {
         public Character controller;
 
         [Header("Cosas para testing (borrar despues)")]
-        public KeyCode debug;
-        public KeyCode debug2;
-        public Character enemy;
+        public KeyCode fightButton;
+        public KeyCode healButton;
+        public Character testSubject;
 
         private FightNotifier fightNotifier;
         private BattleInfo battle;
@@ -30,15 +30,15 @@ namespace Mangos {
 
         private void Update()
         {
-            if (Input.GetKeyDown(debug))
+            if (Input.GetKeyDown(fightButton))
             {
                 Debug.Log("Debug1 button pressed");
-                Manager_Static.battles.DukeItOut(controller, enemy);
+                Manager_Static.battles.DukeItOut(controller, testSubject);
             }
-            if (Input.GetKeyDown(debug2))
+            if (Input.GetKeyDown(healButton))
             {
                 Debug.Log("Debug2 button pressed");
-                Manager_Static.battles.HealItOut(controller, enemy);
+                Manager_Static.battles.HealItOut(controller, entestSubjectemy);
             }
         }
 
