@@ -77,13 +77,13 @@ namespace Mangos
             Character temp = _alie.GetComponent<Character>();
 			aIcon.sprite = temp.icon; 
 			aName.text = temp.namae;
-			aHP.text = temp.hp.ToString();
+			aHP.text = temp.hp.ToString() + "/" + temp.stats.maxHp.ToString();
 			aATK.text = (temp.stats.atk + temp.weapon.mt).ToString();
             //Enemy
             temp = _enemy.GetComponent<Character>();
 			eIcon.sprite = temp.icon; 
 			eName.text = temp.namae;
-			eHP.text = temp.hp.ToString();
+			eHP.text = temp.hp.ToString() + "/" + temp.stats.maxHp.ToString();
 			eATK.text = (temp.stats.atk + temp.weapon.mt).ToString();
 		}
 
