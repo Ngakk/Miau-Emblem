@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Mangos
 {
@@ -28,13 +29,24 @@ namespace Mangos
 
     public class Battles : MonoBehaviour {
 
+        [Header("Settings")]
+        [Tooltip("Tiempo que espera para mostrar los personajes despues de iniciar la transicion a batalla o a juego")]
+        public float delay;
+        [Header("Sprites de cada clase")]
+        public Sprite warriorHealthy;
+        public Sprite warriorDamaged;
+        public Sprite mageHealthy, mageDamaged, healerHealthy, healerDamaged;
+
+        [Header("Referencias necesarias")]
         public CameraChanger cameraChanger;
         public GameObject leftFighter, rightFighter;
-        public float delay;
 
         private Character fighter1, fighter2;
         private BattleInfo currentBattleInfo;
 
+        [HideInInspector]
+        private bool isFight = true;
+        public bool canStartAction = true;
 
         private void Awake()
         {
@@ -43,11 +55,27 @@ namespace Mangos
 
         public void DukeItOut(Character cat1, Character cat2)
         {
+            if (!canStartAction)
+                return;
+            isFight = true;
+            canStartAction = false;
             currentBattleInfo = GetBattleInfo(cat1, cat2);
+            SetUpFighters(cat1, cat2);
+            //Start animation
+            Invoke("ShowFighters", delay);
+            cameraChanger.ChangeToBattleScene();
+            //End animation
+
+        }
+
+        private void SetUpFighters(Character cat1, Character cat2)
+        {
             cat1.fight.controller = cat1;
             cat2.fight.controller = cat2;
             cat1.fight.PrepareForFight(leftFighter);
             cat2.fight.PrepareForFight(rightFighter);
+            cat1.fight.foe = cat2.fight;
+            cat2.fight.foe = cat1.fight;
 
             fighter1 = cat1;
             fighter2 = cat2;
@@ -75,14 +103,17 @@ namespace Mangos
 
         public void OnTransitionToBattleEnd()
         {
-            fighter1.fight.ContinueFight(currentBattleInfo, fighter2.fight, 0, true);
-            fighter1 = null;
-            fighter2 = null;
+            if (isFight)
+                fighter1.fight.ContinueFight(currentBattleInfo, 0, true);
+            else
+                fighter1.fight.Heal();
         }
 
         public void OnTransitionToTopDownEnd()
         {
-
+            canStartAction = true;
+            fighter1 = null;
+            fighter2 = null;
         }
 
         public void OnFightEnd()
@@ -187,6 +218,8 @@ namespace Mangos
                 {
                     result = 0;
                 }
+                if (hitRng < cats[attacks[i] == 1 ? 0 : 1].stats.evs)
+                    result = 0;
                 hits.Add(result);
 
             }
@@ -195,8 +228,29 @@ namespace Mangos
 
         public void HealItOut(Character healer, Character healed)
         {
-            healer.fight.foe = healed.fight;
-            healer.fight.Heal();
+            if (!canStartAction)
+                return;
+            isFight = false;
+            canStartAction = false;
+            SetUpFighters(healer, healed);
+            Invoke("ShowFighters", delay);
+            cameraChanger.ChangeToBattleScene();
+        }
+
+        public Sprite GiveMeMyFuckingSprite(Character cat)
+        {
+            switch (cat.stats.charClass)
+            {
+                case CharacterClass.WARRIOR:
+                    return (cat.hp / cat.stats.maxHp > 0.3f) ? warriorHealthy : warriorDamaged;
+                case CharacterClass.MAGE:
+                    return (cat.hp / cat.stats.maxHp > 0.3f) ? mageHealthy : mageDamaged;
+                case CharacterClass.HEALER:
+                    return (cat.hp / cat.stats.maxHp > 0.3f) ? healerHealthy : healerDamaged;
+                default:
+                    break;
+            }
+            return warriorHealthy;
         }
     }
 }

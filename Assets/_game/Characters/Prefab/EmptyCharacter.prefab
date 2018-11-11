@@ -81,9 +81,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a25bcf75d71ab134781c5b4e76b83aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   foe: {fileID: 0}
   controller: {fileID: 0}
   debug: 0
+  debug2: 0
   enemy: {fileID: 0}
 --- !u!114 &114711292717813254
 MonoBehaviour:
@@ -96,15 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513d5917b08d6e9429424772284be68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 0}
-  masterMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
+  namae: 
+  team: 0
+  icon: {fileID: 0}
   stats: {fileID: 0}
   weapon: {fileID: 0}
-  anim: {fileID: 0}
-  charaWalkFinish: {fileID: 11400000, guid: 4917fe1663eb2dc408e70e0b6b7a544f, type: 2}
-  fight: {fileID: 0}
   walkSpeed: 3
   walkRotationSpeed: 4
-  walkAnimSpeedRatio: 0
-  canMove: 1
+  walkAnimSpeedRatio: 1
+  grid: {fileID: 0}
+  masterMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
+  charaWalkFinish: {fileID: 11400000, guid: 4917fe1663eb2dc408e70e0b6b7a544f, type: 2}
+  anim: {fileID: 0}
+  fight: {fileID: 0}
+  hp: 0
   coordinates: {x: 0, y: 0, z: 0}
+  canMove: 1

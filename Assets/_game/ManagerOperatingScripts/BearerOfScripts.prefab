@@ -57,8 +57,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 891112775f0e20747a933ecd6a7f342d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   currentState: 0
 --- !u!114 &114204597415387766
 MonoBehaviour:
@@ -69,8 +69,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f2d9c98f9d61b945ac2c14675a2d84a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
 --- !u!114 &114327720509892944
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,10 +80,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b36ae601fba15454c822ba368fc78dd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   currentGameState: 0
 --- !u!114 &114382266969242802
+  delay: 2
+  warriorHealthy: {fileID: 21300000, guid: 608990a200e86284c8a6ef70ed77abaa, type: 3}
+  warriorDamaged: {fileID: 21300000, guid: 3ef57a10218000d489da5df5707520d0, type: 3}
+  mageHealthy: {fileID: 21300000, guid: 147e59d387b0db045b48a1722804237f, type: 3}
+  mageDamaged: {fileID: 21300000, guid: 245125bef64a636438067dc35733a976, type: 3}
+  healerHealthy: {fileID: 21300000, guid: 37dbf946d9e890940aa935b00b5ea084, type: 3}
+  healerDamaged: {fileID: 21300000, guid: c140be4d6bb0e6149a6e16d8d3560de6, type: 3}
+  cameraChanger: {fileID: 0}
+  leftFighter: {fileID: 0}
+  rightFighter: {fileID: 0}
+  canStartAction: 1
+--- !u!114 &114394260516352588
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,8 +104,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 696d03db9f128a042892d2fae2735b14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   cameraChanger: {fileID: 0}
   leftFighter: {fileID: 0}
   rightFighter: {fileID: 0}
@@ -107,8 +119,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 518276093cd930d4c970823b7baa2b33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   currentScene: 0
 --- !u!114 &114669916672837878
 MonoBehaviour:
@@ -119,8 +131,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc94a2075134e2f4c92238ab8e6fc188, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   generalData: {fileID: 0}
   anotherData: {fileID: 0}
   alieData: {fileID: 0}
@@ -149,8 +161,8 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e98bfaa23a2406444b483eae23f1c05d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   audioDad: {fileID: 0}
   cam: {fileID: 0}
   mainMenu: {fileID: 0}
@@ -164,8 +176,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73ec29c308e48a74fa75b3d2632c7870, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   mats:
   - {fileID: 2100000, guid: 9b5c6f4771548c24c92630430dadc692, type: 2}
   - {fileID: 2100000, guid: b9885bbe6f5ea28429969a4e5d8c7cea, type: 2}
@@ -180,8 +192,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df7f06b5d8d502d4aa67ecfc1b951074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   grid: {fileID: 0}
   masks:
   - serializedVersion: 2

@@ -86,6 +86,47 @@ AnimationClip:
     path: Canvas/SlatishySlashSlash
     classID: 114
     script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.04
+      value: {fileID: 21300002, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.08
+      value: {fileID: 21300004, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.12
+      value: {fileID: 21300006, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.16
+      value: {fileID: 21300008, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.19999999
+      value: {fileID: 21300016, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.23999998
+      value: {fileID: 21300014, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.28
+      value: {fileID: 21300012, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.32
+      value: {fileID: 21300010, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.36
+      value: {fileID: 21300000, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.4
+      value: {fileID: 21300002, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.44
+      value: {fileID: 21300004, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.48000002
+      value: {fileID: 21300006, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.52
+      value: {fileID: 21300008, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.56
+      value: {fileID: 21300016, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.6
+      value: {fileID: 21300014, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.64
+      value: {fileID: 21300012, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - time: 0.68
+      value: {fileID: 21300010, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 114
+    script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_SampleRate: 25
   m_WrapMode: 0
   m_Bounds:
@@ -107,7 +148,32 @@ AnimationClip:
       typeID: 114
       customType: 0
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 0
+      attribute: 2015549526
+      script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+      typeID: 114
+      customType: 0
+      isPPtrCurve: 1
     pptrCurveMapping:
+    - {fileID: 21300000, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300002, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300004, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300006, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300008, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300016, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300014, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300012, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300010, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300000, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300002, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300004, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300006, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300008, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300016, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300014, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300012, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
+    - {fileID: 21300010, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
     - {fileID: 21300000, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
     - {fileID: 21300002, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}
     - {fileID: 21300004, guid: f93b0facb1c43f142854cbd75bbf01d8, type: 3}

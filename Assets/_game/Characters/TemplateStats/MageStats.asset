@@ -10,11 +10,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e2d7a306fb50a24aab100804dbce496, type: 3}
   m_Name: MageStats
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   charClass: 3
   damageType: 1
   maxHp: 37
-  hp: 37
   atk: 39
   def: 16
   spd: 37
