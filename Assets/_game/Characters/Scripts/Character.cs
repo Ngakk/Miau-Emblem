@@ -37,6 +37,7 @@ namespace Mangos {
             canMove = true;
             hp = stats.maxHp;
             fight = GetComponentInChildren<Fighter>();
+            anim = gameObject.transform.GetChild(0).gameObject.GetComponent<Animator>();
             if (fight)
                 fight.controller = this;
         }

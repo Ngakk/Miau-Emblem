@@ -90,11 +90,6 @@ namespace Mangos
                     int matLength = child.GetComponent<SkinnedMeshRenderer>().materials.Length - 1;
                     Debug.Log("mat: " + child.GetComponent<SkinnedMeshRenderer>().materials[matLength]);
                     child.gameObject.GetComponent<SkinnedMeshRenderer>().materials[matLength] = Manager_Static.materialsManager.GetMaterial(CharacterMats.DEFAULT);
-                    movesLeft--;
-                    if (movesLeft <= 0)
-                    {
-                        Manager_Static.turnsManager.ToggleTurn();
-                    }
                 }
             }
             Vector3Int targetPosGrid = grid.WorldToCell(targetPos);
@@ -102,6 +97,12 @@ namespace Mangos
             Vector3 finalPos = new Vector3(centerCell.x, centerCell.y, centerCell.z);
             Vector3[] movementArray = { finalPos };
             selectedCharacter.GetComponent<Character>().Move(movementArray);
+            Deselect();
+            movesLeft--;
+            if (movesLeft <= 0)
+            {
+                Manager_Static.turnsManager.ToggleTurn();
+            }
         }
 
         private void Deselect()
