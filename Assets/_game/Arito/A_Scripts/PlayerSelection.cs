@@ -18,6 +18,7 @@ namespace Mangos
         private GameObject firstChild;
         private int movesLeft;
         private int currentLayerMask = 0;
+        private int[,] movMatrix;
 
         private void Awake()
         {
@@ -47,6 +48,8 @@ namespace Mangos
                         selectedCharacter = hit.collider.gameObject;
                         selected = true;
                         currentLayerMask = 1;
+                        Debug.Log("Created Movement Matrix with center at " + grid.WorldToCell(selectedCharacter.transform.position).x + ", " + grid.WorldToCell(selectedCharacter.transform.position).y);
+                        movMatrix = matrix.ViewMove(grid.WorldToCell(selectedCharacter.transform.localPosition).x, grid.WorldToCell(selectedCharacter.transform.localPosition).y);
                         Manager_Static.uiManager.getDataCharacter(selectedCharacter.gameObject);
 
                         foreach (Transform child in selectedCharacter.transform)
@@ -69,12 +72,22 @@ namespace Mangos
                             Debug.Log("found " + targetChara);
                             if (targetChara.CompareTag("Enemy"))
                             {
-                                Debug.Log("Fight with " + targetChara);
+                                Debug.Log("Value at " + grid.WorldToCell(hit.point).x + ", " + grid.WorldToCell(hit.point).y + " = " + movMatrix[grid.WorldToCell(hit.point).x, grid.WorldToCell(hit.point).y]);
+                                if (movMatrix[grid.WorldToCell(hit.point).x, grid.WorldToCell(hit.point).y] <= selectedCharacter.GetComponent<Character>().stats.attackRanges[0])
+                                {
+                                    Debug.Log("Fight with " + targetChara);
+                                }
+                                else
+                                {
+                                    Debug.Log("Out of Range");
+                                }
                             }
                         }
                         else
                         {
-                            MoveCharacter(hit.point);
+                            Debug.Log("Value at " + grid.WorldToCell(hit.point).x + ", " + grid.WorldToCell(hit.point).y + " = " + movMatrix[grid.WorldToCell(hit.point).x, grid.WorldToCell(hit.point).y]);
+                            if (movMatrix[grid.WorldToCell(hit.point).x, grid.WorldToCell(hit.point).y] <= selectedCharacter.GetComponent<Character>().stats.walkRange)
+                                MoveCharacter(hit.point);
                         }
                         Deselect();
                     }
