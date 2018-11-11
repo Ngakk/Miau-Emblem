@@ -6,25 +6,66 @@ public class CameraControls : MonoBehaviour {
 
     public GameObject camera;
     public float vel;
-    private float screenPadding = 25.0f;
-	
-	// Update is called once per frame
-	private void Update () {
-	    if (Input.mousePosition.x >= Screen.width - screenPadding)
+    public float screenPadding;
+    private Vector2 mousePos;
+
+    private void Update()
+    {
+        mousePos = Input.mousePosition;
+        if (mousePos.x >= Screen.width - screenPadding)
+            CamMovement("left");
+        else if (mousePos.x <= screenPadding)
+            CamMovement("right");
+        if (mousePos.y >= Screen.height - screenPadding)
+            CamMovement("up");
+        else if (mousePos.y <= screenPadding)
+            CamMovement("down");
+    }
+
+    // Direction of Movement
+    public void CamMovement(string _dir)
+    {
+        switch (_dir)
         {
-            camera.transform.Translate(Vector3.right * vel * Time.deltaTime, Space.World);
+            default:
+                break;
+
+            case "up":
+                camera.transform.Translate(Vector3.forward * vel * Time.deltaTime, Space.World);
+                break;
+
+            case "down":
+                camera.transform.Translate(Vector3.back * vel * Time.deltaTime, Space.World);
+                break;
+
+            case "left":
+                camera.transform.Translate(Vector3.right * vel * Time.deltaTime, Space.World);
+                break;
+
+            case "right":
+                camera.transform.Translate(Vector3.left * vel * Time.deltaTime, Space.World);
+                break;
+
+            case "topRight":
+                camera.transform.Translate(Vector3.forward * vel * Time.deltaTime, Space.World);
+                camera.transform.Translate(Vector3.right * vel * Time.deltaTime, Space.World);
+                break;
+
+            case "topLeft":
+                camera.transform.Translate(Vector3.forward * vel * Time.deltaTime, Space.World);
+                camera.transform.Translate(Vector3.left * vel * Time.deltaTime, Space.World);
+                break;
+
+            case "bottomRight":
+                camera.transform.Translate(Vector3.back * vel * Time.deltaTime, Space.World);
+                camera.transform.Translate(Vector3.right * vel * Time.deltaTime, Space.World);
+                break;
+
+            case "bottomLeft":
+                camera.transform.Translate(Vector3.back * vel * Time.deltaTime, Space.World);
+                camera.transform.Translate(Vector3.left * vel * Time.deltaTime, Space.World);
+                break;
         }
-        else if (Input.mousePosition.x <= screenPadding)
-        {
-            camera.transform.Translate(Vector3.left * vel * Time.deltaTime, Space.World);
-        }
-        if (Input.mousePosition.y >= Screen.height - screenPadding)
-        {
-            camera.transform.Translate(Vector3.forward * vel * Time.deltaTime, Space.World);
-        }
-        else if (Input.mousePosition.y <= screenPadding)
-        {
-            camera.transform.Translate(Vector3.back * vel * Time.deltaTime, Space.World);
-        }
-	}
+        
+    }
 }
