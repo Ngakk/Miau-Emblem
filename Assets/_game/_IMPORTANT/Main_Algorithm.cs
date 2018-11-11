@@ -138,7 +138,8 @@ namespace Mangos
                         {
                             characters[i, j] = chara;
                             Character temp = chara.GetComponent<Character>();
-                            chara.transform.position = temp.grid.CellToWorld(new Vector3Int(j, i, 0)) + new Vector3(temp.grid.cellSize.x / 2, 0, temp.grid.cellSize.z / 2);
+                            chara.transform.position = temp.grid.CellToWorld(new Vector3Int(i, j, 0)) + new Vector3(temp.grid.cellSize.x / 2, 0, temp.grid.cellSize.z / 2);
+                            temp.coordinates = new Vector3Int(i, j, 0);
                             Debug.Log("Moved " + temp.namae + " from " + x + ", " + y + " to " + i + ", " + j);
                             broke = true;
                             break;
