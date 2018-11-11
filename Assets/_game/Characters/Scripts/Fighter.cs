@@ -13,9 +13,9 @@ namespace Mangos {
         public Character controller;
 
         [Header("Cosas para testing (borrar despues)")]
-        public KeyCode debug;
-        public KeyCode debug2;
-        public Character enemy;
+        public KeyCode fightButton;
+        public KeyCode healButton;
+        public Character testSubject;
 
         private FightNotifier fightNotifier;
         private BattleInfo battle;
