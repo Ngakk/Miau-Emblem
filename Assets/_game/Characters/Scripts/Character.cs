@@ -62,8 +62,9 @@ namespace Mangos {
         //Public stuff
         public void Move(Vector3[] path)
         {
-            StartCoroutine("Walk", path);
+            Debug.Log("Character.Move() start");
             StartWalkAnim();
+            StartCoroutine("Walk", path);
         }
 
 
@@ -108,14 +109,15 @@ namespace Mangos {
 
         private void StartWalkAnim()
         {
-            anim.SetBool("isWalking", true);
             anim.speed = walkSpeed * walkAnimSpeedRatio;
+            anim.SetBool("IsWalking", true);
+            
         }
 
         private void EndWalkAnim()
         {
             charaWalkFinish.Raise();
-            anim.SetBool("isWalking", false);
+            anim.SetBool("IsWalking", false);
         }
 
         public void OnDead()
