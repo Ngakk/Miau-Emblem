@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 891112775f0e20747a933ecd6a7f342d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentState: 0
+  currentState: 1
 --- !u!114 &114132541154914002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,7 +102,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 9b5c6f4771548c24c92630430dadc692, type: 2}
   - {fileID: 2100000, guid: b9885bbe6f5ea28429969a4e5d8c7cea, type: 2}
   - {fileID: 2100000, guid: ffb5b27aaa10a4447a2afca0e27c71d1, type: 2}
-  defaultMat: {fileID: 2100000, guid: ffb5b27aaa10a4447a2afca0e27c71d1, type: 2}
+  defaultMat: {fileID: 2100000, guid: b70f9e01fe69e7540bf02fbd6f05a28c, type: 2}
 --- !u!114 &114302246328664254
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,6 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7f06b5d8d502d4aa67ecfc1b951074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gridGO: {fileID: 0}
   grid: {fileID: 0}
   masks:
   - serializedVersion: 2
