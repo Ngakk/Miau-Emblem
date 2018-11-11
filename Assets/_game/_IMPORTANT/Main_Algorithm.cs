@@ -72,6 +72,19 @@ namespace Mangos
             return movesMatrix;
         }
 
+        public int[,] ViewMove(int _xOrigen, int _yOrigen)
+        {
+            FloodFill(_xOrigen, _yOrigen, filas, columnas, 0);
+            for (int i = 0; i < filas; i++)
+            {
+                for (int j = 0; j < columnas; j++)
+                {
+                    movesMatrix[i, j] = matrix[i, j, 1];
+                }
+            }
+            return movesMatrix;
+        }
+
         public void ViewMap()
         {
             for (int i = 0; i < filas; i++)
