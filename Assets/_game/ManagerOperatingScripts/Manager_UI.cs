@@ -43,8 +43,6 @@ namespace Mangos
 
 		public void getDataCharacter(GameObject _character)
 		{
-			generalData.SetActive(true);
-			anotherData.SetActive(true);
             Character temp = _character.GetComponent<Character>();
 			characterName.text = temp.namae;
 			characterHP.text = temp.hp.ToString() + "/" + temp.stats.maxHp.ToString();
@@ -58,8 +56,6 @@ namespace Mangos
 
 		public void releaseDataCharacter()
 		{
-			generalData.SetActive(false);
-			anotherData.SetActive(false);
 			characterName.text = "";
 			characterHP.text =  "";
 			characterIcon.sprite = null;
@@ -71,8 +67,6 @@ namespace Mangos
 
 		public void getDataCombat(GameObject _alie, GameObject _enemy)
 		{
-			alieData.SetActive(true);
-			enemyData.SetActive(true);
 			//Alie
             Character temp = _alie.GetComponent<Character>();
 			aIcon.sprite = temp.icon; 
@@ -89,8 +83,6 @@ namespace Mangos
 
 		public void releaseDataCombat()
 		{
-			alieData.SetActive(false);
-			enemyData.SetActive(false);
 			//Alie
 			aIcon.sprite = null; 
 			aName.text = "";

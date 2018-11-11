@@ -48,16 +48,35 @@ namespace Mangos
                         selectedCharacter = hit.collider.gameObject;
                         selected = true;
                         currentLayerMask = 1;
-                        movMatrix = matrix.ViewMove(grid.WorldToCell(selectedCharacter.transform.localPosition).x, grid.WorldToCell(selectedCharacter.transform.localPosition).y);
+                        //movMatrix = matrix.ViewMove(grid.WorldToCell(selectedCharacter.transform.localPosition).x, grid.WorldToCell(selectedCharacter.transform.localPosition).y);
+                        Vector3Int selectedPos = selectedCharacter.GetComponent<Character>().coordinates;
+                        Debug.Log("Selected coordinates: " + selectedPos);
+                        movMatrix = matrix.ViewMove(selectedPos.x, selectedPos.y);
+                        Debug.Log("MoveMatrix dimensions: " + movMatrix.GetLength(0) + ", " + movMatrix.GetLength(1));
+
+                        Debug.Log("Testing \n end of line");
 
                         // TESTING MOVMATRIX
+                        string matrixDisplay = "";
+                        int filas = movMatrix.GetLength(1);
+                        int columnas = movMatrix.GetLength(0);
+                        for (int y = filas - 1; y >= 0; y--)
                         /*for(int x = 0; x < movMatrix.GetLength(0); x++)
                         {
-                            for (int y = 0; y < movMatrix.GetLength(1); y++)
+                            for (int x = 0; x < columnas; x++)
                             {
-                                Debug.Log(" | " + x + ", " + y + ": " + movMatrix[x, y]);
+                                if (movMatrix[x, y] < 10)
+                                    matrixDisplay += "0";
+                                matrixDisplay += movMatrix[x, y] == (columnas*filas) ? "no" : movMatrix[x, y].ToString();
+                                if (x == columnas - 1)
+                                    matrixDisplay += "\n";
+                                else
+                                    matrixDisplay += " | ";
                             }
                         }*/
+
+                        }
+                        Debug.Log("movMatrix: \n" + matrixDisplay);
 
                         Manager_Static.uiManager.getDataCharacter(selectedCharacter.gameObject);
 

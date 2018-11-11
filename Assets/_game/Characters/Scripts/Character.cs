@@ -62,8 +62,9 @@ namespace Mangos {
         //Public stuff
         public void Move(Vector3[] path)
         {
-            StartCoroutine("Walk", path);
+            Debug.Log("Character.Move() start");
             StartWalkAnim();
+            StartCoroutine("Walk", path);
         }
 
 
@@ -108,21 +109,38 @@ namespace Mangos {
 
         private void StartWalkAnim()
         {
-            anim.SetBool("Walking", true);
             anim.speed = walkSpeed * walkAnimSpeedRatio;
+            anim.SetBool("IsWalking", true);
+            
         }
 
         private void EndWalkAnim()
         {
             charaWalkFinish.Raise();
-            anim.SetBool("Walking", false);
+            anim.SetBool("IsWalking", false);
         }
 
         public void OnDead()
         {
+            GetComponent<BoxCollider>().enabled = false;
             masterMatrix.RemoveCharacterAt(coordinates.x, coordinates.y);
             Manager_Static.playerSelectionManager.maxMoves--;
+            Invoke("PlayDeadAnimation", Manager_Static.battles.delay);
+        }
+
+        private void PlayDeadAnimation()
+        {
+            anim.SetTrigger("Die");
+        }
+
+        public void OnDeadAnimEnd()
+        {
             Destroy(gameObject);
+        }
+
+        public void OnWin()
+        {
+            anim.SetTrigger("Win");
         }
     }
 }

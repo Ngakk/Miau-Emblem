@@ -31,6 +31,8 @@ namespace Mangos
         public int x_Origen;
         public int y_Origen;
 
+        private Vector2Int[] directions = { Vector2Int.up, Vector2Int.right, Vector2Int.down, Vector2Int.left };
+
         public void ResizeMatrix()
         {
             if (filas < 0 || columnas < 0)
@@ -52,7 +54,7 @@ namespace Mangos
                     for (int j = 0; j < columnas; j++)
                     {
                         matrix[i, j, 0] = 0;
-                        matrix[i, j, 1] = filas * columnas;
+                        matrix[i, j, 1] = filas*columnas;
                     }
                 }
                 Debug.Log("Matrix resized");
@@ -61,7 +63,7 @@ namespace Mangos
 
         public int[,] MakeMap()
         {
-            FloodFill(x_Origen, y_Origen, filas, columnas, 0);
+            FourWayFloodFill(x_Origen, y_Origen, characters[x_Origen, y_Origen].GetComponent<Character>().team);
             for (int i = 0; i < filas; i++)
             {
                 for (int j = 0; j < columnas; j++)
@@ -74,7 +76,8 @@ namespace Mangos
 
         public int[,] ViewMove(int _xOrigen, int _yOrigen)
         {
-            FloodFill(_xOrigen, _yOrigen, filas, columnas, 0);
+            Debug.Log("ViewMove at (" + _xOrigen + ", " + _yOrigen + "), row: " + filas + ", col: " +columnas);
+            FourWayFloodFill(_xOrigen, _yOrigen, characters[_xOrigen, _yOrigen].GetComponent<Character>().team);
             for (int i = 0; i < filas; i++)
             {
                 for (int j = 0; j < columnas; j++)
@@ -96,22 +99,46 @@ namespace Mangos
             }
         }
 
-        public void FloodFill(int _x, int _y, int _filas, int _columnas, int _round)
+        public void FourWayFloodFill(int _xOrigen, int _yOrigen, Team _team)
         {
+            for(int i = 0; i < directions.Length; i++)
+                FloodFill(_xOrigen, _yOrigen, filas, columnas, 0, i, _team);
+        }
+
+        public void FloodFill(int _x, int _y, int _filas, int _columnas, int _round, int _dir, Team _team)
+        {
+            bool canPassThrough = true;
+
+            if (_round > filas * columnas)
+                return;
             if (_x >= filas || _y >= _columnas)
                 return;
             if (_x < 0 || _y < 0)
                 return;
             if (_round > _filas + _columnas)
                 return;
-            if (matrix[_x, _y, 1] > _round)
-            {
+            if(characters[_x, _y] != null)
+                if(characters[_x, _y].GetComponent<Character>().team != _team)
+                    canPassThrough = false;
+
+            if (matrix[_x, _y, 1] > _round && canPassThrough)
                 matrix[_x, _y, 1] = _round;
+            else if (!canPassThrough)
+            {
+                matrix[_x, _y, 1] = filas * columnas;
+                return;
             }
-            FloodFill(_x + 1, _y, _filas, _columnas, _round + 1);
-            FloodFill(_x, _y + 1, _filas, _columnas, _round + 1);
-            FloodFill(_x - 1, _y, _filas, _columnas, _round + 1);
-            FloodFill(_x, _y - 1, _filas, _columnas, _round + 1);
+            else
+            {
+                return;
+            }
+
+            int oppositeDir = (_dir + 2) % 4;
+            for(int i = 0; i < directions.Length; i++)
+            {
+                if(i != oppositeDir)
+                    FloodFill(_x + directions[i].x, _y + directions[i].y, _filas, _columnas, _round + 1, i, _team);
+            }
         }
 
         public GameObject GetCharacterDataAt(int x, int y)

@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 4840275827611328}
   - component: {fileID: 95196652453086828}
   - component: {fileID: 114116468906137918}
+  - component: {fileID: 114204264743509906}
   m_Layer: 0
   m_Name: Healer
   m_TagString: Untagged
@@ -622,7 +623,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1414185340000228}
-  m_LocalRotation: {x: 0.010088051, y: -0.099148974, z: -0.008021925, w: 0.99498916}
+  m_LocalRotation: {x: 0.01008805, y: -0.099148974, z: -0.008021924, w: 0.99498916}
   m_LocalPosition: {x: 0.0030956205, y: 0.21068116, z: 0.000008911065}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -638,7 +639,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1737127804887934}
-  m_LocalRotation: {x: -0.0020858378, y: -0.03844869, z: -0.27212948, w: 0.96149}
+  m_LocalRotation: {x: -0.0020858375, y: -0.038448688, z: -0.27212945, w: 0.9614899}
   m_LocalPosition: {x: 0.047139525, y: 0.042630438, z: -0.00042040384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -747,7 +748,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1618995435658122}
-  m_LocalRotation: {x: 0.46930814, y: -0.024227055, z: 0.07240758, w: 0.8797273}
+  m_LocalRotation: {x: 0.4693081, y: -0.024227053, z: 0.07240757, w: 0.87972724}
   m_LocalPosition: {x: -1.1965999e-11, y: 0.07428077, z: -2.5523902e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -944,7 +945,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1843951938913474}
-  m_LocalRotation: {x: 0.08351221, y: 0.017337272, z: 0.0044028712, w: 0.99634624}
+  m_LocalRotation: {x: 0.0835122, y: 0.01733727, z: 0.004402871, w: 0.99634624}
   m_LocalPosition: {x: -0, y: 0.04713375, z: 0.0020254718}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1030,7 +1031,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1290953917494148}
-  m_LocalRotation: {x: -0.044251155, y: 0.99688137, z: -0.0639821, w: 0.013252905}
+  m_LocalRotation: {x: -0.04425116, y: 0.99688137, z: -0.06398211, w: 0.013252905}
   m_LocalPosition: {x: 5.2203075e-11, y: 0.00398774, z: -1.00189065e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1058,7 +1059,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1388007522185170}
-  m_LocalRotation: {x: 0.065490834, y: -0.016196543, z: -0.124601185, w: 0.9899107}
+  m_LocalRotation: {x: 0.06549083, y: -0.016196541, z: -0.12460118, w: 0.98991066}
   m_LocalPosition: {x: 0.0012524134, y: 0.0056913965, z: -0.0008398618}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1209,6 +1210,17 @@ MonoBehaviour:
   fightButton: 0
   healButton: 0
   testSubject: {fileID: 0}
+--- !u!114 &114204264743509906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1109482903690456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f70f1636d6e50e419d0e593903a1c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114682216477959728
 MonoBehaviour:
   m_ObjectHideFlags: 1
