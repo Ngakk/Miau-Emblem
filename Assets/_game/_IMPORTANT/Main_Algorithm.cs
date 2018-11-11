@@ -168,25 +168,5 @@ namespace Mangos
         {
             characters[x, y] = null;
         }
-
-        public void flood_Fill(int _x, int _y, int _filas, int _columnas, int _round)
-      	{
-      		if (_x >= filas || _y >= _columnas)
-      			return;
-      		if (_x < 0 || _y < 0)
-      			return;
-      		if(_round > _filas + _columnas)
-      			return;
-      		if(matrix[_x,_y,1] < 0)
-      			return;
-      		if(matrix[_x,_y,0] > _round)
-      		{
-      			matrix[_x,_y,0] = _round;
-      		}
-      		flood_Fill(_x + 1, _y, _filas, _columnas, _round + 1);
-      		flood_Fill(_x, _y + 1, _filas, _columnas, _round + 1);
-      		flood_Fill(_x - 1, _y, _filas, _columnas, _round + 1);
-      		flood_Fill(_x, _y - 1, _filas, _columnas, _round + 1);
-      	}
     }
 }
