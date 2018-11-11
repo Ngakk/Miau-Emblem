@@ -38,7 +38,7 @@ namespace Mangos {
             if (Input.GetKeyDown(healButton))
             {
                 Debug.Log("Debug2 button pressed");
-                Manager_Static.battles.HealItOut(controller, entestSubjectemy);
+                Manager_Static.battles.HealItOut(controller, testSubject);
             }
         }
 
