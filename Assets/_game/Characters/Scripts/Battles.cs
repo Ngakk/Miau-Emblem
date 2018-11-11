@@ -60,7 +60,7 @@ namespace Mangos
             if (!canStartAction)
                 return;
             cat1.transform.LookAt(cat2.transform.position);
-            cat2.transform.LookAt(cat2.transform.position);
+            cat2.transform.LookAt(cat1.transform.position);
             isFight = true;
             canStartAction = false;
             currentBattleInfo = GetBattleInfo(cat1, cat2);

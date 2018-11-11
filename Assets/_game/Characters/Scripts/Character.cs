@@ -122,8 +122,14 @@ namespace Mangos {
 
         public void OnDead()
         {
+            GetComponent<BoxCollider>().enabled = false;
             masterMatrix.RemoveCharacterAt(coordinates.x, coordinates.y);
             Manager_Static.playerSelectionManager.maxMoves--;
+            Invoke("PlayDeadAnimation", Manager_Static.battles.delay);
+        }
+
+        private void PlayDeadAnimation()
+        {
             anim.SetTrigger("Die");
         }
 
