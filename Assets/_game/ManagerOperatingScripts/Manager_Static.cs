@@ -29,7 +29,8 @@ namespace Mangos
     {
         PLAYER,
         ENEMY,
-        DEFAULT
+        DEFAULT,
+        SELECTED
     }
 
     //ESTE SE ENCARGARA DE MANTENER A LOS DEMAS MANAGER COMUNICADOS ENTRE ELLOS
