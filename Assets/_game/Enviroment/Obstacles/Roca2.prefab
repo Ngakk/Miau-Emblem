@@ -9,73 +9,74 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1324454727969036}
+  m_RootGameObject: {fileID: 1612130195324070}
   m_IsPrefabAsset: 1
---- !u!1 &1324454727969036
+--- !u!1 &1369767843371438
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4872098406662018}
+  - component: {fileID: 4899970231249086}
+  - component: {fileID: 33515076635981216}
+  - component: {fileID: 23966848719513048}
   m_Layer: 0
-  m_Name: Roca1
+  m_Name: Roca2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1446733726179684
+--- !u!1 &1612130195324070
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4765358102647946}
-  - component: {fileID: 33920285532974922}
-  - component: {fileID: 23718317431866034}
+  - component: {fileID: 4984775525900506}
+  - component: {fileID: 114482377487858764}
   m_Layer: 0
-  m_Name: roca1
+  m_Name: Roca2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4765358102647946
+--- !u!4 &4899970231249086
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1446733726179684}
+  m_GameObject: {fileID: 1369767843371438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 40, y: 40, z: 40}
   m_Children: []
-  m_Father: {fileID: 4872098406662018}
+  m_Father: {fileID: 4984775525900506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4872098406662018
+--- !u!4 &4984775525900506
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1324454727969036}
+  m_GameObject: {fileID: 1612130195324070}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.236, y: 0.876, z: 0}
+  m_LocalPosition: {x: 0, y: 0.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4765358102647946}
+  - {fileID: 4899970231249086}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23718317431866034
+--- !u!23 &23966848719513048
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1446733726179684}
+  m_GameObject: {fileID: 1369767843371438}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -85,7 +86,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: d076ce48d7e34724fb116f684d5c5bad, type: 2}
+  - {fileID: 2100000, guid: a9b11f7f8ff9d304bb1e28e4b078cc4a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -105,10 +106,23 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33920285532974922
+--- !u!33 &33515076635981216
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1446733726179684}
-  m_Mesh: {fileID: 4300012, guid: 42bc91a3e8b897847846f6dfc91193e3, type: 3}
+  m_GameObject: {fileID: 1369767843371438}
+  m_Mesh: {fileID: 4300014, guid: 42bc91a3e8b897847846f6dfc91193e3, type: 3}
+--- !u!114 &114482377487858764
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1612130195324070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e8218ad9a28f648bf76a6932dc9edb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
+  grid: {fileID: 0}

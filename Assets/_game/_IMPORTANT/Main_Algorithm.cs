@@ -24,6 +24,7 @@ namespace Mangos
     {
         public int[,,] matrix;
         int[,] movesMatrix;
+        int[,] obstacleMatrix;
         public GameObject[,] characters;
         public int filas;
         public int columnas;
@@ -48,6 +49,7 @@ namespace Mangos
             {
                 matrix = new int[filas, columnas, 4];
                 movesMatrix = new int[filas, columnas];
+                obstacleMatrix = new int[filas, columnas];
                 characters = new GameObject[filas, columnas];
                 for (int i = 0; i < filas; i++)
                 {
@@ -123,6 +125,8 @@ namespace Mangos
             if(characters[_x, _y] != null)
                 if(characters[_x, _y].GetComponent<Character>().team != _team)
                     canPassThrough = false;
+            if (obstacleMatrix[_x, _y] == 1)
+                canPassThrough = false;
 
             if (matrix[_x, _y, 1] > _round && canPassThrough)
                 matrix[_x, _y, 1] = _round;
@@ -192,6 +196,11 @@ namespace Mangos
                         break;
                 }
             }
+        }
+
+        public void InsertObstacleAt(int _x, int _y)
+        {
+            obstacleMatrix[_x, _y] = 1;
         }
 
         public void RemoveCharacterAt(int x, int y)
