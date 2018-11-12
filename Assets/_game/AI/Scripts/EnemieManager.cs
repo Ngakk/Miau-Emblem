@@ -37,6 +37,7 @@ namespace Mangos
         public void StartEnemyTurn()
         {
             Debug.Log("StartEnemyTurn");
+            
             if (currentEnemy < enemies.Length)
             {
                 if (enemies[currentEnemy] == null)
@@ -46,9 +47,10 @@ namespace Mangos
                 }
                 currentEnemy = 0;
                 eStats.CheckForAllies();
-                Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));
-                int[,] tempMatrix = eStats.mainA.ViewMove(enemies[currentEnemy].GetComponent<Character>().coordinates.x, enemies[currentEnemy].GetComponent<Character>().coordinates.y);
-                if (tempMatrix[something.x, something.y] <= enemies[currentEnemy].GetComponent<Character>().stats.walkRange)
+                Character temp = enemies[currentEnemy].GetComponent<Character>();
+                Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(temp.transform.position)) + (temp.stats.charClass == CharacterClass.WARRIOR ? new Vector3Int(0, 1, 0) : new Vector3Int(0, 2, 0));
+                int[,] tempMatrix = eStats.mainA.ViewMove(temp.coordinates.x, temp.coordinates.y);
+                if (tempMatrix[something.x, something.y] <= temp.stats.walkRange)
                     moveEnemy(something);
                 else
                     NextCharacter();
@@ -92,7 +94,7 @@ namespace Mangos
                 //Debug.Log("pos: " + pos);
                 Character temp = enemies[currentEnemy].GetComponent<Character>();
                 Vector3[] moveTo = new Vector3[1];
-                moveTo[0] = grid.GetCellCenterLocal(pos + (temp.stats.charClass == CharacterClass.WARRIOR ? new Vector3Int(0, 1, 0) : new Vector3Int(0, 2, 0)));
+                moveTo[0] = grid.GetCellCenterLocal(pos);
                 temp.Move(moveTo);
             }
         }

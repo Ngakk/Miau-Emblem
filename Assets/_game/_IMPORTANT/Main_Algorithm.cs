@@ -90,6 +90,24 @@ namespace Mangos
                     movesMatrix[i, j] = matrix[i, j, 1];
                 }
             }
+
+            // TESTING MOVMATRIX
+            string matrixDisplay = "";
+            for (int y = filas - 1; y >= 0; y--)
+            {
+                for (int x = 0; x < columnas; x++)
+                {
+                    if (movesMatrix[x, y] < 10)
+                        matrixDisplay += "0";
+                    matrixDisplay += movesMatrix[x, y] == (columnas * filas) ? "no" : movesMatrix[x, y].ToString();
+                    if (x == columnas - 1)
+                        matrixDisplay += "\n";
+                    else
+                        matrixDisplay += " | ";
+                }
+            }
+            Debug.Log("movMatrix: \n" + matrixDisplay);
+
             return movesMatrix;
         }
 
