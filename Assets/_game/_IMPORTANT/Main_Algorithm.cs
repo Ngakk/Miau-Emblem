@@ -77,7 +77,10 @@ namespace Mangos
         public int[,] ViewMove(int _xOrigen, int _yOrigen)
         {
             Debug.Log("ViewMove at (" + _xOrigen + ", " + _yOrigen + "), row: " + filas + ", col: " +columnas);
-            FourWayFloodFill(_xOrigen, _yOrigen, characters[_xOrigen, _yOrigen].GetComponent<Character>().team);
+            if (characters[_xOrigen, _yOrigen])
+                FourWayFloodFill(_xOrigen, _yOrigen, characters[_xOrigen, _yOrigen].GetComponent<Character>().team);
+            else
+                return new int[1, 1];
             for (int i = 0; i < filas; i++)
             {
                 for (int j = 0; j < columnas; j++)

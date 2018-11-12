@@ -116,7 +116,9 @@ namespace Mangos {
 
         private void EndWalkAnim()
         {
+            Vector3Int prevCoordinates = coordinates;
             coordinates = grid.WorldToCell(transform.position);
+            masterMatrix.OnCharacterMoved(prevCoordinates.x, prevCoordinates.y, coordinates.x, coordinates.y);
             charaWalkFinish.Raise();
             anim.SetBool("IsWalking", false);
             anim.speed = 1;
