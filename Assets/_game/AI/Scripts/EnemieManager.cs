@@ -56,7 +56,10 @@ namespace Mangos
             {
                 currentEnemy++;
                 if (currentEnemy >= enemies.Length)
+                {
                     turnEnded();
+                    return;
+                }
 
                 eStats.CheckForAllies();
                 Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));
