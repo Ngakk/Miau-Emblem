@@ -21,6 +21,14 @@ namespace Mangos
             eStats = GetComponent<EnemieStats>();
         }
 
+        void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.C))
+            {
+                StartEnemyTurn();
+            }
+        }
+
         public void StartEnemyTurn()
         {
             currentEnemy = 0;
@@ -42,18 +50,22 @@ namespace Mangos
         public void moveEnemy(Vector3Int pos)
         {
             Vector3[] moveTo = new Vector3[1];
-            moveTo[0] = pos - new Vector3Int(0, 1, 0);
+            moveTo[0] = pos + new Vector3Int(1, 0, 0);
             character[currentEnemy].Move(moveTo);
         }
 
         public void AttackAlly()
         {
-            Manager_Static.battles.DukeItOut(character[currentEnemy], eStats.getClosestCharacter(character[currentEnemy].coordinates.x, character[currentEnemy].coordinates.y + 1));
+            Manager_Static.battles.DukeItOut(character[currentEnemy], eStats.getClosestCharacter(character[currentEnemy].coordinates.x - 1, character[currentEnemy].coordinates.y));
+            if (currentEnemy <= enemies.Length)
+                NextCharacter();
+            else
+                turnEnded();
         }
 
         public void turnEnded()
         {
-            ETurnEnded.Raise();
+            Manager_Static.turnsManager.ToggleTurn();
         }
     } 
 }
