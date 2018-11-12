@@ -30,11 +30,12 @@ namespace Mangos
         {
             if (currentGameState == GameState.PLAYER_TURN)
             {
-                enemyManager.GetComponent<EnemieManager>().StartEnemyTurn();
                 currentGameState = GameState.ENEMY_TURN;
+                enemyManager.GetComponent<EnemieManager>().StartEnemyTurn();
             }
             else
             {
+                currentGameState = GameState.PLAYER_TURN;
                 for (int x = 0; x < matrix.matrix.GetLength(0); x++)
                 {
                     for (int y = 0; y < matrix.matrix.GetLength(1); y++)
@@ -48,8 +49,6 @@ namespace Mangos
                         }
                     }
                 }
-                
-                currentGameState = GameState.PLAYER_TURN;
             }
         }
     }

@@ -36,12 +36,13 @@ namespace Mangos
 
         public void StartEnemyTurn()
         {
-            currentState = true;
-            if(currentState == true)
+
+            if (currentEnemy < enemies.Length)
             {
                 if (enemies[currentEnemy] == null)
                 {
                     NextCharacter();
+                    return;
                 }
                 currentEnemy = 0;
                 eStats.CheckForAllies();
@@ -52,6 +53,10 @@ namespace Mangos
                 else
                     NextCharacter();
             }
+            else
+            {
+                turnEnded();
+            }
         }
 
         public void NextCharacter()
@@ -59,6 +64,7 @@ namespace Mangos
             if (enemies[currentEnemy] == null)
             {
                 NextCharacter();
+                return;
             }
             currentEnemy++;
             if (currentEnemy >= enemies.Length)

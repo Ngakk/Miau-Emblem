@@ -98,12 +98,12 @@ namespace Mangos
                                 if (travelDistance <= selectedCharacter.GetComponent<Character>().stats.attackRanges[0])
                                 {
                                     bearer.GetComponent<Battles>().DukeItOut(selectedCharacter.GetComponent<Character>(), targetChara.GetComponent<Character>());
+                                    selectedCharacter.GetComponent<Character>().canMove = false;
                                 }
                                 else
                                 {
                                     Debug.Log("Out of Range");
                                 }
-                                selectedCharacter.GetComponent<Character>().canMove = false;
                             }
                             else if (targetChara.CompareTag("Ally") && selectedCharacter.GetComponent<Character>().stats.charClass == CharacterClass.HEALER && targetChara != selectedCharacter)
                             {

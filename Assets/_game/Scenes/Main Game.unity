@@ -13608,6 +13608,12 @@ Prefab:
       propertyPath: maxMoves
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114132541154914002, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: matrix
+      value: 
+      objectReference: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c23ce3f07157ded4dac845e224b23ea7, type: 2}
   m_IsPrefabAsset: 0
