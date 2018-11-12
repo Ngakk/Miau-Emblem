@@ -9,18 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e2d7a306fb50a24aab100804dbce496, type: 3}
-  m_Name: HealerStats
+  m_Name: EnemyBossStats
   m_EditorClassIdentifier: 
-  charClass: 1
+  charClass: 0
   damageType: 0
-  maxHp: 35
-  atk: 30
-  def: 21
-  spd: 25
-  res: 34
+  maxHp: 250
+  atk: 25
+  def: 25
+  spd: 60
+  res: 100
   evs: 5
   acc: 100
-  crt: 0
+  crt: 50
   attackRanges: 01000000
-  counterAttackRanges: 
-  walkRange: 7
+  counterAttackRanges: 0100000002000000
+  walkRange: 6
