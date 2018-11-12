@@ -8,6 +8,7 @@ namespace Mangos
     {
         public GameState currentGameState;
         public GameObject enemyManager;
+        public GameObject matrix;
         private GameState previousGamestate;
 
         private void Awake()
@@ -36,6 +37,17 @@ namespace Mangos
             }
             else
             {
+                for (int x = 0; x < matrix.GetComponent<Main_Algorithm>().matrix.GetLength(0); x++)
+                {
+                    for (int y = 0; y < matrix.GetComponent<Main_Algorithm>().matrix.GetLength(1); y++)
+                    {
+                        if (matrix.GetComponent<Main_Algorithm>().GetCharacterDataAt(x, y).CompareTag("Ally"))
+                        {
+                            matrix.GetComponent<Main_Algorithm>().GetCharacterDataAt(x, y).GetComponent<Character>().canMove = true;
+                        }
+                    }
+                }
+                
                 currentGameState = GameState.PLAYER_TURN;
             }
         }
