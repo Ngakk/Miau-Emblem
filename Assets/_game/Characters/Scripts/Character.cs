@@ -116,6 +116,7 @@ namespace Mangos {
 
         private void EndWalkAnim()
         {
+            coordinates = grid.WorldToCell(transform.position);
             charaWalkFinish.Raise();
             anim.SetBool("IsWalking", false);
             anim.speed = 1;

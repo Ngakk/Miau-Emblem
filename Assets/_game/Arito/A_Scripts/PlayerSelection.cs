@@ -44,17 +44,12 @@ namespace Mangos
                 {
                     if (!selected && hit.collider.gameObject.CompareTag("Ally"))
                     {
-                        Debug.Log("Selected " + hit.collider.gameObject.name);
                         selectedCharacter = hit.collider.gameObject;
                         selected = true;
                         currentLayerMask = 1;
                         //movMatrix = matrix.ViewMove(grid.WorldToCell(selectedCharacter.transform.localPosition).x, grid.WorldToCell(selectedCharacter.transform.localPosition).y);
                         Vector3Int selectedPos = selectedCharacter.GetComponent<Character>().coordinates;
-                        Debug.Log("Selected coordinates: " + selectedPos);
                         movMatrix = matrix.ViewMove(selectedPos.x, selectedPos.y);
-                        Debug.Log("MoveMatrix dimensions: " + movMatrix.GetLength(0) + ", " + movMatrix.GetLength(1));
-
-                        Debug.Log("Testing \n end of line");
 
                         // TESTING MOVMATRIX
                         string matrixDisplay = "";
@@ -96,9 +91,10 @@ namespace Mangos
                         {
                             if (targetChara.CompareTag("Enemy"))
                             {
-                                // Check Range
-                                int travelDistance = (Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).x - grid.WorldToCell(hit.point).x) + Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).y - grid.WorldToCell(hit.point).y));
-                                if (travelDistance <= selectedCharacter.GetComponent<Character>().stats.attackRanges[0])
+                                // Check Attack Range
+                                //int travelDistance = (Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).x - grid.WorldToCell(hit.point).x) + Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).y - grid.WorldToCell(hit.point).y));
+                                Vector3Int travelPoint = grid.WorldToCell(hit.point);
+                                if (movMatrix[travelPoint.x, travelPoint.y] <= selectedCharacter.GetComponent<Character>().stats.attackRanges[0])
                                 {
                                     Debug.Log("Fight with " + targetChara);
                                 }
@@ -110,8 +106,10 @@ namespace Mangos
                         }
                         else
                         {
-                            int travelDistance = (Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).x - grid.WorldToCell(hit.point).x) + Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).y - grid.WorldToCell(hit.point).y));
-                            if (travelDistance <= selectedCharacter.GetComponent<Character>().stats.walkRange)
+                            // Check Movement Range
+                            //int travelDistance = (Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).x - grid.WorldToCell(hit.point).x) + Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).y - grid.WorldToCell(hit.point).y));
+                            Vector3Int travelPoint = grid.WorldToCell(hit.point);
+                            if (movMatrix[travelPoint.x, travelPoint.y] <= selectedCharacter.GetComponent<Character>().stats.walkRange)
                                 MoveCharacter(hit.point);
                         }
                         Deselect();
