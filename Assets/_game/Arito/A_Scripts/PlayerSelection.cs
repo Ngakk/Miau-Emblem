@@ -103,10 +103,12 @@ namespace Mangos
                                 {
                                     Debug.Log("Out of Range");
                                 }
+                                selectedCharacter.GetComponent<Character>().canMove = false;
                             }
                             else if (targetChara.CompareTag("Ally") && selectedCharacter.GetComponent<Character>().stats.charClass == CharacterClass.HEALER && targetChara != selectedCharacter)
                             {
                                 bearer.GetComponent<Battles>().HealItOut(selectedCharacter.GetComponent<Character>(), targetChara.GetComponent<Character>());
+                                selectedCharacter.GetComponent<Character>().canMove = false;
                             }
                         }
                         else
@@ -140,6 +142,7 @@ namespace Mangos
             {
                 Manager_Static.turnsManager.ToggleTurn();
             }
+            selectedCharacter.GetComponent<Character>().canMove = false;
         }
 
         private void Deselect()
@@ -151,7 +154,6 @@ namespace Mangos
                     child.gameObject.GetComponent<SkinnedMeshRenderer>().material = Manager_Static.materialsManager.GetMaterial(CharacterMats.DEFAULT);
                 }
             }
-            selectedCharacter.GetComponent<Character>().canMove = false;
             selectedCharacter = null;
             selected = false;
             currentLayerMask = 0;
