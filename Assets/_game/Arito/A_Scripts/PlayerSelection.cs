@@ -93,9 +93,9 @@ namespace Mangos
                             if (targetChara.CompareTag("Enemy"))
                             {
                                 // Check Attack Range
-                                //int travelDistance = (Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).x - grid.WorldToCell(hit.point).x) + Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).y - grid.WorldToCell(hit.point).y));
-                                Vector3Int travelPoint = grid.WorldToCell(hit.point);
-                                if (movMatrix[travelPoint.x, travelPoint.y] <= selectedCharacter.GetComponent<Character>().stats.attackRanges[0])
+                                int travelDistance = (Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).x - grid.WorldToCell(hit.point).x) + Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).y - grid.WorldToCell(hit.point).y));
+                                //Vector3Int travelPoint = grid.WorldToCell(hit.point);
+                                if (travelDistance <= selectedCharacter.GetComponent<Character>().stats.attackRanges[0])
                                 {
                                     bearer.GetComponent<Battles>().DukeItOut(selectedCharacter.GetComponent<Character>(), targetChara.GetComponent<Character>());
                                 }
