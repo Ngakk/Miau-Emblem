@@ -7837,6 +7837,11 @@ Prefab:
       propertyPath: m_Name
       value: Warrior White (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114138415996175334, guid: b58c1003854c4b140aa398c3f2764253,
+        type: 2}
+      propertyPath: namae
+      value: Sir Purrington II
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b58c1003854c4b140aa398c3f2764253, type: 2}
   m_IsPrefabAsset: 0
