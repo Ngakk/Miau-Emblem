@@ -30,23 +30,25 @@ namespace Mangos
         {
             if (_state == GameState.PLAYER_TURN)
             {
-                enemyManager.GetComponent<EnemieManager>().StartEnemyTurn();
                 currentGameState = GameState.ENEMY_TURN;
+                enemyManager.GetComponent<EnemieManager>().StartEnemyTurn();
             }
             else
             {
+                currentGameState = GameState.PLAYER_TURN;
                 for (int x = 0; x < matrix.matrix.GetLength(0); x++)
                 {
                     for (int y = 0; y < matrix.matrix.GetLength(1); y++)
                     {
-                        if (matrix.GetCharacterDataAt(x, y).CompareTag("Ally"))
+                        if (matrix.GetCharacterDataAt(x, y) != null)
                         {
-                            matrix.GetCharacterDataAt(x, y).GetComponent<Character>().canMove = true;
+                            if (matrix.GetCharacterDataAt(x, y).CompareTag("Ally"))
+                            {
+                                matrix.GetCharacterDataAt(x, y).GetComponent<Character>().canMove = true;
+                            }
                         }
                     }
                 }
-                
-                currentGameState = GameState.PLAYER_TURN;
             }
         }
     }
