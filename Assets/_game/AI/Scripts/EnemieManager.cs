@@ -36,7 +36,7 @@ namespace Mangos
 
         public void StartEnemyTurn()
         {
-
+            Debug.Log("StartEnemyTurn");
             if (currentEnemy < enemies.Length)
             {
                 if (enemies[currentEnemy] == null)
@@ -60,18 +60,20 @@ namespace Mangos
         }
 
         public void NextCharacter()
-        { 
-            if (enemies[currentEnemy] == null)
-            {
-                NextCharacter();
-                return;
-            }
+        {
+            Debug.Log("Next Character Start");
             currentEnemy++;
             if (currentEnemy >= enemies.Length)
             {
                 turnEnded();
                 return;
             }
+            if (enemies[currentEnemy] == null)
+            {
+                NextCharacter();
+                return;
+            }
+            
 
             eStats.CheckForAllies();
             Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));
