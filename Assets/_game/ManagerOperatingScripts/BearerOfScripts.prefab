@@ -192,8 +192,8 @@ MonoBehaviour:
   rightFighter: {fileID: 0}
   mainMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
   battleAnimation: {fileID: 11400000, guid: fc76189a816117246891579794f4fcb5, type: 2}
-  onVictory: {fileID: 0}
-  onDefeat: {fileID: 0}
+  onVictory: {fileID: 11400000, guid: 91772cdd7148c3e438c186305470ac72, type: 2}
+  onDefeat: {fileID: 11400000, guid: 7133d75038eb40d41b2b304edd7e21ec, type: 2}
   canStartAction: 1
   GameEnded: 0
 --- !u!114 &114706029688684676
@@ -274,3 +274,4 @@ MonoBehaviour:
     m_Bits: 512
   maxMoves: 3
   bearer: {fileID: 1462807849971926}
+  movesLeft: 0

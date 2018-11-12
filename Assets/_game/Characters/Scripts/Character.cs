@@ -138,7 +138,7 @@ namespace Mangos {
 
         public void OnDeadAnimEnd()
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         public void OnWin()
