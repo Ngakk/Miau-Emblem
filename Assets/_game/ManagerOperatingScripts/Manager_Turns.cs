@@ -18,7 +18,7 @@ namespace Mangos
 
         public void ToggleTurn()
         {
-            nextTurn(currentGameState); 
+            Invoke("nextTurn", 2.5f); 
         }
 
         public void SetGameState(GameState _gamestate)
@@ -26,9 +26,9 @@ namespace Mangos
             currentGameState = _gamestate;
         }
 
-        public void nextTurn(GameState _state)
+        public void nextTurn()
         {
-            if (_state == GameState.PLAYER_TURN)
+            if (currentGameState == GameState.PLAYER_TURN)
             {
                 currentGameState = GameState.ENEMY_TURN;
                 enemyManager.GetComponent<EnemieManager>().StartEnemyTurn();

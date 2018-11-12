@@ -36,6 +36,7 @@ namespace Mangos
 
         public void StartEnemyTurn()
         {
+
             if (currentEnemy < enemies.Length)
             {
                 if (enemies[currentEnemy] == null)
