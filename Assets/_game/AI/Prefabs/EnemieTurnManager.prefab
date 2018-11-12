@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114727132847271650}
   - component: {fileID: 114966733808636474}
   - component: {fileID: 114131959113637344}
+  - component: {fileID: 114980557225517010}
   m_Layer: 0
   m_Name: EnemieTurnManager
   m_TagString: Untagged
@@ -106,6 +107,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa5e219aa9071e546bcd52094c36ce3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStats: {fileID: 0}
   mainA: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
   enemiesInRange: []
+--- !u!114 &114980557225517010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1479262775662024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c58f2339b2f49458c5eba62247bc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fc76189a816117246891579794f4fcb5, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114727132847271650}
+        m_MethodName: NextCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

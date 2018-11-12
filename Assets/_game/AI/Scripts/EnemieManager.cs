@@ -40,13 +40,19 @@ namespace Mangos
                 currentEnemy = 0;
                 eStats.CheckForAllies();
                 Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(character[currentEnemy].transform.position));
-                moveEnemy(something);
+                int[,] tempMatrix = eStats.mainA.ViewMove(enemies[currentEnemy].GetComponent<Character>().coordinates.x, enemies[currentEnemy].GetComponent<Character>().coordinates.y);
+                if (tempMatrix[something.x, something.y] <= enemies[currentEnemy].GetComponent<Character>().stats.walkRange)
+                    moveEnemy(something);
+                else
+                    NextCharacter();
             }
         }
 
         public void NextCharacter()
         {
-            if(currentState == true)
+            if (currentEnemy > enemies.Length)
+                turnEnded();
+            else if (currentState == true)
             {
                 currentEnemy++;
                 if (currentEnemy >= enemies.Length)
@@ -75,10 +81,6 @@ namespace Mangos
             if(currentState == true)
             {
                 Manager_Static.battles.DukeItOut(character[currentEnemy], eStats.mainA.GetCharacterDataAt(enemyToAttack.x, enemyToAttack.y).GetComponent<Character>());
-                if (currentEnemy <= enemies.Length)
-                    NextCharacter();
-                else
-                    turnEnded();
             }
         }
 

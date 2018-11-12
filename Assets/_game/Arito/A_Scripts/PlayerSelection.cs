@@ -10,6 +10,7 @@ namespace Mangos
         public Main_Algorithm matrix;
         public LayerMask[] masks;
         public int maxMoves = 3;
+        public GameObject bearer;
         private Vector2 clickPosition;
         private Vector2 targetPosition;
         private bool selected;
@@ -96,20 +97,24 @@ namespace Mangos
                                 Vector3Int travelPoint = grid.WorldToCell(hit.point);
                                 if (movMatrix[travelPoint.x, travelPoint.y] <= selectedCharacter.GetComponent<Character>().stats.attackRanges[0])
                                 {
-                                    Debug.Log("Fight with " + targetChara);
+                                    bearer.GetComponent<Battles>().DukeItOut(selectedCharacter.GetComponent<Character>(), targetChara.GetComponent<Character>());
                                 }
                                 else
                                 {
                                     Debug.Log("Out of Range");
                                 }
                             }
+                            else if (targetChara.CompareTag("Ally") && selectedCharacter.GetComponent<Character>().stats.charClass == CharacterClass.HEALER && targetChara != selectedCharacter)
+                            {
+                                bearer.GetComponent<Battles>().HealItOut(selectedCharacter.GetComponent<Character>(), targetChara.GetComponent<Character>());
+                            }
                         }
                         else
                         {
-                            // Check Movement Range
-                            //int travelDistance = (Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).x - grid.WorldToCell(hit.point).x) + Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).y - grid.WorldToCell(hit.point).y));
+                            // Check Movement Range && canMove()
+                            // int travelDistance = (Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).x - grid.WorldToCell(hit.point).x) + Mathf.Abs(grid.WorldToCell(selectedCharacter.transform.position).y - grid.WorldToCell(hit.point).y));
                             Vector3Int travelPoint = grid.WorldToCell(hit.point);
-                            if (movMatrix[travelPoint.x, travelPoint.y] <= selectedCharacter.GetComponent<Character>().stats.walkRange)
+                            if (movMatrix[travelPoint.x, travelPoint.y] <= selectedCharacter.GetComponent<Character>().stats.walkRange && selectedCharacter.GetComponent<Character>().canMove)
                                 MoveCharacter(hit.point);
                         }
                         Deselect();
@@ -146,6 +151,7 @@ namespace Mangos
                     child.gameObject.GetComponent<SkinnedMeshRenderer>().material = Manager_Static.materialsManager.GetMaterial(CharacterMats.DEFAULT);
                 }
             }
+            selectedCharacter.GetComponent<Character>().canMove = false;
             selectedCharacter = null;
             selected = false;
             currentLayerMask = 0;
