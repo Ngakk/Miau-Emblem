@@ -73,7 +73,6 @@ namespace Mangos
                 NextCharacter();
                 return;
             }
-            
 
             eStats.CheckForAllies();
             Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));

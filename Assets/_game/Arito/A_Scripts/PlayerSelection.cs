@@ -17,7 +17,7 @@ namespace Mangos
         private GameObject selectedCharacter;
         private float rayDistance = 50.0f;
         private GameObject firstChild;
-        private int movesLeft;
+        public int movesLeft;
         private int currentLayerMask = 0;
         private int[,] movMatrix;
 

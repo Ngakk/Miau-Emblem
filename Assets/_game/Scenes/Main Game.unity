@@ -762,73 +762,6 @@ Transform:
   m_Father: {fileID: 447604243}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &273499301 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1462807849971926, guid: c23ce3f07157ded4dac845e224b23ea7,
-    type: 2}
-  m_PrefabInternal: {fileID: 1749629030}
---- !u!114 &273499307 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114319678663223332, guid: c23ce3f07157ded4dac845e224b23ea7,
-    type: 2}
-  m_PrefabInternal: {fileID: 1749629030}
-  m_Script: {fileID: 11500000, guid: 518276093cd930d4c970823b7baa2b33, type: 3}
---- !u!114 &273499312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 273499301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36c58f2339b2f49458c5eba62247bc72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 91772cdd7148c3e438c186305470ac72, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 273499307}
-        m_MethodName: GoBackToMenuIn3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &273499313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 273499301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36c58f2339b2f49458c5eba62247bc72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 7133d75038eb40d41b2b304edd7e21ec, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 273499307}
-        m_MethodName: GoBackToMenuIn3
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &291388578
 Prefab:
   m_ObjectHideFlags: 0
@@ -13337,21 +13270,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114515012177381250, guid: c23ce3f07157ded4dac845e224b23ea7,
-        type: 2}
-      propertyPath: cameraChanger
-      value: 
-      objectReference: {fileID: 714470342}
-    - target: {fileID: 114515012177381250, guid: c23ce3f07157ded4dac845e224b23ea7,
-        type: 2}
-      propertyPath: leftFighter
-      value: 
-      objectReference: {fileID: 1765967853}
-    - target: {fileID: 114515012177381250, guid: c23ce3f07157ded4dac845e224b23ea7,
-        type: 2}
-      propertyPath: rightFighter
-      value: 
-      objectReference: {fileID: 1290720118}
     - target: {fileID: 114132541154914002, guid: c23ce3f07157ded4dac845e224b23ea7,
         type: 2}
       propertyPath: enemyManager
@@ -13462,17 +13380,21 @@ Prefab:
       propertyPath: grid
       value: 
       objectReference: {fileID: 1212190722}
-    - target: {fileID: 114841821488135022, guid: c23ce3f07157ded4dac845e224b23ea7,
+    - target: {fileID: 114515012177381250, guid: c23ce3f07157ded4dac845e224b23ea7,
         type: 2}
-      propertyPath: maxMoves
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114132541154914002, guid: c23ce3f07157ded4dac845e224b23ea7,
-        type: 2}
-      propertyPath: matrix
+      propertyPath: cameraChanger
       value: 
-      objectReference: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e,
+      objectReference: {fileID: 714470342}
+    - target: {fileID: 114515012177381250, guid: c23ce3f07157ded4dac845e224b23ea7,
         type: 2}
+      propertyPath: leftFighter
+      value: 
+      objectReference: {fileID: 1765967853}
+    - target: {fileID: 114515012177381250, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: rightFighter
+      value: 
+      objectReference: {fileID: 1290720118}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c23ce3f07157ded4dac845e224b23ea7, type: 2}
   m_IsPrefabAsset: 0
