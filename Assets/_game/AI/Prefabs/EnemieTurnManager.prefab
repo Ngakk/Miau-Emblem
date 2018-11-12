@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1479262775662024}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 11, y: 0, z: -2.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -89,9 +89,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  grids: []
-  eStats: {fileID: 0}
-  ETurnEnded: {fileID: 0}
+  grids:
+  - {fileID: 0}
+  eStats: {fileID: 114966733808636474}
+  ETurnEnded: {fileID: 11400000, guid: e90dc668b52992949b26526836d1017f, type: 2}
   currentEnemy: 0
   currentState: 0
   minDistance: 0
