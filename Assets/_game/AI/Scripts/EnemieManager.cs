@@ -59,18 +59,19 @@ namespace Mangos
         }
 
         public void NextCharacter()
-        { 
-            if (enemies[currentEnemy] == null)
-            {
-                NextCharacter();
-                return;
-            }
+        {
             currentEnemy++;
             if (currentEnemy >= enemies.Length)
             {
                 turnEnded();
                 return;
             }
+            if (enemies[currentEnemy] == null)
+            {
+                NextCharacter();
+                return;
+            }
+            
 
             eStats.CheckForAllies();
             Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));
