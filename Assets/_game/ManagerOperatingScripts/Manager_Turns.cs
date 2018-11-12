@@ -7,6 +7,8 @@ namespace Mangos
     public class Manager_Turns : MonoBehaviour
     {
         public GameState currentGameState;
+        public GameObject enemyManager;
+        private GameState previousGamestate;
 
         private void Awake()
         {
@@ -15,7 +17,7 @@ namespace Mangos
 
         public void ToggleTurn()
         {
-            nextTurn(currentGameState);
+            StartCoroutine(nextTurn(currentGameState));
             currentGameState = GameState.TRANSITION; 
         }
 
@@ -29,6 +31,7 @@ namespace Mangos
             yield return new WaitForSeconds(2.5f);
             if (_state == GameState.PLAYER_TURN)
             {
+                enemyManager.GetComponent<EnemieManager>().StartEnemyTurn();
                 currentGameState = GameState.ENEMY_TURN;
             }
             else
