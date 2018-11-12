@@ -95,6 +95,14 @@ namespace Mangos {
             else
             {
                 //Battle ended
+                if(controller.masterMatrix.IsExctinct(Team.ENEMY))
+                {
+                    Manager_Static.battles.GameEnded = 1;
+                }
+                else if (controller.masterMatrix.IsExctinct(Team.PLAYER))
+                {
+                    Manager_Static.battles.GameEnded = 2;
+                }
                 Debug.Log("Fight finished");
                 if (controller.hp <= 0)
                     Die();

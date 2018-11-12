@@ -198,6 +198,25 @@ namespace Mangos
             }
         }
 
+        public bool IsExctinct(Team _team)
+        {
+            bool temp = false, broke = false;
+            for(int i = 0; i < filas; i++)
+            {
+                for(int j = 0; j < columnas; j++)
+                {
+                    if (characters[i, j] != null)
+                        if (characters[1, j].GetComponent<Character>().team == _team)
+                            temp = true;
+                    broke = true;
+                    break;
+                }
+                if (broke)
+                    break;
+            }
+            return temp;
+        }
+
         public void InsertObstacleAt(int _x, int _y)
         {
             obstacleMatrix[_x, _y] = 1;

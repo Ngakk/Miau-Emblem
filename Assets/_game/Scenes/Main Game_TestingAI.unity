@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.59120655, g: 0.7805266, b: 0.87014484, a: 1}
+  m_IndirectSpecularColor: {r: 0.59097797, g: 0.7802558, b: 0.8700227, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11430,6 +11430,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1416943814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1479262775662024, guid: c6fdd6d50810cb84c8647ee61cd87341,
+    type: 2}
+  m_PrefabInternal: {fileID: 1739947341}
 --- !u!1 &1626869393
 GameObject:
   m_ObjectHideFlags: 0
@@ -11617,6 +11622,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114727132847271650, guid: c6fdd6d50810cb84c8647ee61cd87341,
+        type: 2}
+      propertyPath: enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4136216384457720, guid: c6fdd6d50810cb84c8647ee61cd87341, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11851,6 +11861,23 @@ Prefab:
       propertyPath: cam
       value: 
       objectReference: {fileID: 534669904}
+    - target: {fileID: 114132541154914002, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 1416943814}
+    - target: {fileID: 114515012177381250, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: onDefeat
+      value: 
+      objectReference: {fileID: 11400000, guid: 7133d75038eb40d41b2b304edd7e21ec,
+        type: 2}
+    - target: {fileID: 114515012177381250, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: onVictory
+      value: 
+      objectReference: {fileID: 11400000, guid: 91772cdd7148c3e438c186305470ac72,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c23ce3f07157ded4dac845e224b23ea7, type: 2}
   m_IsPrefabAsset: 0
