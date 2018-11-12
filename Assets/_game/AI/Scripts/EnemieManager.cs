@@ -8,7 +8,7 @@ namespace Mangos
     {
         public GameObject[] enemies;
         public Character[] character;
-        public Grid[] grids;
+        public Grid grid;
         public EnemieStats eStats;
         public GameEvent ETurnEnded;
 
@@ -16,55 +16,77 @@ namespace Mangos
         public bool currentState;
         public int minDistance;
 
+        private Vector3Int enemyToAttack;
+
         private void Start()
         {
             eStats = GetComponent<EnemieStats>();
+            currentState = false;
         }
 
         void Update()
         {
             if(Input.GetKeyDown(KeyCode.C))
             {
+                currentState = true;
                 StartEnemyTurn();
             }
         }
 
         public void StartEnemyTurn()
         {
-            currentEnemy = 0;
-            eStats.CheckForAllies();
-            eStats.LookForClosestAlly(Mathf.RoundToInt(character[currentEnemy].transform.position.x), Mathf.RoundToInt(character[currentEnemy].transform.position.y));
-            moveEnemy(eStats.LookForClosestAlly(Mathf.RoundToInt(character[currentEnemy].transform.position.x), Mathf.RoundToInt(character[currentEnemy].transform.position.y)));
+            if(currentState == true)
+            {
+                currentEnemy = 0;
+                eStats.CheckForAllies();
+                Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(character[currentEnemy].transform.position));
+                int[,] tempMatrix = eStats.mainA.ViewMove(enemies[currentEnemy].GetComponent<Character>().coordinates.x, enemies[currentEnemy].GetComponent<Character>().coordinates.y);
+                if (tempMatrix[something.x, something.y] <= enemies[currentEnemy].GetComponent<Character>().stats.walkRange)
+                    moveEnemy(something);
+                else
+                    NextCharacter();
+            }
         }
 
         public void NextCharacter()
         {
-            currentEnemy++;
-            if (currentEnemy >= enemies.Length)
+            if (currentEnemy > enemies.Length)
                 turnEnded();
+            else if (currentState == true)
+            {
+                currentEnemy++;
+                if (currentEnemy >= enemies.Length)
+                    turnEnded();
 
-            eStats.CheckForAllies();
-            moveEnemy(eStats.LookForClosestAlly(Mathf.RoundToInt(character[currentEnemy].transform.position.x), Mathf.RoundToInt(character[currentEnemy].transform.position.y)));
+                eStats.CheckForAllies();
+                Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(character[currentEnemy].transform.position));
+                moveEnemy(something);
+            }
         }
 
         public void moveEnemy(Vector3Int pos)
         {
-            Vector3[] moveTo = new Vector3[1];
-            moveTo[0] = pos + new Vector3Int(1, 0, 0);
-            character[currentEnemy].Move(moveTo);
+            enemyToAttack = pos;
+            if(currentState == true)
+            {
+                Debug.Log("pos: " + pos);
+                Vector3[] moveTo = new Vector3[1];
+                moveTo[0] = grid.CellToWorld(pos - new Vector3Int(0, 1, 0));
+                character[currentEnemy].Move(moveTo);
+            }
         }
 
         public void AttackAlly()
         {
-            Manager_Static.battles.DukeItOut(character[currentEnemy], eStats.getClosestCharacter(character[currentEnemy].coordinates.x - 1, character[currentEnemy].coordinates.y));
-            if (currentEnemy <= enemies.Length)
-                NextCharacter();
-            else
-                turnEnded();
+            if(currentState == true)
+            {
+                Manager_Static.battles.DukeItOut(character[currentEnemy], eStats.mainA.GetCharacterDataAt(enemyToAttack.x, enemyToAttack.y).GetComponent<Character>());
+            }
         }
 
         public void turnEnded()
         {
+            currentState = false;
             Manager_Static.turnsManager.ToggleTurn();
         }
     } 

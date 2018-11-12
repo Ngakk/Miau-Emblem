@@ -41,6 +41,7 @@ namespace Mangos
         public CameraChanger cameraChanger;
         public GameObject leftFighter, rightFighter;
         public Main_Algorithm mainMatrix;
+        public GameEvent battleAnimation;
 
         private Character fighter1, fighter2;
         private BattleInfo currentBattleInfo;
@@ -118,6 +119,7 @@ namespace Mangos
             canStartAction = true;
             fighter1 = null;
             fighter2 = null;
+            battleAnimation.Raise();
         }
 
         public void OnFightEnd()

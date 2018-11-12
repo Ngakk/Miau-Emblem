@@ -27,7 +27,7 @@ namespace Mangos {
         public Fighter fight;
         [HideInInspector]
         public int hp;
-        [HideInInspector]
+        //[HideInInspector]
         public Vector3Int coordinates;
         [HideInInspector]
         public bool canMove;
