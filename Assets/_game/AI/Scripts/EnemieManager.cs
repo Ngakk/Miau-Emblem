@@ -16,6 +16,8 @@ namespace Mangos
         public bool currentState;
         public int minDistance;
 
+        private Vector3Int enemyToAttack;
+
         private void Start()
         {
             eStats = GetComponent<EnemieStats>();
@@ -37,8 +39,8 @@ namespace Mangos
             {
                 currentEnemy = 0;
                 eStats.CheckForAllies();
-                eStats.LookForClosestAlly(Mathf.RoundToInt(character[currentEnemy].transform.position.x), Mathf.RoundToInt(character[currentEnemy].transform.position.y));
-                moveEnemy(eStats.LookForClosestAlly(Mathf.RoundToInt(character[currentEnemy].transform.position.x), Mathf.RoundToInt(character[currentEnemy].transform.position.y)));
+                Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(character[currentEnemy].transform.position));
+                moveEnemy(something);
             }
         }
 
@@ -51,17 +53,19 @@ namespace Mangos
                     turnEnded();
 
                 eStats.CheckForAllies();
-                moveEnemy(eStats.LookForClosestAlly(Mathf.RoundToInt(character[currentEnemy].transform.position.x), Mathf.RoundToInt(character[currentEnemy].transform.position.y)));
+                Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(character[currentEnemy].transform.position));
+                moveEnemy(something);
             }
         }
 
         public void moveEnemy(Vector3Int pos)
         {
+            enemyToAttack = pos;
             if(currentState == true)
             {
                 Debug.Log("pos: " + pos);
                 Vector3[] moveTo = new Vector3[1];
-                moveTo[0] = pos - new Vector3Int(0, 0, 0);
+                moveTo[0] = grid.CellToWorld(pos - new Vector3Int(0, 1, 0));
                 character[currentEnemy].Move(moveTo);
             }
         }
@@ -70,8 +74,7 @@ namespace Mangos
         {
             if(currentState == true)
             {
-                //Manager_Static.battles.DukeItOut(character[currentEnemy], eStats.getClosestCharacter(character[currentEnemy].coordinates.x - 1, character[currentEnemy].coordinates.y));
-                Debug.Log("Atacaré a: " + eStats.getClosestCharacter(character[currentEnemy].coordinates.x + 1, character[currentEnemy].coordinates.y));
+                Manager_Static.battles.DukeItOut(character[currentEnemy], eStats.mainA.GetCharacterDataAt(enemyToAttack.x, enemyToAttack.y).GetComponent<Character>());
                 if (currentEnemy <= enemies.Length)
                     NextCharacter();
                 else
