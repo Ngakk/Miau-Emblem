@@ -11653,12 +11653,12 @@ Prefab:
         type: 2}
       propertyPath: enemies.Array.data[0]
       value: 
-      objectReference: {fileID: 960109842}
+      objectReference: {fileID: 840199556}
     - target: {fileID: 114727132847271650, guid: c6fdd6d50810cb84c8647ee61cd87341,
         type: 2}
       propertyPath: enemies.Array.data[1]
       value: 
-      objectReference: {fileID: 840199556}
+      objectReference: {fileID: 960109842}
     - target: {fileID: 114727132847271650, guid: c6fdd6d50810cb84c8647ee61cd87341,
         type: 2}
       propertyPath: enemies.Array.data[2]
@@ -11668,12 +11668,12 @@ Prefab:
         type: 2}
       propertyPath: character.Array.data[0]
       value: 
-      objectReference: {fileID: 960109841}
+      objectReference: {fileID: 840199555}
     - target: {fileID: 114727132847271650, guid: c6fdd6d50810cb84c8647ee61cd87341,
         type: 2}
       propertyPath: character.Array.data[1]
       value: 
-      objectReference: {fileID: 840199555}
+      objectReference: {fileID: 960109841}
     - target: {fileID: 114727132847271650, guid: c6fdd6d50810cb84c8647ee61cd87341,
         type: 2}
       propertyPath: character.Array.data[2]

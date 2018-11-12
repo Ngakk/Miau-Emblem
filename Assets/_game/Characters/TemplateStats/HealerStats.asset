@@ -10,7 +10,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e2d7a306fb50a24aab100804dbce496, type: 3}
   m_Name: HealerStats
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   charClass: 1
   damageType: 0
   maxHp: 35
@@ -22,6 +22,5 @@ MonoBehaviour:
   acc: 100
   crt: 0
   attackRanges: 01000000
-  counterAttackRanges: 01000000
-  team: 1
+  counterAttackRanges: 
   walkRange: 7

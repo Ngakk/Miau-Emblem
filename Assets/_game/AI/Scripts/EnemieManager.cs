@@ -6,8 +6,8 @@ namespace Mangos
 {
     public class EnemieManager : MonoBehaviour
     {
+        [Tooltip("SIEMPRE PONER EL HEALER PRIMERO. Aquí pones los prefabs de los enemigos.")]
         public GameObject[] enemies;
-        public Character[] character;
         public Grid grid;
         public EnemieStats eStats;
         public GameEvent ETurnEnded;
@@ -39,7 +39,7 @@ namespace Mangos
             {
                 currentEnemy = 0;
                 eStats.CheckForAllies();
-                Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(character[currentEnemy].transform.position));
+                Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));
                 int[,] tempMatrix = eStats.mainA.ViewMove(enemies[currentEnemy].GetComponent<Character>().coordinates.x, enemies[currentEnemy].GetComponent<Character>().coordinates.y);
                 if (tempMatrix[something.x, something.y] <= enemies[currentEnemy].GetComponent<Character>().stats.walkRange)
                     moveEnemy(something);
@@ -59,7 +59,7 @@ namespace Mangos
                     turnEnded();
 
                 eStats.CheckForAllies();
-                Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(character[currentEnemy].transform.position));
+                Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));
                 moveEnemy(something);
             }
         }
@@ -72,7 +72,7 @@ namespace Mangos
                 Debug.Log("pos: " + pos);
                 Vector3[] moveTo = new Vector3[1];
                 moveTo[0] = grid.CellToWorld(pos - new Vector3Int(0, 1, 0));
-                character[currentEnemy].Move(moveTo);
+                enemies[currentEnemy].GetComponent<Character>().Move(moveTo);
             }
         }
 
@@ -80,7 +80,10 @@ namespace Mangos
         {
             if(currentState == true)
             {
-                Manager_Static.battles.DukeItOut(character[currentEnemy], eStats.mainA.GetCharacterDataAt(enemyToAttack.x, enemyToAttack.y).GetComponent<Character>());
+                if (enemies[currentEnemy].GetComponent<Character>().stats.charClass == CharacterClass.HEALER)
+                    Manager_Static.battles.HealItOut(enemies[currentEnemy].GetComponent<Character>(), enemies[Random.Range(1, 2)].GetComponent<Character>());
+                else
+                    Manager_Static.battles.DukeItOut(enemies[currentEnemy].GetComponent<Character>(), eStats.mainA.GetCharacterDataAt(enemyToAttack.x, enemyToAttack.y).GetComponent<Character>());
             }
         }
 
