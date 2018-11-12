@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.59120655, g: 0.7805266, b: 0.87014484, a: 1}
+  m_IndirectSpecularColor: {r: 0.59097797, g: 0.7802558, b: 0.8700227, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6135,12 +6135,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4395595505166590, guid: 65de5899603f78d41b09c152e213b846,
     type: 2}
   m_PrefabInternal: {fileID: 840199553}
---- !u!114 &840199555 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114282902785920828, guid: 65de5899603f78d41b09c152e213b846,
-    type: 2}
-  m_PrefabInternal: {fileID: 840199553}
-  m_Script: {fileID: 11500000, guid: 513d5917b08d6e9429424772284be68c, type: 3}
 --- !u!1 &840199556 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1563883802813276, guid: 65de5899603f78d41b09c152e213b846,
@@ -6231,12 +6225,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4091730556684554, guid: 1922a545ae24f85459e92a0417a3090b,
     type: 2}
   m_PrefabInternal: {fileID: 960109839}
---- !u!114 &960109841 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114658721139427066, guid: 1922a545ae24f85459e92a0417a3090b,
-    type: 2}
-  m_PrefabInternal: {fileID: 960109839}
-  m_Script: {fileID: 11500000, guid: 513d5917b08d6e9429424772284be68c, type: 3}
 --- !u!1 &960109842 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1854001467833960, guid: 1922a545ae24f85459e92a0417a3090b,
@@ -11430,6 +11418,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1416943814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1479262775662024, guid: c6fdd6d50810cb84c8647ee61cd87341,
+    type: 2}
+  m_PrefabInternal: {fileID: 1739947341}
 --- !u!1 &1626869393
 GameObject:
   m_ObjectHideFlags: 0
@@ -11617,6 +11610,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114727132847271650, guid: c6fdd6d50810cb84c8647ee61cd87341,
+        type: 2}
+      propertyPath: enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4136216384457720, guid: c6fdd6d50810cb84c8647ee61cd87341, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11664,21 +11662,6 @@ Prefab:
       propertyPath: enemies.Array.data[2]
       value: 
       objectReference: {fileID: 1778710711}
-    - target: {fileID: 114727132847271650, guid: c6fdd6d50810cb84c8647ee61cd87341,
-        type: 2}
-      propertyPath: character.Array.data[0]
-      value: 
-      objectReference: {fileID: 840199555}
-    - target: {fileID: 114727132847271650, guid: c6fdd6d50810cb84c8647ee61cd87341,
-        type: 2}
-      propertyPath: character.Array.data[1]
-      value: 
-      objectReference: {fileID: 960109841}
-    - target: {fileID: 114727132847271650, guid: c6fdd6d50810cb84c8647ee61cd87341,
-        type: 2}
-      propertyPath: character.Array.data[2]
-      value: 
-      objectReference: {fileID: 2015274340}
     - target: {fileID: 114727132847271650, guid: c6fdd6d50810cb84c8647ee61cd87341,
         type: 2}
       propertyPath: grid
@@ -11851,6 +11834,23 @@ Prefab:
       propertyPath: cam
       value: 
       objectReference: {fileID: 534669904}
+    - target: {fileID: 114132541154914002, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: enemyManager
+      value: 
+      objectReference: {fileID: 1416943814}
+    - target: {fileID: 114515012177381250, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: onDefeat
+      value: 
+      objectReference: {fileID: 11400000, guid: 7133d75038eb40d41b2b304edd7e21ec,
+        type: 2}
+    - target: {fileID: 114515012177381250, guid: c23ce3f07157ded4dac845e224b23ea7,
+        type: 2}
+      propertyPath: onVictory
+      value: 
+      objectReference: {fileID: 11400000, guid: 91772cdd7148c3e438c186305470ac72,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c23ce3f07157ded4dac845e224b23ea7, type: 2}
   m_IsPrefabAsset: 0

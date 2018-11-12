@@ -42,6 +42,8 @@ namespace Mangos
         public GameObject leftFighter, rightFighter;
         public Main_Algorithm mainMatrix;
         public GameEvent battleAnimation;
+        public GameEvent onVictory;
+        public GameEvent onDefeat;
 
         private Character fighter1, fighter2;
         private BattleInfo currentBattleInfo;
@@ -49,6 +51,8 @@ namespace Mangos
         [HideInInspector]
         private bool isFight = true;
         public bool canStartAction = true;
+        [HideInInspector]
+        public int GameEnded = 0;
 
         private void Awake()
         {
@@ -120,6 +124,14 @@ namespace Mangos
             fighter1 = null;
             fighter2 = null;
             battleAnimation.Raise();
+            if(GameEnded == 1)
+            {
+                onVictory.Raise();
+            }
+            if(GameEnded == 2)
+            {
+                onDefeat.Raise();
+            }
         }
 
         public void OnFightEnd()
