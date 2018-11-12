@@ -89,6 +89,11 @@ namespace Mangos
                     NextCharacter();
                 }
                 currentEnemy++;
+                if (currentEnemy >= enemies.Length)
+                {
+                    turnEnded();
+                    return;
+                }
 
                 eStats.CheckForAllies();
                 Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));
@@ -127,5 +132,5 @@ namespace Mangos
             currentState = false;
             Manager_Static.turnsManager.ToggleTurn();
         }
-    } 
+    }
 }
