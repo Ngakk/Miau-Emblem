@@ -69,6 +69,7 @@ namespace Mangos
             GameObject closestAlly;
             Character allyChar;
             closestAlly = mainA.GetCharacterDataAt(x, y);
+            Debug.Log(closestAlly);
             allyChar = closestAlly.GetComponent<Character>();
             return allyChar;
         }
@@ -86,11 +87,6 @@ namespace Mangos
                     }
                 }
             }
-        }
-
-        public void SendMoveToManager()
-        {
-
         }
     }
 }

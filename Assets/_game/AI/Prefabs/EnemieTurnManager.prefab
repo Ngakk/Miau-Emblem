@@ -58,7 +58,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114727132847271650}
-        m_MethodName: NextCharacter
+        m_MethodName: AttackAlly
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -89,8 +89,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  grids:
-  - {fileID: 0}
+  grid: {fileID: 0}
   eStats: {fileID: 114966733808636474}
   ETurnEnded: {fileID: 11400000, guid: e90dc668b52992949b26526836d1017f, type: 2}
   currentEnemy: 0
