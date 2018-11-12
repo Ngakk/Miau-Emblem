@@ -36,7 +36,7 @@ namespace Mangos
 
         public void StartEnemyTurn()
         {
-
+            Debug.Log("StartEnemyTurn");
             if (currentEnemy < enemies.Length)
             {
                 if (enemies[currentEnemy] == null)
@@ -61,6 +61,7 @@ namespace Mangos
 
         public void NextCharacter()
         {
+            Debug.Log("Next Character Start");
             currentEnemy++;
             if (currentEnemy >= enemies.Length)
             {
