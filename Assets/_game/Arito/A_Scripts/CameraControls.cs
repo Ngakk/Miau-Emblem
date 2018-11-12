@@ -7,18 +7,29 @@ public class CameraControls : MonoBehaviour {
     public GameObject camera;
     public float vel;
     public float screenPadding;
+    public Vector2 distanceLimit;
     private Vector2 mousePos;
+    private Vector2 originPos;
+
+    private void Start()
+    {
+        originPos = camera.transform.position;
+    }
 
     private void Update()
     {
         mousePos = Input.mousePosition;
-        if (mousePos.x >= Screen.width - screenPadding)
+
+        if (mousePos.x >= Screen.width - screenPadding && camera.transform.position.x < originPos.x + distanceLimit.x)
             CamMovement("left");
-        else if (mousePos.x <= screenPadding)
+
+        else if (mousePos.x <= screenPadding && camera.transform.position.x > originPos.x - distanceLimit.x)
             CamMovement("right");
-        if (mousePos.y >= Screen.height - screenPadding)
+
+        if (mousePos.y >= Screen.height - screenPadding && camera.transform.position.z < originPos.y + distanceLimit.y)
             CamMovement("up");
-        else if (mousePos.y <= screenPadding)
+
+        else if (mousePos.y <= screenPadding && camera.transform.position.z > originPos.y - distanceLimit.y)
             CamMovement("down");
     }
 
