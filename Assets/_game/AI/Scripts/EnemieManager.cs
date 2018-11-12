@@ -108,7 +108,7 @@ namespace Mangos
             {
                 //Debug.Log("pos: " + pos);
                 Vector3[] moveTo = new Vector3[1];
-                moveTo[0] = grid.CellToWorld(pos - new Vector3Int(0, 1, 0));
+                moveTo[0] = grid.GetCellCenterLocal(pos + new Vector3Int(0, 1, 0));
                 enemies[currentEnemy].GetComponent<Character>().Move(moveTo);
             }
         }

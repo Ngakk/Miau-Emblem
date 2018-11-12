@@ -46,6 +46,16 @@ namespace Mangos
                 SceneManager.LoadScene(_name);
 		}
 
+        public void GoBackToMenuIn3()
+        {
+            Invoke("ChangeToMenu", 3);
+        }
+
+        public void ChangeToMenu()
+        {
+            LoadScene(0, false);
+        }
+
         //ES UN METODO QUE TERMINA LA APLICACION
 		public void ExitApplication()
 		{
