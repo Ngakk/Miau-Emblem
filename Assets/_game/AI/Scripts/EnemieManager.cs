@@ -36,8 +36,7 @@ namespace Mangos
 
         public void StartEnemyTurn()
         {
-            currentEnemy = 0;
-          currentState = true;
+            currentState = true;
             if(currentState == true)
             {
                 if (enemies[currentEnemy] == null)
