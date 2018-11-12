@@ -118,6 +118,7 @@ namespace Mangos {
         {
             charaWalkFinish.Raise();
             anim.SetBool("IsWalking", false);
+            anim.speed = 1;
         }
 
         public void OnDead()
