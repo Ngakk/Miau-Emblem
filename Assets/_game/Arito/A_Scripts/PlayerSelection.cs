@@ -114,7 +114,7 @@ namespace Mangos
                         }
                         Deselect();
                     }
-                    else
+                    else if (selected)
                     {
                         Deselect();
                     }
