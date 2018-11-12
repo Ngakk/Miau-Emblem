@@ -99,6 +99,7 @@ namespace Mangos
                                 {
                                     bearer.GetComponent<Battles>().DukeItOut(selectedCharacter.GetComponent<Character>(), targetChara.GetComponent<Character>());
                                     selectedCharacter.GetComponent<Character>().canMove = false;
+                                    ChangeColor(selectedCharacter, new Color(0.2f, 0.2f, 0.2f));
                                 }
                                 else
                                 {
@@ -109,6 +110,7 @@ namespace Mangos
                             {
                                 bearer.GetComponent<Battles>().HealItOut(selectedCharacter.GetComponent<Character>(), targetChara.GetComponent<Character>());
                                 selectedCharacter.GetComponent<Character>().canMove = false;
+                                ChangeColor(selectedCharacter, new Color(0.2f, 0.2f, 0.2f));
                             }
                         }
                         else
@@ -143,6 +145,7 @@ namespace Mangos
                 Manager_Static.turnsManager.ToggleTurn();
             }
             selectedCharacter.GetComponent<Character>().canMove = false;
+            ChangeColor(selectedCharacter, new Color(0.2f, 0.2f, 0.2f));
         }
 
         private void Deselect()
@@ -157,6 +160,25 @@ namespace Mangos
             selectedCharacter = null;
             selected = false;
             currentLayerMask = 0;
+        }
+
+        public void ChangeColor(GameObject _go, Color _color)
+        {
+            if (_go.CompareTag("Ally"))
+            {
+                GameObject childboi = null;
+                foreach (Transform child in _go.transform)
+                {
+                    childboi = child.gameObject;
+                }
+                foreach (Transform child in childboi.transform)
+                {
+                    if (child.gameObject.CompareTag("ModelCat"))
+                    {
+                        child.gameObject.GetComponent<SkinnedMeshRenderer>().material.color = _color;
+                    }
+                }
+            }
         }
     }
 }

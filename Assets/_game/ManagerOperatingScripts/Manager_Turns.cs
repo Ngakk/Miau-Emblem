@@ -8,6 +8,7 @@ namespace Mangos
     {
         public GameState currentGameState;
         public GameObject enemyManager;
+        public GameObject bearer;
         public Main_Algorithm matrix;
         private GameState previousGamestate;
 
@@ -45,6 +46,7 @@ namespace Mangos
                             if (matrix.GetCharacterDataAt(x, y).CompareTag("Ally"))
                             {
                                 matrix.GetCharacterDataAt(x, y).GetComponent<Character>().canMove = true;
+                                bearer.GetComponent<PlayerSelection>().ChangeColor(matrix.GetCharacterDataAt(x, y), Color.gray);
                             }
                         }
                     }

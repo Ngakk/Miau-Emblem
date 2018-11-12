@@ -28,6 +28,8 @@ GameObject:
   - component: {fileID: 114706029688684676}
   - component: {fileID: 114841821488135022}
   - component: {fileID: 114229662735225826}
+  - component: {fileID: 114411092793554122}
+  - component: {fileID: 114783157230400698}
   m_Layer: 0
   m_Name: BearerOfScripts
   m_TagString: Untagged
@@ -73,6 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentGameState: 0
   enemyManager: {fileID: 0}
+  bearer: {fileID: 1462807849971926}
+  matrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
 --- !u!114 &114189712969941236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,6 +141,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScene: 0
+--- !u!114 &114411092793554122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1462807849971926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c58f2339b2f49458c5eba62247bc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 91772cdd7148c3e438c186305470ac72, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114319678663223332}
+        m_MethodName: GoBackToMenuIn3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114515012177381250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -160,7 +192,10 @@ MonoBehaviour:
   rightFighter: {fileID: 0}
   mainMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
   battleAnimation: {fileID: 11400000, guid: fc76189a816117246891579794f4fcb5, type: 2}
+  onVictory: {fileID: 0}
+  onDefeat: {fileID: 0}
   canStartAction: 1
+  GameEnded: 0
 --- !u!114 &114706029688684676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,6 +226,34 @@ MonoBehaviour:
   eName: {fileID: 0}
   eHP: {fileID: 0}
   eATK: {fileID: 0}
+--- !u!114 &114783157230400698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1462807849971926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c58f2339b2f49458c5eba62247bc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 7133d75038eb40d41b2b304edd7e21ec, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114319678663223332}
+        m_MethodName: GoBackToMenuIn3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114841821488135022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,5 +272,5 @@ MonoBehaviour:
     m_Bits: 1024
   - serializedVersion: 2
     m_Bits: 512
-  maxMoves: 6
+  maxMoves: 3
   bearer: {fileID: 1462807849971926}
