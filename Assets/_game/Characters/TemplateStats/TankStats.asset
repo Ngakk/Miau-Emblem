@@ -14,8 +14,8 @@ MonoBehaviour:
   charClass: 0
   damageType: 0
   maxHp: 50
-  atk: 40
-  def: 36
+  atk: 36
+  def: 32
   spd: 20
   res: 23
   evs: 0
@@ -23,4 +23,4 @@ MonoBehaviour:
   crt: 5
   attackRanges: 01000000
   counterAttackRanges: 0100000002000000
-  walkRange: 4
+  walkRange: 5

@@ -18,7 +18,7 @@ MonoBehaviour:
   def: 25
   spd: 38
   res: 100
-  evs: 30
+  evs: 40
   acc: 90
   crt: 25
   attackRanges: 01000000

@@ -17,7 +17,7 @@ namespace Mangos
         private GameObject selectedCharacter;
         private float rayDistance = 50.0f;
         private GameObject firstChild;
-        private int movesLeft;
+        public int movesLeft;
         private int currentLayerMask = 0;
         private int[,] movMatrix;
 
@@ -52,25 +52,6 @@ namespace Mangos
                         Vector3Int selectedPos = selectedCharacter.GetComponent<Character>().coordinates;
                         movMatrix = matrix.ViewMove(selectedPos.x, selectedPos.y);
 
-                        // TESTING MOVMATRIX
-                        string matrixDisplay = "";
-                        int filas = movMatrix.GetLength(1);
-                        int columnas = movMatrix.GetLength(0);
-                        for (int y = filas - 1; y >= 0; y--)
-                        { 
-                            for (int x = 0; x < columnas; x++)
-                            {
-                                if (movMatrix[x, y] < 10)
-                                    matrixDisplay += "0";
-                                matrixDisplay += movMatrix[x, y] == (columnas*filas) ? "no" : movMatrix[x, y].ToString();
-                                if (x == columnas - 1)
-                                    matrixDisplay += "\n";
-                                else
-                                    matrixDisplay += " | ";
-                            }
-                        }
-                        Debug.Log("movMatrix: \n" + matrixDisplay);
-
                         Manager_Static.uiManager.getDataCharacter(selectedCharacter.gameObject);
 
                         foreach (Transform child in selectedCharacter.transform)
@@ -98,17 +79,19 @@ namespace Mangos
                                 if (travelDistance <= selectedCharacter.GetComponent<Character>().stats.attackRanges[0])
                                 {
                                     bearer.GetComponent<Battles>().DukeItOut(selectedCharacter.GetComponent<Character>(), targetChara.GetComponent<Character>());
+                                    selectedCharacter.GetComponent<Character>().canMove = false;
+                                    ChangeColor(selectedCharacter, new Color(0.2f, 0.2f, 0.2f));
                                 }
                                 else
                                 {
                                     Debug.Log("Out of Range");
                                 }
-                                selectedCharacter.GetComponent<Character>().canMove = false;
                             }
                             else if (targetChara.CompareTag("Ally") && selectedCharacter.GetComponent<Character>().stats.charClass == CharacterClass.HEALER && targetChara != selectedCharacter)
                             {
                                 bearer.GetComponent<Battles>().HealItOut(selectedCharacter.GetComponent<Character>(), targetChara.GetComponent<Character>());
                                 selectedCharacter.GetComponent<Character>().canMove = false;
+                                ChangeColor(selectedCharacter, new Color(0.2f, 0.2f, 0.2f));
                             }
                         }
                         else
@@ -143,6 +126,7 @@ namespace Mangos
                 Manager_Static.turnsManager.ToggleTurn();
             }
             selectedCharacter.GetComponent<Character>().canMove = false;
+            ChangeColor(selectedCharacter, new Color(0.2f, 0.2f, 0.2f));
         }
 
         private void Deselect()
@@ -157,6 +141,25 @@ namespace Mangos
             selectedCharacter = null;
             selected = false;
             currentLayerMask = 0;
+        }
+
+        public void ChangeColor(GameObject _go, Color _color)
+        {
+            if (_go.CompareTag("Ally"))
+            {
+                GameObject childboi = null;
+                foreach (Transform child in _go.transform)
+                {
+                    childboi = child.gameObject;
+                }
+                foreach (Transform child in childboi.transform)
+                {
+                    if (child.gameObject.CompareTag("ModelCat"))
+                    {
+                        child.gameObject.GetComponent<SkinnedMeshRenderer>().material.color = _color;
+                    }
+                }
+            }
         }
     }
 }

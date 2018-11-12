@@ -43,7 +43,6 @@ namespace Mangos
             for(int i = 0; i < groupSizes.Length; i++)
             {
                 clipIndex[i] = counter;
-                Debug.Log("sound index " + i + " is " + counter);
                 counter += groupSizes[i];
             }
 		}

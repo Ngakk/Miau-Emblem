@@ -8,6 +8,7 @@ namespace Mangos
     {
         public GameState currentGameState;
         public GameObject enemyManager;
+        public GameObject bearer;
         public Main_Algorithm matrix;
         private GameState previousGamestate;
 
@@ -18,7 +19,7 @@ namespace Mangos
 
         public void ToggleTurn()
         {
-            nextTurn(currentGameState); 
+            Invoke("nextTurn", 5);
         }
 
         public void SetGameState(GameState _gamestate)
@@ -26,27 +27,33 @@ namespace Mangos
             currentGameState = _gamestate;
         }
 
-        public void nextTurn(GameState _state)
+        public void nextTurn()
         {
-            if (_state == GameState.PLAYER_TURN)
+            if (currentGameState == GameState.PLAYER_TURN)
             {
-                enemyManager.GetComponent<EnemieManager>().StartEnemyTurn();
                 currentGameState = GameState.ENEMY_TURN;
+                enemyManager.GetComponent<EnemieManager>().currentEnemy = 0;
+                enemyManager.GetComponent<EnemieManager>().currentState = true;
+                enemyManager.GetComponent<EnemieManager>().StartEnemyTurn();
             }
             else
             {
+                currentGameState = GameState.PLAYER_TURN;
+                bearer.GetComponent<PlayerSelection>().movesLeft = bearer.GetComponent<PlayerSelection>().maxMoves;
                 for (int x = 0; x < matrix.matrix.GetLength(0); x++)
                 {
                     for (int y = 0; y < matrix.matrix.GetLength(1); y++)
                     {
-                        if (matrix.GetCharacterDataAt(x, y).CompareTag("Ally"))
+                        if (matrix.GetCharacterDataAt(x, y) != null)
                         {
-                            matrix.GetCharacterDataAt(x, y).GetComponent<Character>().canMove = true;
+                            if (matrix.GetCharacterDataAt(x, y).CompareTag("Ally"))
+                            {
+                                matrix.GetCharacterDataAt(x, y).GetComponent<Character>().canMove = true;
+                                bearer.GetComponent<PlayerSelection>().ChangeColor(matrix.GetCharacterDataAt(x, y), Color.gray);
+                            }
                         }
                     }
                 }
-                
-                currentGameState = GameState.PLAYER_TURN;
             }
         }
     }
