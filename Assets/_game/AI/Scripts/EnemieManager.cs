@@ -18,7 +18,6 @@ namespace Mangos
         public int minDistance;
 
         private Vector3Int enemyToAttack;
-        private int deadEnemies;
 
         private void Start()
         {
@@ -38,20 +37,9 @@ namespace Mangos
         public void StartEnemyTurn()
         {
           currentState = true;
-            for(int i = 0; i < enemies.Length; i++)
-            {
-                if(enemies[i] == null)
-                {
-                    deadEnemies++;
-                }
-            }
             if(currentState == true)
             {
-                if(deadEnemies >= enemies.Length)
-                {
-                    Win.Raise();
-                }
-                else if (enemies[currentEnemy] == null)
+                if (enemies[currentEnemy] == null)
                 {
                     NextCharacter();
                 }
@@ -67,39 +55,21 @@ namespace Mangos
         }
 
         public void NextCharacter()
-        {
-            for (int i = 0; i < enemies.Length; i++)
+        { 
+            if (enemies[currentEnemy] == null)
             {
-                if (enemies[i] == null)
-                {
-                    deadEnemies++;
-                }
+                NextCharacter();
             }
-            if (currentEnemy > enemies.Length)
+            currentEnemy++;
+            if (currentEnemy >= enemies.Length)
+            {
                 turnEnded();
-            else if (currentState == true)
-            {
-                if (deadEnemies >= enemies.Length)
-                {
-                    Win.Raise();
-                } else if (currentEnemy >= enemies.Length && enemies[currentEnemy] == null)
-                {
-                    turnEnded();
-                } else if (enemies[currentEnemy] == null)
-                {
-                    NextCharacter();
-                }
-                currentEnemy++;
-                if (currentEnemy >= enemies.Length)
-                {
-                    turnEnded();
-                    return;
-                }
-
-                eStats.CheckForAllies();
-                Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));
-                moveEnemy(something);
+                return;
             }
+
+            eStats.CheckForAllies();
+            Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));
+            moveEnemy(something);
         }
 
         public void moveEnemy(Vector3Int pos)
@@ -133,6 +103,7 @@ namespace Mangos
         {
             currentState = false;
             Manager_Static.turnsManager.ToggleTurn();
+            Debug.Log("Turn ended");
         }
     }
 }

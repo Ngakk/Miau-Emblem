@@ -23,4 +23,4 @@ MonoBehaviour:
   crt: 75
   attackRanges: 01000000
   counterAttackRanges: 
-  walkRange: 7
+  walkRange: 5

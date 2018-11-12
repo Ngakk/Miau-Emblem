@@ -106,6 +106,13 @@ namespace Mangos
 
         public void FourWayFloodFill(int _xOrigen, int _yOrigen, Team _team)
         {
+            for(int i = 0; i < columnas; i++)
+            {
+                for(int j = 0; j < filas; j++)
+                {
+                    matrix[i, j, 1] = filas * columnas;
+                }
+            }
             for(int i = 0; i < directions.Length; i++)
                 FloodFill(_xOrigen, _yOrigen, filas, columnas, 0, i, _team);
         }
