@@ -108,9 +108,10 @@ namespace Mangos
             if(currentState == true)
             {
                 //Debug.Log("pos: " + pos);
+                Character temp = enemies[currentEnemy].GetComponent<Character>();
                 Vector3[] moveTo = new Vector3[1];
-                moveTo[0] = grid.GetCellCenterLocal(pos + new Vector3Int(0, 1, 0));
-                enemies[currentEnemy].GetComponent<Character>().Move(moveTo);
+                moveTo[0] = grid.GetCellCenterLocal(pos + (temp.stats.charClass == CharacterClass.WARRIOR ? new Vector3Int(0, 1, 0) : new Vector3Int(0, 2, 0)));
+                temp.Move(moveTo);
             }
         }
 
