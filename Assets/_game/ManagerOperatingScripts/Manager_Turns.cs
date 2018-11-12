@@ -8,7 +8,7 @@ namespace Mangos
     {
         public GameState currentGameState;
         public GameObject enemyManager;
-        public GameObject matrix;
+        public Main_Algorithm matrix;
         private GameState previousGamestate;
 
         private void Awake()
@@ -18,8 +18,7 @@ namespace Mangos
 
         public void ToggleTurn()
         {
-            StartCoroutine(nextTurn(currentGameState));
-            currentGameState = GameState.TRANSITION; 
+            nextTurn(currentGameState); 
         }
 
         public void SetGameState(GameState _gamestate)
@@ -27,9 +26,8 @@ namespace Mangos
             currentGameState = _gamestate;
         }
 
-        IEnumerator nextTurn(GameState _state)
+        public void nextTurn(GameState _state)
         {
-            yield return new WaitForSeconds(2.5f);
             if (_state == GameState.PLAYER_TURN)
             {
                 enemyManager.GetComponent<EnemieManager>().StartEnemyTurn();
@@ -37,13 +35,13 @@ namespace Mangos
             }
             else
             {
-                for (int x = 0; x < matrix.GetComponent<Main_Algorithm>().matrix.GetLength(0); x++)
+                for (int x = 0; x < matrix.matrix.GetLength(0); x++)
                 {
-                    for (int y = 0; y < matrix.GetComponent<Main_Algorithm>().matrix.GetLength(1); y++)
+                    for (int y = 0; y < matrix.matrix.GetLength(1); y++)
                     {
-                        if (matrix.GetComponent<Main_Algorithm>().GetCharacterDataAt(x, y).CompareTag("Ally"))
+                        if (matrix.GetCharacterDataAt(x, y).CompareTag("Ally"))
                         {
-                            matrix.GetComponent<Main_Algorithm>().GetCharacterDataAt(x, y).GetComponent<Character>().canMove = true;
+                            matrix.GetCharacterDataAt(x, y).GetComponent<Character>().canMove = true;
                         }
                     }
                 }
