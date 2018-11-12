@@ -21,6 +21,6 @@ MonoBehaviour:
   evs: 5
   acc: 100
   crt: 50
-  attackRanges: 01000000
+  attackRanges: 0100000002000000
   counterAttackRanges: 0100000002000000
   walkRange: 6
