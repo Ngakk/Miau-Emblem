@@ -158,6 +158,7 @@ MonoBehaviour:
   leftFighter: {fileID: 0}
   rightFighter: {fileID: 0}
   mainMatrix: {fileID: 11400000, guid: 6827d3548573435499563b99f5c1c89e, type: 2}
+  battleAnimation: {fileID: 11400000, guid: fc76189a816117246891579794f4fcb5, type: 2}
   canStartAction: 1
 --- !u!114 &114706029688684676
 MonoBehaviour:
