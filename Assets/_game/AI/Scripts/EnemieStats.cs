@@ -27,7 +27,25 @@ namespace Mangos
                     }
                 }
             }
-            Debug.Log("Se encontraron " + enemiesInRange.Count + " aliados.");
+            //Debug.Log("Se encontraron " + enemiesInRange.Count + " aliados.");
+        }
+
+        public void CheckForEnemies()
+        {
+            enemiesInRange.Clear();
+            for (int i = 0; i < mainA.filas; i++)
+            {
+                for (int j = 0; j < mainA.columnas; j++)
+                {
+                    if (mainA.GetCharacterDataAt(i, j) != null)
+                    {
+                        if (mainA.GetCharacterDataAt(i, j).GetComponent<Character>().team == Team.ENEMY)
+                        {
+                            enemiesInRange.Add(mainA.GetCharacterDataAt(i, j));
+                        }
+                    }
+                }
+            }
         }
 
         public Vector3 LookForClosestAlly(Vector3 enemyPos)

@@ -11,12 +11,14 @@ namespace Mangos
         public Grid grid;
         public EnemieStats eStats;
         public GameEvent ETurnEnded;
+        public GameEvent Win;
 
         public int currentEnemy;
         public bool currentState;
         public int minDistance;
 
         private Vector3Int enemyToAttack;
+        private int deadEnemies;
 
         private void Start()
         {
@@ -35,8 +37,23 @@ namespace Mangos
 
         public void StartEnemyTurn()
         {
+            for(int i = 0; i < enemies.Length; i++)
+            {
+                if(enemies[i] == null)
+                {
+                    deadEnemies++;
+                }
+            }
             if(currentState == true)
             {
+                if(deadEnemies >= enemies.Length)
+                {
+                    Win.Raise();
+                }
+                else if (enemies[currentEnemy] == null)
+                {
+                    NextCharacter();
+                }
                 currentEnemy = 0;
                 eStats.CheckForAllies();
                 Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));
@@ -50,13 +67,28 @@ namespace Mangos
 
         public void NextCharacter()
         {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                if (enemies[i] == null)
+                {
+                    deadEnemies++;
+                }
+            }
             if (currentEnemy > enemies.Length)
                 turnEnded();
             else if (currentState == true)
             {
-                currentEnemy++;
-                if (currentEnemy >= enemies.Length)
+                if (deadEnemies >= enemies.Length)
+                {
+                    Win.Raise();
+                } else if (currentEnemy >= enemies.Length && enemies[currentEnemy] == null)
+                {
                     turnEnded();
+                } else if (enemies[currentEnemy] == null)
+                {
+                    NextCharacter();
+                }
+                currentEnemy++;
 
                 eStats.CheckForAllies();
                 Vector3Int something = grid.WorldToCell(eStats.LookForClosestAlly(enemies[currentEnemy].GetComponent<Character>().transform.position));
@@ -69,7 +101,7 @@ namespace Mangos
             enemyToAttack = pos;
             if(currentState == true)
             {
-                Debug.Log("pos: " + pos);
+                //Debug.Log("pos: " + pos);
                 Vector3[] moveTo = new Vector3[1];
                 moveTo[0] = grid.CellToWorld(pos - new Vector3Int(0, 1, 0));
                 enemies[currentEnemy].GetComponent<Character>().Move(moveTo);
@@ -84,6 +116,9 @@ namespace Mangos
                     Manager_Static.battles.HealItOut(enemies[currentEnemy].GetComponent<Character>(), enemies[Random.Range(1, 2)].GetComponent<Character>());
                 else
                     Manager_Static.battles.DukeItOut(enemies[currentEnemy].GetComponent<Character>(), eStats.mainA.GetCharacterDataAt(enemyToAttack.x, enemyToAttack.y).GetComponent<Character>());
+
+                if (currentEnemy >= enemies.Length)
+                    turnEnded();
             }
         }
 

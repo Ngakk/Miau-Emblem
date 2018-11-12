@@ -86,13 +86,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  character:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   grid: {fileID: 0}
   eStats: {fileID: 114966733808636474}
   ETurnEnded: {fileID: 11400000, guid: e90dc668b52992949b26526836d1017f, type: 2}
+  Win: {fileID: 11400000, guid: 54216d9dfa075594eb566d3b009a9d10, type: 2}
   currentEnemy: 0
   currentState: 0
   minDistance: 0
