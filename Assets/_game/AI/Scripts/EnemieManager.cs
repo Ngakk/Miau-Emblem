@@ -37,7 +37,8 @@ namespace Mangos
         public void StartEnemyTurn()
         {
             Debug.Log("StartEnemyTurn");
-            
+            currentEnemy = 0;
+
             if (currentEnemy < enemies.Length)
             {
                 if (enemies[currentEnemy].gameObject.activeSelf == false)
@@ -45,7 +46,6 @@ namespace Mangos
                     NextCharacter();
                     return;
                 }
-                currentEnemy = 0;
                 eStats.CheckForAllies();
                 Character temp = enemies[currentEnemy];
                 enemyToAttack = grid.WorldToCell(eStats.LookForClosestAlly(temp.transform.position));
